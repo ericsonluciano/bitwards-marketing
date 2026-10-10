@@ -174,3 +174,17 @@ body {
   [data-path-line-v] { transform: scaleY(0); transform-origin: top; transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s; }
   [data-reveal="in"] [data-path-line-v] { transform: scaleY(1); }
 }
+
+/* Header logo: bigger at the top of the page, back to the normal size once the visitor has scrolled (data-scrolled is set on
+   <html> by ScrollState). The size change is a short transition, and none for visitors who ask for less motion. */
+.logo-mark { width: 2.5rem; transition: width 0.25s ease; }
+.logo-word { font-size: 1.375rem; transition: font-size 0.25s ease; }
+@media (min-width: 768px) {
+  .logo-mark { width: 3.25rem; }
+  .logo-word { font-size: 1.75rem; }
+}
+html[data-scrolled="true"] .logo-mark { width: 2rem; }
+html[data-scrolled="true"] .logo-word { font-size: 1.125rem; }
+@media (prefers-reduced-motion: reduce) {
+  .logo-mark, .logo-word { transition: none; }
+}

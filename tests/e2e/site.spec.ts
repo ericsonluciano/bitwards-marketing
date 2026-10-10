@@ -29,37 +29,22 @@ test('the header opens a page for each audience, and the home page still has its
   await expect(page.getByText(/Rewards and challenge rules vary/)).toBeVisible()
 })
 
-test('the features page leads to a page for each feature, and the FAQ page exists', async ({ page, request }) => {
+test('the features page lists each feature as a plain card, and there are no separate feature pages', async ({ page, request }) => {
   await page.goto('/features')
   await expect(page).toHaveTitle(/Loyalty program features/)
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Challenges for customers')
   for (const f of features) await expect(page.getByRole('main').getByRole('heading', { name: f.title })).toBeVisible()
-  // The cards are plain (not links); every feature page is reached from the footer.
+  // The cards are plain: nothing in them is a link, and no link anywhere points at a feature page.
   expect(await page.getByRole('main').getByRole('link', { name: /Learn more/ }).count()).toBe(0)
-  for (const f of features) await expect(page.getByRole('contentinfo').getByRole('link', { name: f.title })).toHaveAttribute('href', `/features/${f.slug}`)
+  expect(await page.locator('a[href^="/features/"]').count()).toBe(0)
+  for (const f of features) expect((await request.get(`/features/${f.slug}`)).status()).toBe(404)
   await page.goto('/faq')
   await expect(page).toHaveTitle(/FAQs/)
   await page.getByText('Do vouchers expire?').click()
   await expect(page.getByText(/Expired vouchers are not refunded/)).toBeVisible()
   const sitemap = await (await request.get('/sitemap.xml')).text()
-  for (const path of ['/features', '/faq', ...features.map((f) => `/features/${f.slug}`)]) expect(sitemap).toContain(`http://127.0.0.1:3400${path}`)
-})
-
-for (const f of features) {
-  test(`feature page: ${f.slug}`, async ({ page, request }) => {
-    await page.goto(`/features/${f.slug}`)
-    await expect(page).toHaveTitle(`${f.seoTitle} · Bitwards`)
-    await expect(page.getByRole('heading', { level: 1 })).toHaveText(f.headline)
-    await expect(page.getByRole('link', { name: 'All features' })).toHaveAttribute('href', '/features')
-    await expect(page.getByRole('main').getByRole('link', { name: 'Explore Bitwards' }).first()).toHaveAttribute('href', `${APP}/explore`)
-    expect(await page.locator('main').innerText()).not.toMatch(/[—–]/)
-    expect((await request.get(`/features/${f.slug}`)).status()).toBe(200)
-  })
-}
-
-test('an unknown feature shows the friendly not-found page', async ({ page }) => {
-  const response = await page.goto('/features/nope')
-  expect(response?.status()).toBe(404)
+  for (const path of ['/features', '/faq']) expect(sitemap).toContain(`http://127.0.0.1:3400${path}`)
+  expect(sitemap).not.toContain('/features/')
 })
 
 test('the theme button switches light and dark, and remembers the choice', async ({ page }) => {
@@ -211,7 +196,7 @@ test('the home page leads with Explore Bitwards and uses US spelling', async ({ 
 
 // How each page looks in search results and when shared: a title and description of a sensible length, the same
 // address in canonical and og:url, a large share picture, and a Twitter/X large-image card.
-for (const route of ['/', '/customers', '/business', '/features', '/faq', ...features.map((f) => `/features/${f.slug}`)]) {
+for (const route of ['/', '/customers', '/business', '/features', '/faq']) {
   test(`search and share tags: ${route}`, async ({ page, request }) => {
     await page.goto(route)
     const title = await page.title()
@@ -234,3 +219,21 @@ for (const route of ['/', '/customers', '/business', '/features', '/faq', ...fea
     expect(image.headers()['content-type']).toContain('image/jpeg')
   })
 }
+
+test('the header logo is bigger at the top and shrinks to the normal size when scrolled', async ({ page }) => {
+  await page.goto('/')
+  const mark = page.locator('header .logo-mark')
+  const width = async () => (await mark.boundingBox())!.width
+  await expect(page.locator('html')).toHaveAttribute('data-scrolled', 'false')
+  const big = await width()
+  expect(big).toBeGreaterThanOrEqual(40)
+  await page.evaluate(() => window.scrollTo(0, 600))
+  await expect(page.locator('html')).toHaveAttribute('data-scrolled', 'true')
+  await expect.poll(width).toBeLessThanOrEqual(33)
+  expect(await width()).toBeGreaterThanOrEqual(24)
+  const headerHeight = (await page.locator('header').boundingBox())!.height
+  expect(headerHeight).toBeLessThanOrEqual(80)
+  await page.evaluate(() => window.scrollTo(0, 0))
+  await expect(page.locator('html')).toHaveAttribute('data-scrolled', 'false')
+  await expect.poll(width).toBeGreaterThanOrEqual(big - 1)
+})

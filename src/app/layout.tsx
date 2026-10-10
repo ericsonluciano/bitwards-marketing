@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { ScrollState } from '@/components/scroll-state'
 import { SiteFooter, SiteHeader } from '@/components/site-chrome'
 import { HOME_DESCRIPTION, HOME_SHARE_DESCRIPTION, HOME_SHARE_TITLE, SHARE_IMAGE } from '@/lib/seo'
 import { SITE } from '@/lib/site'
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
       </head>
       <body className="min-h-full flex flex-col">
         <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:rounded-control focus:bg-surface focus:px-4 focus:py-2">Skip to content</a>
+        <ScrollState />
         <SiteHeader />
         <div id="main" tabIndex={-1} className="flex-1 outline-none">{children}</div>
         <SiteFooter />

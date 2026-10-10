@@ -1,5 +1,16 @@
 # Changelog
 
+## Feature pages removed; header logo grows at the top (2026-10-11)
+
+**Removed**
+- The six separate feature pages (`/features/quests`, `/rewards`, `/scan-and-confirm`, `/limits`, `/insights`, `/discover`) are gone. Those addresses now show the "couldn't find that page" message, nothing links to them, and they are no longer in the sitemap. The footer's Features column is gone too. The Features page (`/features`) stays, with its six plain cards.
+- Their long text (and the data behind it) is deleted from `src/lib/features.ts`, which now holds only the six card summaries.
+
+**Changed**
+- Header logo: bigger at the very top of the page, and it settles to the normal size as soon as the visitor scrolls (and grows back at the top). The header stays under 80px tall. It uses a small marker watched by the browser, not a scroll listener, and the size change is a short transition (none for visitors who ask for less motion). The logo itself is unchanged, only its size.
+
+**Tests:** 48 end-to-end tests. New: the header logo size at the top and after scrolling; the Features page has no links to feature pages and each old feature address returns not found.
+
 ## Better share picture, titles and descriptions; café background back in the hero (2026-10-11)
 
 **Changed**
