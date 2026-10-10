@@ -3,7 +3,7 @@
 ## Phase overview
 - **Number and name:** Phase M1, marketing website
 - **Objective:** a separate public website that explains Bitwards and sends shoppers and stores to the right app.
-- **Status:** Complete locally. Not deployed. The domain is not chosen.
+- **Status:** Complete locally. Not deployed. The domain `bitwards.app` is registered but not connected yet.
 - **Completion date:** 2026-10-10
 
 ## What was built
@@ -18,7 +18,7 @@ Also in this phase (other repos):
 The apps are private tools. A separate site can be written for visitors, indexed by search engines, and changed often without touching sign-in or points. One copy of the legal text avoids contradictions.
 
 ## Decisions
-- Domain plan: `getbitwards.com` (example) for marketing, `app.` customer, `business.` store, admin stays local (D22).
+- Domain plan: `bitwards.app` (example) for marketing, `app.` customer, `business.` store, admin stays local (D22).
 - No prices and no free-trial claim yet (D14 open). No analytics, no cookies, so no consent banner.
 
 ## Technical changes
@@ -45,7 +45,7 @@ See [../ENVIRONMENT.md](../ENVIRONMENT.md).
 See the README. The customer test for the welcome step needed a short wait because React clears the form after a failed submit; this is a test-timing fix, not an app change.
 
 ## How to continue
-Choose and register the domain, create the GitHub repository, deploy (DEPLOYMENT.md), create the contact mailbox, then Phase M2.
+Connect the domain (done: registered), deploy (DEPLOYMENT.md), create the contact mailbox, then Phase M2.
 
 ## Completion checklist
 - [x] Implementation completed

@@ -1,8 +1,8 @@
 # Deployment
 
-**Not done yet.** Needs the domain (see `../bitwards-product-docs/07-domains-and-hosting.md`). The site is static, so hosting is simple and cheap.
+**Not done yet.** The domain `bitwards.app` is registered; it still needs connecting (see `../bitwards-product-docs/07-domains-and-hosting.md`). The site is static, so hosting is simple and cheap.
 
-1. Push the repo to GitHub (`ericsonluciano/bitwards-marketing`; create it first, it does not exist yet).
+1. The repo is on GitHub (`ericsonluciano/bitwards-marketing`).
 2. Vercel: Add New → Project → import the repo (Next.js is detected). Add the four environment values from [ENVIRONMENT.md](ENVIRONMENT.md) for Production.
 3. Vercel → Settings → Domains: add the apex domain and `www` (set `www` to redirect to the apex). Create the DNS records Vercel shows at your registrar.
 4. After the first deploy, open the site, click each button to confirm it reaches the right app, and open `/sitemap.xml` and `/robots.txt`.

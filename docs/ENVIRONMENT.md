@@ -9,5 +9,5 @@ All are public and safe in the browser; there are no secrets in this project. Th
 | `NEXT_PUBLIC_BUSINESS_URL` | Business app address; "Apply" buttons go to `…/sign-in` | Yes in production | `http://127.0.0.1:3100` | All |
 | `NEXT_PUBLIC_CONTACT_EMAIL` | Contact address shown in the footer | No | (hidden) | Production, once the mailbox exists |
 
-Example production values: `https://getbitwards.com`, `https://app.getbitwards.com`, `https://business.getbitwards.com`.
+Example production values: `https://bitwards.app`, `https://app.bitwards.app`, `https://business.bitwards.app`.
 Note: `.env.example` lists the dev-server port (3000) for `NEXT_PUBLIC_SITE_URL`; the test setup uses 3400.
