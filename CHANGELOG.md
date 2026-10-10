@@ -1,5 +1,12 @@
 # Changelog
 
+## Legal pages, pilot version 0.8 (2026-10-10)
+
+**Changed**
+- The Privacy Notice states where error reports are stored: Sentry stores them in the United States (the region chosen when the account was created).
+
+**Breaking changes:** none.
+
 ## Legal pages, pilot version 0.7 (2026-10-10)
 
 **Changed**

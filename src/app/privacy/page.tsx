@@ -67,7 +67,7 @@ export default function Page() {
 
       <h2>6. Error reports</h2>
       <p>
-        When Bitwards or this website hits a technical problem, it may send a short error report to Sentry, a service that helps us find and fix faults. A report contains technical details: what went wrong, which page address it happened on (without anything after a question mark), your browser and device type, and the time. We set it up so that cookies, request headers, form contents, and anything that looks like an email address or access key are removed before a report is sent. We do not turn on screen recordings. Reports are used only to fix problems and are kept for the short period Sentry stores them. Sentry may process them on servers outside the Philippines.
+        When Bitwards or this website hits a technical problem, it may send a short error report to Sentry, a service that helps us find and fix faults. A report contains technical details: what went wrong, which page address it happened on (without anything after a question mark), your browser and device type, and the time. We set it up so that cookies, request headers, form contents, and anything that looks like an email address or access key are removed before a report is sent. We do not turn on screen recordings. Reports are used only to fix problems and are kept for the short period Sentry stores them. Sentry stores them in the United States.
       </p>
 
       <h2>7. How long we keep it</h2>
