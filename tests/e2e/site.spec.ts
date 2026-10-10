@@ -127,5 +127,5 @@ test('the privacy notice lists error reporting and its provider', async ({ page 
   await page.goto('/privacy')
   await expect(page.getByRole('heading', { name: '6. Error reports' })).toBeVisible()
   await expect(page.getByText(/Sentry/).first()).toBeVisible()
-  await expect(page.getByText(/Sentry stores them on servers outside the Philippines/)).toBeVisible()
+  await expect(page.getByText(/Sentry stores them in the European Union/)).toBeVisible()
 })

@@ -1,5 +1,12 @@
 # Changelog
 
+## Legal pages, pilot version 0.10 (2026-10-10)
+
+**Changed**
+- The Privacy Notice states that Sentry stores error reports in the European Union (confirmed: the account uses Sentry's EU data region).
+
+**Breaking changes:** none.
+
 ## Legal pages, pilot version 0.9 (2026-10-10)
 
 **Changed**
