@@ -1,5 +1,12 @@
 # Changelog
 
+## Legal pages, pilot version 0.6 (2026-10-10)
+
+**Changed**
+- The Privacy Notice now lists Zoho (our support mailbox) among the providers that handle data for us, since messages people send to hello@bitwards.app are held there.
+
+**Breaking changes:** none.
+
 ## Legal pages, pilot version 0.5 (2026-10-10)
 
 **Changed**
