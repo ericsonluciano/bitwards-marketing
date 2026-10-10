@@ -4,7 +4,7 @@
 ```bash
 npm run check
 ```
-Lint, types, unit tests. Expected: `Tests 1 passed`.
+Lint, types, unit tests. Expected: `Tests 2 passed`.
 
 ## End-to-end
 ```bash
