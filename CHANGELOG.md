@@ -1,5 +1,15 @@
 # Changelog
 
+## Deployment fix (2026-10-10)
+
+**Fixed**
+- The first live deployment linked its buttons, sitemap and robots file to `127.0.0.1` because it was built before the environment values were added. A production build now falls back to the real addresses (`bitwards.app`, `play.bitwards.app`, `business.bitwards.app`), and a Vercel production build fails if a value points at a local address.
+- Docs: the main address is `bitwards.app`; `www.bitwards.app` redirects to it.
+
+**Needs your action:** the push triggers a new build; check that the live buttons point at `https://play.bitwards.app/sign-in` and `https://business.bitwards.app/sign-in`.
+
+**Breaking changes:** none.
+
 ## Home page refresh (2026-10-10)
 
 **Changed**
