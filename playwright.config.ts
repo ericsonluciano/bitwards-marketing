@@ -7,6 +7,8 @@ const ENV = [
   'NEXT_PUBLIC_APP_URL=https://app.example.test',
   'NEXT_PUBLIC_BUSINESS_URL=https://business.example.test',
   'NEXT_PUBLIC_CONTACT_EMAIL=hello@example.test',
+  'NEXT_PUBLIC_FACEBOOK_URL=https://facebook.example.test/bitwards',
+  'NEXT_PUBLIC_INSTAGRAM_URL=https://instagram.example.test/bitwards',
 ].join(' ')
 
 export default defineConfig({

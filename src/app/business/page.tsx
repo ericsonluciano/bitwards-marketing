@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { ChartLineUp, Gauge, Handshake, Lock, LockKey, UsersThree } from '@phosphor-icons/react/dist/ssr'
 import { CallToAction, Facts, FaqSection, SceneBand, Section, Steps } from '@/components/sections'
 import { ButtonLink } from '@/components/ui'
 import { storeFaqs } from '@/lib/faqs'
@@ -45,12 +44,12 @@ export default function BusinessPage() {
       <Section title="You stay in control" intro="Bitwards is built so a busy counter can run it and an owner can trust it.">
         <Facts columns={3}
           items={[
-            { icon: <Gauge size={24} weight="regular" aria-hidden />, title: 'Hard limits on cost', body: 'Every quest has a completion cap and every reward has a stock limit, so there are no open-ended giveaways.' },
-            { icon: <Handshake size={24} weight="regular" aria-hidden />, title: 'Confirmed by your team', body: 'Progress counts only when your staff confirm it. Daily limits and an audit trail help catch mistakes and misuse.' },
-            { icon: <UsersThree size={24} weight="regular" aria-hidden />, title: 'Clear roles', body: 'Owners, managers and staff each see only what they need. Counter staff can scan and redeem, nothing more.' },
-            { icon: <LockKey size={24} weight="regular" aria-hidden />, title: 'Fixed once published', body: 'Customers who join a quest keep the rules they joined under. To change a quest, copy it into a new one.' },
-            { icon: <ChartLineUp size={24} weight="regular" aria-hidden />, title: 'See what works', body: 'An overview shows check-ins, returning customers, quest completions and Bits issued, so you can decide what to run next.' },
-            { icon: <Lock size={24} weight="regular" aria-hidden />, title: 'Bitwards can step in', body: 'If something looks wrong, Bitwards can pause a quest or reward and help correct mistakes. Customers keep their Bits and vouchers.' },
+            { art: 'limits', title: 'Hard limits on cost', body: 'Every quest has a completion cap and every reward has a stock limit, so there are no open-ended giveaways.' },
+            { art: 'people', title: 'Confirmed by your team', body: 'Progress counts only when your staff confirm it. Daily limits and an audit trail help catch mistakes and misuse.' },
+            { art: 'scan', title: 'Clear roles', body: 'Owners, managers and staff each see only what they need. Counter staff can scan and redeem, nothing more.' },
+            { art: 'quests', title: 'Fixed once published', body: 'Customers who join a quest keep the rules they joined under. To change a quest, copy it into a new one.' },
+            { art: 'insights', title: 'See what works', body: 'An overview shows check-ins, returning customers, quest completions and Bits issued, so you can decide what to run next.' },
+            { art: 'privacy', title: 'Bitwards can step in', body: 'If something looks wrong, Bitwards can pause a quest or reward and help correct mistakes. Customers keep their Bits and vouchers.' },
           ]}
         />
       </Section>

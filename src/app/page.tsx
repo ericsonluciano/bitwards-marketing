@@ -1,7 +1,7 @@
-import { ChartLineUp, Coins, Gauge, Lock, Path, QrCode, Receipt, ShieldCheck } from '@phosphor-icons/react/dist/ssr'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Art } from '@/components/art'
 import { BentoCell, ChallengeList, Facts, FaqSection, FloatingBits, SceneBand, Steps } from '@/components/sections'
 import { Reveal } from '@/components/reveal'
 import { ButtonLink } from '@/components/ui'
@@ -9,8 +9,6 @@ import { generalFaqs } from '@/lib/faqs'
 import { SITE, appLinks } from '@/lib/site'
 
 export const metadata: Metadata = { alternates: { canonical: '/' } }
-
-const icon = { size: 24, weight: 'regular', 'aria-hidden': true } as const
 
 // Tells search engines who runs the site. Plain facts only; nothing here is shown on the page.
 const structuredData = {
@@ -91,42 +89,46 @@ export default function Home() {
           <ButtonLink href="/features" variant="secondary">See all features</ButtonLink>
         </div>
         <Reveal as="ul" className="mt-10 grid gap-4 md:grid-cols-6">
-          <BentoCell tone="mint" icon={<Path size={26} weight="regular" aria-hidden />} title="Quests of any size" className="md:col-span-4">A repeat visit, something new to try, or a few steps in order. Each quest says exactly what to do and what you earn.</BentoCell>
-          <BentoCell tone="gold" icon={<QrCode size={26} weight="regular" aria-hidden />} title="A code that changes" className="md:col-span-2">Your code refreshes every minute, so a screenshot will not work.</BentoCell>
-          <BentoCell tone="sky" icon={<Coins size={26} weight="regular" aria-hidden />} title="Bits for a reward" className="md:col-span-2">Finish a quest, earn Bits, trade them at that store.</BentoCell>
-          <BentoCell tone="peach" icon={<Gauge size={26} weight="regular" aria-hidden />} title="Hard limits on cost" className="md:col-span-2">Every quest and reward has a cap, so stores never face an open-ended giveaway.</BentoCell>
-          <BentoCell tone="plain" icon={<ChartLineUp size={26} weight="regular" aria-hidden />} title="See what works" className="md:col-span-2">Check-ins, returning customers and completions at a glance.</BentoCell>
+          <BentoCell tone="mint" art="quests" href="/features/quests" title="Quests of any size" className="md:col-span-4">A repeat visit, something new to try, or a few steps in order. Each quest says exactly what to do and what you earn.</BentoCell>
+          <BentoCell tone="gold" art="code" href="/features/scan-and-confirm" title="A code that changes" className="md:col-span-2">Your code refreshes every minute, so a screenshot will not work.</BentoCell>
+          <BentoCell tone="sky" art="bits" href="/features/rewards" title="Bits for a reward" className="md:col-span-2">Finish a quest, earn Bits, trade them at that store.</BentoCell>
+          <BentoCell tone="peach" art="limits" href="/features/limits" title="Hard limits on cost" className="md:col-span-2">Every quest and reward has a cap, so stores never face an open-ended giveaway.</BentoCell>
+          <BentoCell tone="plain" art="insights" href="/features/insights" title="See what works" className="md:col-span-2">Check-ins, returning customers and completions at a glance.</BentoCell>
         </Reveal>
       </section>
 
-      {/* Businesses: the picture fills the band and a sheet of text sits on it. */}
-      <section id="businesses" className="relative isolate scroll-mt-20 overflow-hidden">
-        <Image src="/images/store-owner.webp" alt="Illustration of a café owner smiling at a tablet behind the counter" width={1100} height={733} sizes="100vw" className="scene-img h-60 w-full object-cover object-left sm:h-80 md:absolute md:inset-0 md:-z-10 md:h-full" />
-        <div className="mx-auto w-full max-w-6xl px-0 md:px-6 md:py-20">
-          <Reveal className="bg-surface p-6 sm:p-9 md:ml-auto md:max-w-[34rem] md:rounded-card md:border md:border-mist md:shadow-[0_28px_60px_-30px_rgba(23,42,58,0.45)]">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Turn your customers into regulars.</h2>
-            <p className="mt-3 text-lg text-muted">Run a loyalty program built on customer challenges. Reward loyal customers and see what helps your business grow.</p>
-            <dl className="mt-6 grid gap-x-6 gap-y-5 sm:grid-cols-2">
-              {[
-                ['Encourage repeat visits', 'Bring more reasons for customers to come back.'],
-                ['Promote something new', 'Feature a product, menu item, or service.'],
-                ['Set your own rewards', 'Choose a reward that fits your business and budget.'],
-                ['Learn from participation', 'Review challenge and redemption activity.'],
-              ].map(([title, body]) => (
-                <div key={title}>
-                  <dt className="font-semibold">{title}</dt>
-                  <dd className="mt-0.5 text-sm text-muted">{body}</dd>
-                </div>
-              ))}
-            </dl>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href={appLinks.businessApply} variant="dark">Apply to join the pilot</ButtonLink>
-              <ButtonLink href="/business" variant="secondary">See how it works for stores</ButtonLink>
-            </div>
-            <p className="mt-4 text-sm text-muted">You choose the reward and set the rules. Rewards are funded by your store. Pilot pricing is being finalised.</p>
-          </Reveal>
+      {/* Businesses: the picture fades into the page on the left and at the top and bottom; the text sits straight on the page. */}
+      <SceneBand
+        id="businesses"
+        side="left"
+        soft
+        className="bg-gradient-to-b from-paper via-peach to-paper"
+        image={<Image src="/images/store-owner.webp" alt="Illustration of a café owner smiling at a tablet behind the counter" width={1100} height={733} sizes="(min-width: 768px) 52vw, 100vw" className="scene-img h-full w-full object-cover object-left" />}
+      >
+        <h2 className="text-3xl font-extrabold leading-[1.08] tracking-tighter sm:text-5xl">Turn your customers into <span className="text-reward-blue">regulars.</span></h2>
+        <p className="mt-4 max-w-xl text-lg text-muted">Run a loyalty program built on customer challenges. Reward loyal customers and see what helps your business grow.</p>
+        <Reveal as="ul" className="mt-8 grid gap-x-6 gap-y-6 sm:grid-cols-2">
+          {[
+            ['trophy', 'Encourage repeat visits', 'Bring more reasons for customers to come back.'],
+            ['coffee', 'Promote something new', 'Feature a product, menu item, or service.'],
+            ['gift', 'Set your own rewards', 'Choose a reward that fits your business and budget.'],
+            ['insights', 'Learn from participation', 'Review challenge and redemption activity.'],
+          ].map(([art, title, body], i) => (
+            <li key={title} data-rise style={{ '--d': `${i * 0.07}s` } as React.CSSProperties} className="flex items-start gap-3">
+              <Art name={art as 'trophy'} size={64} className="size-14 shrink-0" />
+              <div>
+                <h3 className="font-semibold">{title}</h3>
+                <p className="mt-0.5 text-sm text-muted">{body}</p>
+              </div>
+            </li>
+          ))}
+        </Reveal>
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <ButtonLink href={appLinks.businessApply} variant="dark">Apply to join the pilot</ButtonLink>
+          <ButtonLink href="/business" variant="secondary">See how it works for stores</ButtonLink>
         </div>
-      </section>
+        <p className="mt-4 max-w-xl text-sm text-muted">You choose the reward and set the rules. Rewards are funded by your store. Pilot pricing is being finalised.</p>
+      </SceneBand>
 
       {/* Trust: one big statement on the left, four plain points on the right. */}
       <section className="scroll-mt-20">
@@ -138,10 +140,10 @@ export default function Home() {
           <div className="lg:col-span-7">
             <Facts
               items={[
-                { title: 'Confirmed by real people', body: 'Progress counts when store staff confirm a visit or purchase. Self-reported activity is never treated as verified.', icon: <ShieldCheck {...icon} /> },
-                { title: 'Rewards with limits', body: 'Every quest and reward has a cap set by the store, so nothing is an open-ended giveaway.', icon: <Receipt {...icon} /> },
-                { title: 'Bits are not money', body: 'Bits are store rewards. They have no cash value and cannot be transferred.', icon: <Coins {...icon} /> },
-                { title: 'Your data, your choice', body: 'Download your data or delete your account any time in the app.', icon: <Lock {...icon} /> },
+                { title: 'Confirmed by real people', body: 'Progress counts when store staff confirm a visit or purchase. Self-reported activity is never treated as verified.', art: 'people' },
+                { title: 'Rewards with limits', body: 'Every quest and reward has a cap set by the store, so nothing is an open-ended giveaway.', art: 'limits' },
+                { title: 'Bits are not money', body: 'Bits are store rewards. They have no cash value and cannot be transferred.', art: 'not-money' },
+                { title: 'Your data, your choice', body: 'Download your data or delete your account any time in the app.', art: 'privacy' },
               ]}
             />
           </div>

@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Eye, Lock, Money, WifiHigh } from '@phosphor-icons/react/dist/ssr'
 import { CallToAction, Facts, FaqSection, SceneBand, Section, Steps } from '@/components/sections'
 import { ButtonLink } from '@/components/ui'
 import { shopperFaqs } from '@/lib/faqs'
@@ -44,10 +43,10 @@ export default function CustomersPage() {
       <Section title="Good to know">
         <Facts
           items={[
-            { icon: <Money size={24} weight="regular" aria-hidden />, title: 'Free for shoppers', body: 'Bitwards does not charge customers. Stores pay for the tools and fund their own rewards.' },
-            { icon: <Eye size={24} weight="regular" aria-hidden />, title: 'Bits belong to one store', body: 'Bits earned at a store can be used at that store. They have no cash value and cannot be sent to anyone.' },
-            { icon: <Lock size={24} weight="regular" aria-hidden />, title: 'Your code changes every minute', body: 'A screenshot will not work, which keeps your account safe.' },
-            { icon: <WifiHigh size={24} weight="regular" aria-hidden />, title: 'Needs a connection', body: 'The app works online only for now, so your Bits are always up to date.' },
+            { art: 'gift', title: 'Free for shoppers', body: 'Bitwards does not charge customers. Stores pay for the tools and fund their own rewards.' },
+            { art: 'bits', title: 'Bits belong to one store', body: 'Bits earned at a store can be used at that store. They have no cash value and cannot be sent to anyone.' },
+            { art: 'code', title: 'Your code changes every minute', body: 'A screenshot will not work, which keeps your account safe.' },
+            { art: 'map', title: 'Needs a connection', body: 'The app works online only for now, so your Bits are always up to date.' },
           ]}
         />
       </Section>

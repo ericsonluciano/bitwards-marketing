@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test'
+import { features } from '../../src/lib/features'
 
 const APP = 'https://app.example.test'
 const BUSINESS = 'https://business.example.test'
@@ -28,17 +29,34 @@ test('the header opens a page for each audience, and the home page still has its
   await expect(page.getByText(/Rewards and challenge rules vary/)).toBeVisible()
 })
 
-test('the features and FAQ pages exist, have their own titles and are in the sitemap', async ({ page, request }) => {
+test('the features page leads to a page for each feature, and the FAQ page exists', async ({ page, request }) => {
   await page.goto('/features')
   await expect(page).toHaveTitle(/Loyalty program features/)
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Challenges for shoppers')
-  await expect(page.getByRole('main').getByRole('link', { name: 'Apply to join the pilot' }).first()).toHaveAttribute('href', `${BUSINESS}/sign-in`)
+  for (const f of features) await expect(page.getByRole('main').getByRole('link', { name: new RegExp(f.title) }).first()).toHaveAttribute('href', `/features/${f.slug}`)
   await page.goto('/faq')
   await expect(page).toHaveTitle(/FAQs/)
   await page.getByText('Do vouchers expire?').click()
   await expect(page.getByText(/Expired vouchers are not refunded/)).toBeVisible()
   const sitemap = await (await request.get('/sitemap.xml')).text()
-  for (const path of ['/features', '/faq']) expect(sitemap).toContain(`http://127.0.0.1:3400${path}`)
+  for (const path of ['/features', '/faq', ...features.map((f) => `/features/${f.slug}`)]) expect(sitemap).toContain(`http://127.0.0.1:3400${path}`)
+})
+
+for (const f of features) {
+  test(`feature page: ${f.slug}`, async ({ page, request }) => {
+    await page.goto(`/features/${f.slug}`)
+    await expect(page).toHaveTitle(`${f.seoTitle} · Bitwards`)
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText(f.headline)
+    await expect(page.getByRole('link', { name: 'All features' })).toHaveAttribute('href', '/features')
+    await expect(page.getByRole('main').getByRole('link', { name: 'Explore Bitwards' }).first()).toHaveAttribute('href', `${APP}/explore`)
+    expect(await page.locator('main').innerText()).not.toMatch(/[—–]/)
+    expect((await request.get(`/features/${f.slug}`)).status()).toBe(200)
+  })
+}
+
+test('an unknown feature shows the friendly not-found page', async ({ page }) => {
+  const response = await page.goto('/features/nope')
+  expect(response?.status()).toBe(404)
 })
 
 test('the theme button switches light and dark, and remembers the choice', async ({ page }) => {
@@ -59,12 +77,16 @@ test('the theme button switches light and dark, and remembers the choice', async
   expect(await bg()).toBe('rgb(247, 248, 245)')
 })
 
-test('the footer has a copyright line and a clear pilot note', async ({ page }) => {
+test('the footer has a copyright line, social links that are set, and the email as an icon', async ({ page }) => {
   await page.goto('/')
   const footer = page.getByRole('contentinfo')
   await expect(footer.getByText(`© ${new Date().getFullYear()} Bitwards. All rights reserved.`)).toBeVisible()
-  await expect(footer.getByText(/piloting with local stores in the Philippines/)).toBeVisible()
+  await expect(footer.getByRole('link', { name: 'Bitwards on Facebook' })).toHaveAttribute('href', 'https://facebook.example.test/bitwards')
+  await expect(footer.getByRole('link', { name: 'Bitwards on Instagram' })).toHaveAttribute('target', '_blank')
+  // Pages whose address is not set are not shown.
+  await expect(footer.getByRole('link', { name: 'Bitwards on TikTok' })).toHaveCount(0)
   await expect(footer.getByRole('link', { name: 'Features' })).toHaveAttribute('href', '/features')
+  expect(await footer.innerText()).not.toMatch(/piloting with local stores/)
 })
 
 test('the shopper page links to sign-up and browsing', async ({ page }) => {
@@ -97,7 +119,7 @@ test('legal pages are clearly marked as drafts', async ({ page }) => {
 
 test('the footer shows the contact address when one is set', async ({ page }) => {
   await page.goto('/')
-  await expect(page.getByRole('contentinfo').getByRole('link', { name: 'hello@example.test' })).toHaveAttribute('href', 'mailto:hello@example.test')
+  await expect(page.getByRole('contentinfo').getByRole('link', { name: 'Email hello@example.test' })).toHaveAttribute('href', 'mailto:hello@example.test')
 })
 
 test('search engines get a sitemap and robots file, and pages have their own titles', async ({ page, request }) => {

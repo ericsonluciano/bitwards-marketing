@@ -1,9 +1,10 @@
 import AxeBuilder from '@axe-core/playwright'
 import { expect, test } from '@playwright/test'
+import { features } from '../../src/lib/features'
 
 // Accessibility guard: axe (WCAG 2.2 A and AA rules plus best practice) must find nothing on any public page.
 // The "desktop" project runs at a laptop width and the "phone" project at a phone width (tests tagged @responsive).
-for (const path of ['/', '/customers', '/business', '/features', '/faq', '/terms', '/privacy']) {
+for (const path of ['/', '/customers', '/business', '/features', ...features.map((f) => `/features/${f.slug}`), '/faq', '/terms', '/privacy']) {
   test(`${path} passes the accessibility check @responsive`, async ({ page }) => {
     await page.goto(path)
     await expect(page.getByRole('main')).toBeVisible()
@@ -45,7 +46,7 @@ test('keyboard: the FAQ opens and closes with Enter, and every link shows a focu
 // Dark mode follows the device setting, so the same contrast rules must hold there.
 test.describe('dark mode', () => {
   test.use({ colorScheme: 'dark' })
-  for (const path of ['/', '/customers', '/business', '/features', '/faq']) {
+  for (const path of ['/', '/customers', '/business', '/features', '/features/rewards', '/faq']) {
     test(`${path} passes the accessibility check in dark mode`, async ({ page }) => {
       await page.goto(path)
       await expect(page.getByRole('main')).toBeVisible()

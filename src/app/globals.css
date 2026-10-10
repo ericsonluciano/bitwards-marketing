@@ -121,6 +121,12 @@ body {
 @media (min-width: 768px) {
   .fade-h-left { mask-image: linear-gradient(to right, #000 40%, transparent); }
   .fade-h-right { mask-image: linear-gradient(to left, #000 40%, transparent); }
+  /* Same fade toward the text, and the top and bottom edges melt into the page too. */
+  .fade-soft-left {
+    mask-image: linear-gradient(to right, #000 38%, transparent), linear-gradient(to bottom, transparent, #000 22%, #000 78%, transparent);
+    mask-composite: intersect;
+    -webkit-mask-composite: source-in;
+  }
 }
 
 /* Illustrations have pale backgrounds; soften them a little on dark pages so they do not glare. */

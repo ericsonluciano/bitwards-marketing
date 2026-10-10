@@ -1,5 +1,19 @@
 # Changelog
 
+## Feature pages, illustrations as icons, softer business section, social footer (2026-10-11)
+
+**Added**
+- A page for each feature, reached from the Features page and the home page tiles: Quests, Bits and vouchers, Scan and confirm, Limits and control, Insights, and Discover local (`/features/<name>`). Each has a large picture, plain points, and previous/next links. All six are in the sitemap with their own titles and descriptions. The text lives in `src/lib/features.ts`.
+- The Bitwards illustrations (`public/images/art`, 16 pictures with see-through backgrounds, so they work in light and dark mode) replace the small line icons across the site: home tiles, trust points, the hero floating symbols, and the shopper, business and feature pages.
+- Footer: round icon links for Facebook, Instagram, TikTok and X, and the email address as an envelope icon in the same row. A social icon appears only when its address is set (`NEXT_PUBLIC_FACEBOOK_URL`, `NEXT_PUBLIC_INSTAGRAM_URL`, `NEXT_PUBLIC_TIKTOK_URL`, `NEXT_PUBLIC_X_URL`; see `docs/ENVIRONMENT.md`).
+
+**Changed**
+- "Turn your customers into regulars." is redesigned: the picture fades into the page on the left, top and bottom on a soft warm gradient, the text sits directly on the page, and the four benefits have their own pictures.
+- The footer no longer carries the long pilot sentence. It now ends with the copyright line only. (The pilot and "Bits are not money" statements are still on the home page and in the FAQs.)
+- "Learn more" links on tiles use the main text color, which passes contrast on every tile color.
+
+**Tests:** 62 end-to-end tests, including accessibility on every public page (light and dark mode for the main ones) and a test per feature page.
+
 ## Separate pages, Features and FAQ pages, theme button, new footer (2026-10-11)
 
 **Added**

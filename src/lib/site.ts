@@ -10,6 +10,13 @@ export const SITE = {
   appUrl: process.env.NEXT_PUBLIC_APP_URL ?? (live ? 'https://play.bitwards.app' : 'http://127.0.0.1:3300'),
   businessUrl: process.env.NEXT_PUBLIC_BUSINESS_URL ?? (live ? 'https://business.bitwards.app' : 'http://127.0.0.1:3100'),
   contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? '',
+  // Public social pages. Each one is shown in the footer only when its address is set (see docs/ENVIRONMENT.md).
+  social: {
+    facebook: process.env.NEXT_PUBLIC_FACEBOOK_URL ?? '',
+    instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? '',
+    tiktok: process.env.NEXT_PUBLIC_TIKTOK_URL ?? '',
+    x: process.env.NEXT_PUBLIC_X_URL ?? '',
+  },
 }
 
 export const appLinks = {
