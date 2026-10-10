@@ -22,7 +22,9 @@ export default function Page() {
         <li><strong>Quests</strong> are set by the store. The rules shown when you join are the rules that apply to you, even if the store later changes the quest for other people. Quests have limits and can fill up, end or be paused.</li>
         <li><strong>Progress counts only when store staff confirm it</strong> (for example a check-in or a qualifying purchase). Show your code at the counter. Codes change every minute and may be used once.</li>
         <li><strong>Vouchers</strong> are issued when you claim a reward with your Bits. Each has an expiry date and the terms the store set. Expired vouchers are not refunded. Show the voucher code to the store to use it.</li>
-        <li><strong>Mistakes.</strong> If something went wrong, contact us. We may review it with the store and correct your balance. We do not have to reverse a claim that was made correctly.</li>
+        <li><strong>Your activity is the record.</strong> What the app shows under your activity, quests and vouchers is the record of your Bits. Please check it. If something looks wrong, tell us within 30 days so we can still check it with the store.</li>
+        <li><strong>Mistakes.</strong> If something went wrong, contact us. We may review it with the store and correct your balance. We do not have to reverse a claim that was made correctly, and we will not reverse a claim you made by mistake once the voucher is used.</li>
+        <li><strong>Keep your sign-in safe.</strong> Do not share the emailed codes or your screen with the code showing. If you think someone else has your account, tell us straight away.</li>
         <li><strong>Fair use.</strong> Do not cheat, share or sell codes or accounts, use more than one account to collect rewards, pressure staff, or interfere with the service. We may remove Bits, cancel vouchers, or suspend an account for misuse after reviewing the facts.</li>
       </ul>
 
@@ -44,10 +46,11 @@ export default function Page() {
       </ul>
 
       <h2>6. Ending your account</h2>
-      <p>You can delete your account in the app at any time (customers: Profile → Delete account). Stores can ask us to close their account. When an account ends, Bits and unused vouchers end with it. We may suspend or end accounts that break these terms.</p>
+      <p>You can delete your account in the app at any time (customers: Profile → Delete account). Stores can ask us to close their account. When an account ends, Bits and unused vouchers end with it. We may suspend or end accounts that break these terms, and we will tell you why and give you a way to answer, except where we must act at once to protect people or comply with the law. [Inactive accounts: see the Privacy Notice.]</p>
+      <p>If we end the whole service, we will tell you in advance where we can, and give stores time to honour vouchers already issued.</p>
 
-      <h2>7. Changes</h2>
-      <p>We may update these terms. If a change matters, we will tell you in the app or by email before it applies. Using Bitwards after that means you accept the change.</p>
+      <h2>7. Changes, and a change of owner</h2>
+      <p>We may update these terms. If a change matters, we will tell you in the app or by email before it applies. Using Bitwards after that means you accept the change. If Bitwards is sold, merged or moved to another company, these terms and your account may move with it, and we will tell you.</p>
 
       <h2>8. Law and contact</h2>
       <p>These terms are governed by the laws of the Republic of the Philippines. We hope to settle any problem by talking first; if that fails, the proper courts of [city, Philippines] have jurisdiction. Contact: [support email address].</p>

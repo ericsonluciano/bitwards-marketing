@@ -1,5 +1,16 @@
 # Changelog
 
+## Legal pages, pilot version 0.3 (2026-10-10)
+
+**Changed**
+- Privacy Notice: a Data Protection Officer block (name, address, phone, email as placeholders), a statement that stores become responsible for the information they see, a new section on automated checks (a person always decides; nothing happens only because of a flag), the right to be informed about automated decisions, an inactive-accounts placeholder, and a change-of-owner clause.
+- Terms: your activity is the record and mistakes should be reported within 30 days, keeping sign-in safe, a fair-process promise before accounts are suspended, notice and time to honour vouchers if the whole service ends, and a change-of-owner clause.
+- Prompted by a review of another Philippine loyalty platform's public terms and privacy policy; wording is our own. Risky clauses there (no-notice changes, blanket consent, opt-out marketing, minimum age 7, very low liability cap) were deliberately not copied. See `bitwards-product-docs/09-legal-notes-philippines.md` section 8.
+
+**Needs your action:** fill the placeholders, decide the inactive-account rule, then have a Philippine lawyer review.
+
+**Breaking changes:** none.
+
 ## Legal pages, pilot version 0.2 (2026-10-10)
 
 **Changed**

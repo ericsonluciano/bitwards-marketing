@@ -12,8 +12,15 @@ export default function Page() {
 
       <h2>1. Who is responsible for your information</h2>
       <p>
-        Bitwards is the personal information controller. You can reach our person in charge of privacy at [privacy contact name and email address]. Please write to that address for any question or request in this notice.
+        Bitwards is the personal information controller. Our Data Protection Officer (the person responsible for privacy) is [name], and you can reach them at:
       </p>
+      <p>
+        [Data Protection Officer, business name]<br />
+        [postal address in the Philippines]<br />
+        [phone number]<br />
+        [privacy email address]
+      </p>
+      <p>Please write there for any question, request or complaint about this notice.</p>
 
       <h2>2. What we collect</h2>
       <p><strong>If you use Bitwards as a customer:</strong></p>
@@ -47,30 +54,36 @@ export default function Page() {
 
       <h2>4. Who sees your information</h2>
       <ul>
-        <li><strong>Stores you take part in</strong> see your name and your activity with that store only, not your activity at other stores.</li>
+        <li><strong>Stores you take part in</strong> see your name and your activity with that store only, not your activity at other stores. Once a store sees your information it is also responsible for how it uses it, and must follow the Data Privacy Act and our Terms, which allow it to use the information only to run its own rewards for you. Ask the store directly if you have a concern about what it does.</li>
         <li><strong>Bitwards staff</strong> with a need to see it (for support, safety and billing), under access controls and two-factor sign-in, with an audit trail.</li>
         <li><strong>Service providers that process data for us:</strong> Supabase (database and sign-in, hosted in Singapore), Vercel (website hosting), Cloudflare (domain name service) and Resend (sending sign-in and service emails). They may handle data on servers outside the Philippines. We use them only to run Bitwards, and we choose providers that protect data with security measures and contracts.</li>
         <li><strong>Authorities</strong>, if the law or a valid order requires it.</li>
       </ul>
       <p>We do not sell your personal information and we do not show advertising. This website does not use advertising trackers. We use only the cookies that keep you signed in.</p>
 
-      <h2>5. How long we keep it</h2>
+      <h2>5. Automated checks</h2>
+      <p>
+        We run automated checks that flag unusual activity, for example a very large number of check-ins in a day, so that a person can look at it. A flag does not change your Bits or account on its own. A person reviews it, and nothing is closed or removed only because of an automated flag. We do not use your information to build marketing profiles or to make other automated decisions about you.
+      </p>
+
+      <h2>6. How long we keep it</h2>
       <ul>
         <li>Your account details: until you delete your account or ask us to.</li>
         <li>When you delete your account, we remove your name, email, mobile number and sign-in. Records of Bits issued and vouchers are kept without your name or email so stores and sponsors can reconcile their books.</li>
         <li>Support requests and billing records: for as long as needed to resolve the matter and meet accounting and legal duties [retention period to be confirmed].</li>
         <li>Technical logs: for the short periods our providers keep them.</li>
+        <li>[Inactive accounts: after [24] months without signing in, we will email you and, if you do not come back, delete the account as if you had asked.]</li>
       </ul>
 
-      <h2>6. How we protect it</h2>
+      <h2>7. How we protect it</h2>
       <p>
         Access is limited by role and enforced in the database. Connections are encrypted. Our staff accounts use two-factor sign-in. Customer codes expire in about a minute and can be used once. No system is perfectly secure, so if a breach puts your rights at risk we will tell you and the National Privacy Commission within the time the law requires.
       </p>
 
-      <h2>7. Your rights</h2>
+      <h2>8. Your rights</h2>
       <p>Under the Data Privacy Act you may:</p>
       <ul>
-        <li>be informed about how your information is used (this notice);</li>
+        <li>be informed about how your information is used, including whether it is used for automated decisions or profiling (this notice);</li>
         <li>access the information we hold about you, and get a copy (in the app: Profile → Download my data);</li>
         <li>correct information that is wrong (in the app: Profile);</li>
         <li>object to certain uses, or withdraw your consent, for example email updates;</li>
@@ -81,11 +94,11 @@ export default function Page() {
       </ul>
       <p>We answer requests within a reasonable time. We may need to confirm it is really you, and may keep what the law requires us to keep.</p>
 
-      <h2>8. Young people</h2>
+      <h2>9. Young people</h2>
       <p>Bitwards is for people 18 and over. If you are younger, please ask a parent or guardian to use it for you or with you.</p>
 
-      <h2>9. Changes</h2>
-      <p>If we change this notice in a way that matters, we will tell you in the app or by email and update the date above.</p>
+      <h2>10. Changes to this notice and to our business</h2>
+      <p>If we change this notice in a way that matters, we will tell you in the app or by email before it applies and update the date above. If Bitwards is ever sold or merged, or its operation moves to another company, your information may move with the service, and we will tell you and the new owner must follow this notice or tell you first.</p>
     </LegalPage>
   )
 }
