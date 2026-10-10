@@ -1,5 +1,13 @@
 # Changelog
 
+## Browser protections (2026-10-10)
+
+**Added**
+- Every page now sends basic browser protections: no content sniffing, no embedding in other sites' frames, a stricter referrer policy, and a permissions policy that blocks features we do not use. A full Content-Security-Policy is not added yet (Next.js needs a per-request nonce for that; separate piece of work).
+- 1 more end-to-end test.
+
+**Breaking changes:** none.
+
 ## Deployment fix (2026-10-10)
 
 **Fixed**

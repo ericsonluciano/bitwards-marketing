@@ -75,3 +75,11 @@ test('unknown pages show a friendly message', async ({ page }) => {
   expect(response?.status()).toBe(404)
   await expect(page.getByRole('heading', { name: /couldn.t find that page/ })).toBeVisible()
 })
+
+test('pages carry the basic browser protections', async ({ request }) => {
+  const headers = (await request.get('/')).headers()
+  expect(headers['x-content-type-options']).toBe('nosniff')
+  expect(headers['x-frame-options']).toBe('DENY')
+  expect(headers['referrer-policy']).toBe('strict-origin-when-cross-origin')
+  expect(headers['permissions-policy']).toContain('camera=()')
+})

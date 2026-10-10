@@ -14,6 +14,22 @@ if (process.env.VERCEL_ENV === 'production') {
 const nextConfig: NextConfig = {
   // The tests and local docs use http://127.0.0.1; Next.js blocks dev-mode requests from other origins unless listed.
   allowedDevOrigins: ['127.0.0.1'],
+  // Basic browser protections on every page. (Vercel already adds HTTPS-only.) A full Content-Security-Policy is
+  // not added yet: Next.js pages need a per-request nonce for that, which is a separate piece of work.
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'X-Frame-Options', value: 'DENY' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(), payment=()' },
+        ],
+      },
+    ]
+  },
+
   turbopack: {
     rules: {
       '*.css': {
