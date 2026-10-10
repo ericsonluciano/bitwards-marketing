@@ -92,3 +92,11 @@ test('legal pages name who is responsible and how to reach them', async ({ page 
   await expect(page.getByText(/operated by Ericson Luciano/)).toBeVisible()
   await expect(page.getByText('Contact: hello@bitwards.app.')).toBeVisible()
 })
+
+test('legal pages have no unfinished placeholders', async ({ page }) => {
+  for (const path of ['/terms', '/privacy']) {
+    await page.goto(path)
+    const text = await page.locator('main').innerText()
+    expect(text).not.toMatch(/\[[^\]]+\]/)
+  }
+})

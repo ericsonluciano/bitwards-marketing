@@ -69,9 +69,8 @@ export default function Page() {
       <ul>
         <li>Your account details: until you delete your account or ask us to.</li>
         <li>When you delete your account, we remove your name, email, mobile number and sign-in. Records of Bits issued and vouchers are kept without your name or email so stores and sponsors can reconcile their books.</li>
-        <li>Support requests and billing records: for as long as needed to resolve the matter and meet accounting and legal duties [retention period to be confirmed].</li>
+        <li>Support requests and billing records: for as long as needed to resolve the matter and meet accounting and legal duties.</li>
         <li>Technical logs: for the short periods our providers keep them.</li>
-        <li>[Inactive accounts: after [24] months without signing in, we will email you and, if you do not come back, delete the account as if you had asked.]</li>
       </ul>
 
       <h2>7. How we protect it</h2>

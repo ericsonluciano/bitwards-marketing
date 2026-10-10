@@ -1,5 +1,13 @@
 # Changelog
 
+## Legal pages, pilot version 0.5 (2026-10-10)
+
+**Changed**
+- Removed all bracketed placeholders from the public text, using wording that is true without them: no stated retention period for support and billing records beyond "as long as needed", no inactive-account promise, pilot fees "on the terms we give you in writing", the liability sentence limited to "direct losses" with no amount, and courts "in the Philippines" with no city. A test now fails if a placeholder in square brackets appears again.
+- The open decisions (retention numbers, inactive accounts, liability limit, court venue) are tracked in `bitwards-product-docs/09-legal-notes-philippines.md` for the lawyer review.
+
+**Breaking changes:** none.
+
 ## Legal pages, pilot version 0.4 (2026-10-10)
 
 **Changed**

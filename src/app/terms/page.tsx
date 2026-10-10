@@ -34,26 +34,26 @@ export default function Page() {
         <li><strong>Your rewards.</strong> You decide and fund your rewards and quests. You must honour vouchers on the terms you published, within their expiry. Set limits you can afford. Bitwards helps you see the maximum cost but does not guarantee your results or profits.</li>
         <li><strong>Your team.</strong> You are responsible for the people you invite, for confirming visits and purchases honestly, and for removing access when someone leaves.</li>
         <li><strong>Laws.</strong> You are responsible for the permits, taxes and rules that apply to your business and promotions in the Philippines, including consumer protection and any approval needed for promotional offers, and for the accuracy of what you advertise.</li>
-        <li><strong>Pilot and fees.</strong> The pilot is offered on the terms we give you in writing [pilot period and fees to be confirmed]. Plans, prices and invoicing terms will be sent to you before any charge.</li>
+        <li><strong>Pilot and fees.</strong> The pilot is offered on the terms we give you in writing (the pilot period, any fees and how invoices are paid). Plans, prices and invoicing terms will be sent to you before any charge.</li>
         <li><strong>Data.</strong> You may use customer information you can see only to run your own rewards at your store, and must follow the Data Privacy Act. Do not copy, sell or share it.</li>
       </ul>
 
       <h2>5. Our rights and responsibilities</h2>
       <ul>
         <li>We work to keep Bitwards available and accurate, but it needs an internet connection and may have interruptions. We may change or end features with reasonable notice where we can.</li>
-        <li>We are not responsible for what stores sell, for their rewards, or for disputes between a store and its customers, though we will try to help. Where the law allows, our responsibility to you is limited to direct losses and to the amount [limit to be confirmed by a lawyer]. Nothing here limits rights you have under Philippine consumer law that cannot be waived.</li>
+        <li>We are not responsible for what stores sell, for their rewards, or for disputes between a store and its customers, though we will try to help. Where the law allows, our responsibility to you is limited to direct losses. Nothing here limits rights you have under Philippine consumer law that cannot be waived.</li>
         <li>The Bitwards name, logo and software belong to us. You may use the service as intended, but not copy or reverse engineer it.</li>
       </ul>
 
       <h2>6. Ending your account</h2>
-      <p>You can delete your account in the app at any time (customers: Profile → Delete account). Stores can ask us to close their account. When an account ends, Bits and unused vouchers end with it. We may suspend or end accounts that break these terms, and we will tell you why and give you a way to answer, except where we must act at once to protect people or comply with the law. [Inactive accounts: see the Privacy Notice.]</p>
+      <p>You can delete your account in the app at any time (customers: Profile → Delete account). Stores can ask us to close their account. When an account ends, Bits and unused vouchers end with it. We may suspend or end accounts that break these terms, and we will tell you why and give you a way to answer, except where we must act at once to protect people or comply with the law.</p>
       <p>If we end the whole service, we will tell you in advance where we can, and give stores time to honour vouchers already issued.</p>
 
       <h2>7. Changes, and a change of owner</h2>
       <p>We may update these terms. If a change matters, we will tell you in the app or by email before it applies. Using Bitwards after that means you accept the change. If Bitwards is sold, merged or moved to another company, these terms and your account may move with it, and we will tell you.</p>
 
       <h2>8. Law and contact</h2>
-      <p>These terms are governed by the laws of the Republic of the Philippines. We hope to settle any problem by talking first; if that fails, the proper courts of [city, Philippines] have jurisdiction. Contact: hello@bitwards.app.</p>
+      <p>These terms are governed by the laws of the Republic of the Philippines. We hope to settle any problem by talking first; if that fails, the proper courts in the Philippines have jurisdiction. Contact: hello@bitwards.app.</p>
     </LegalPage>
   )
 }
