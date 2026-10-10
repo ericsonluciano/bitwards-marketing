@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import { CallToAction, Faq, Facts, QuestExample, Section, Steps } from '@/components/sections'
+import Image from 'next/image'
+import { CallToAction, Faq, Facts, SceneBand, Section, Steps } from '@/components/sections'
 import { ButtonLink } from '@/components/ui'
 import { appLinks } from '@/lib/site'
 
@@ -12,19 +13,21 @@ export const metadata: Metadata = {
 export default function BusinessPage() {
   return (
     <main>
-      <section className="mx-auto grid w-full max-w-6xl items-center gap-10 px-4 pb-16 pt-10 sm:px-6 md:grid-cols-[1.15fr_0.85fr] md:pb-24 md:pt-16">
-        <div>
-          <p className="mb-4 inline-block rounded-control bg-mint px-3 py-1 text-sm font-semibold">For cafés, restaurants and local shops</p>
-          <h1 className="text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl">Give customers a reason to come back.</h1>
-          <p className="mt-5 max-w-xl text-lg text-muted">Start with one simple quest, choose a reward your business can afford, and learn how customers respond.</p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href={appLinks.businessApply} className="sm:min-w-56">Apply to join the pilot</ButtonLink>
-            <ButtonLink href="#how-it-works" variant="secondary">See how it works</ButtonLink>
-          </div>
-          <p className="mt-4 max-w-xl text-sm text-muted">We review every application before a store goes live. Pilot pricing is being finalised; applying does not commit you to anything.</p>
+      <SceneBand
+        side="right"
+        mobile="after"
+        className="bg-gradient-to-b from-[#fdf1e1] to-paper"
+        image={<Image src="/images/store-owner.webp" alt="Illustration of a café owner smiling at a tablet behind the counter" width={1100} height={733} preload sizes="(min-width: 768px) 52vw, 100vw" className="h-full w-full object-cover object-center" />}
+      >
+        <p className="mb-4 inline-block rounded-control bg-mint px-3 py-1 text-sm font-semibold">For cafés, restaurants and local shops</p>
+        <h1 className="text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl">Give customers a reason to come back.</h1>
+        <p className="mt-5 max-w-xl text-lg text-muted">Start with one simple quest, choose a reward your business can afford, and learn how customers respond.</p>
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <ButtonLink href={appLinks.businessApply} variant="dark" className="sm:min-w-56">Apply to join the pilot</ButtonLink>
+          <ButtonLink href="#how-it-works" variant="secondary">See how it works</ButtonLink>
         </div>
-        <QuestExample />
-      </section>
+        <p className="mt-4 max-w-xl text-sm text-muted">We review every application before a store goes live. Pilot pricing is being finalised; applying does not commit you to anything.</p>
+      </SceneBand>
 
       <Section id="how-it-works" title="How it works" tone="white">
         <Steps

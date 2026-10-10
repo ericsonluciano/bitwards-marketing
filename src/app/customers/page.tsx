@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import { CallToAction, Faq, Facts, QuestExample, Section, Steps } from '@/components/sections'
+import Image from 'next/image'
+import { CallToAction, Faq, Facts, SceneBand, Section, Steps } from '@/components/sections'
 import { ButtonLink } from '@/components/ui'
 import { appLinks } from '@/lib/site'
 
@@ -12,17 +13,19 @@ export const metadata: Metadata = {
 export default function CustomersPage() {
   return (
     <main>
-      <section className="mx-auto grid w-full max-w-6xl items-center gap-10 px-4 pb-16 pt-10 sm:px-6 md:grid-cols-[1.15fr_0.85fr] md:pb-24 md:pt-16">
-        <div>
-          <h1 className="text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl">Earn rewards for visiting the places you already love.</h1>
-          <p className="mt-5 max-w-xl text-lg text-muted">Quests are simple challenges set by local stores. Finish one, earn Bits, and trade them for a reward you actually want.</p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href={appLinks.customerStart} className="sm:min-w-56">Get started, it&apos;s free</ButtonLink>
-            <ButtonLink href={appLinks.customerExplore} variant="secondary">Browse stores first</ButtonLink>
-          </div>
+      <SceneBand
+        side="right"
+        mobile="after"
+        className="bg-gradient-to-b from-[#eaf5fa] to-paper"
+        image={<Image src="/images/customer-cafe.webp" alt="Illustration of a smiling shopper outside a café, holding a takeaway drink" width={1000} height={1000} preload sizes="(min-width: 768px) 52vw, 100vw" className="h-full w-full object-cover object-[50%_30%]" />}
+      >
+        <h1 className="text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl">Earn rewards for visiting the places you already love.</h1>
+        <p className="mt-5 max-w-xl text-lg text-muted">Quests are simple challenges set by local stores. Finish one, earn Bits, and trade them for a reward you actually want.</p>
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <ButtonLink href={appLinks.customerStart} variant="dark" className="sm:min-w-56">Get started, it&apos;s free</ButtonLink>
+          <ButtonLink href={appLinks.customerExplore} variant="secondary">Browse stores first</ButtonLink>
         </div>
-        <QuestExample />
-      </section>
+      </SceneBand>
 
       <Section title="Step by step" tone="white">
         <Steps

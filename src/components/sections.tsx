@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 
 export function Section({ id, title, intro, children, tone = 'plain' }: { id?: string; title: string; intro?: string; children: ReactNode; tone?: 'plain' | 'white' }) {
   return (
-    <section id={id} className={tone === 'white' ? 'border-y border-mist bg-white' : ''}>
+    <section id={id} className={tone === 'white' ? 'bg-gradient-to-b from-paper via-white to-paper' : ''}>
       <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 md:py-20">
         <h2 className="text-3xl font-bold tracking-tight">{title}</h2>
         {intro ? <p className="mt-3 max-w-2xl text-muted">{intro}</p> : null}
@@ -54,11 +54,11 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
 
 export function CallToAction({ title, body, children }: { title: string; body: string; children: ReactNode }) {
   return (
-    <section className="bg-navy text-white">
+    <section className="bg-gradient-to-b from-paper to-[#fbe6cf]">
       <div className="mx-auto flex w-full max-w-6xl flex-col items-start gap-6 px-4 py-14 sm:px-6 md:flex-row md:items-center md:justify-between md:py-16">
         <div>
           <h2 className="text-3xl font-bold tracking-tight">{title}</h2>
-          <p className="mt-2 max-w-xl text-white/80">{body}</p>
+          <p className="mt-2 max-w-xl text-muted">{body}</p>
         </div>
         <div className="flex shrink-0 flex-col gap-3 sm:flex-row">{children}</div>
       </div>
