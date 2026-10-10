@@ -1,4 +1,5 @@
 import { Minus, Plus } from '@phosphor-icons/react/dist/ssr'
+import Image from 'next/image'
 import Link from 'next/link'
 import type { ReactNode } from 'react'
 import { Art, type ArtName } from '@/components/art'
@@ -128,16 +129,8 @@ export function ChallengeList({ items }: { items: { title: string; body: string;
 // A full-width band with a scene picture on one side that fades into the page background.
 // `image` is the <Image> to show; `side` is the side the picture sits on from md up. On phones the picture goes
 // below the text (`mobile="after"`) or above it (`mobile="before"`). `wide` gives the text more room (used by the hero).
-export function SceneBand({ id, image, side, mobile = 'before', className = '', wide = false, rise = false, soft = false, bare = false, tall = false, extra, children }: { id?: string; image: ReactNode; side: 'left' | 'right'; mobile?: 'before' | 'after'; className?: string; wide?: boolean; rise?: boolean; soft?: boolean; bare?: boolean; tall?: boolean; extra?: ReactNode; children: ReactNode }) {
-  // `bare` is for an illustration with a see-through background: no fade, and the picture sits in a frame that clips (overflow hidden)
-  // while it arrives and floats gently inside it.
-  const picture = bare ? (
-    <div className={`relative h-72 w-full overflow-hidden sm:h-80 md:absolute md:inset-y-0 md:h-auto md:w-[52%] ${side === 'left' ? 'md:left-0' : 'md:right-0'}`}>
-      <div className="hero-pop h-full w-full px-4 pt-4 md:px-8 md:pt-8">
-        <div className="drift h-full w-full" style={{ '--drift': '8s' } as React.CSSProperties}>{image}</div>
-      </div>
-    </div>
-  ) : (
+export function SceneBand({ id, image, side, mobile = 'before', className = '', wide = false, rise = false, soft = false, tall = false, extra, children }: { id?: string; image: ReactNode; side: 'left' | 'right'; mobile?: 'before' | 'after'; className?: string; wide?: boolean; rise?: boolean; soft?: boolean; tall?: boolean; extra?: ReactNode; children: ReactNode }) {
+  const picture = (
     <div
       className={`relative h-56 w-full overflow-hidden sm:h-72 md:absolute md:inset-y-0 md:h-auto md:w-[52%] ${side === 'left' ? `md:left-0 ${soft ? 'fade-soft-left' : 'fade-h-left'}` : `md:right-0 ${soft ? 'fade-soft-right' : 'fade-h-right'}`} ${mobile === 'before' ? 'fade-v-bottom' : 'fade-v-top'}`}
     >
@@ -191,3 +184,18 @@ export function FeatureCard({ art, title, children }: { art: ArtName; title: str
   )
 }
 
+
+// The hero illustration, laid over the faded café picture (it must not be inside the faded box, or it would fade too).
+// It sits in a frame that clips (overflow hidden) what moves inside it: it slides up and settles when the page loads, then
+// floats gently. Both are switched off for visitors who ask for less motion. The frame matches the picture's box.
+export function HeroIllustration({ src, alt, width, height }: { src: string; alt: string; width: number; height: number }) {
+  return (
+    <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-56 overflow-hidden sm:h-72 md:inset-y-0 md:left-auto md:right-0 md:h-auto md:w-[52%]">
+      <div className="hero-pop h-full w-full px-4 pt-3 md:px-8 md:pt-8">
+        <div className="drift h-full w-full" style={{ '--drift': '8s' } as React.CSSProperties}>
+          <Image src={src} alt={alt} width={width} height={height} preload sizes="(min-width: 768px) 52vw, 100vw" className="fade-bottom-soft h-full w-full object-contain object-bottom" />
+        </div>
+      </div>
+    </div>
+  )
+}

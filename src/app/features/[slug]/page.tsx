@@ -6,6 +6,7 @@ import { Art } from '@/components/art'
 import { CallToAction, Facts } from '@/components/sections'
 import { ButtonLink, ButtonRow } from '@/components/ui'
 import { featureBySlug, features } from '@/lib/features'
+import { pageMetadata } from '@/lib/seo'
 import { appLinks } from '@/lib/site'
 
 export const dynamicParams = false
@@ -18,7 +19,7 @@ export async function generateMetadata({ params }: PageProps<'/features/[slug]'>
   const { slug } = await params
   const f = featureBySlug(slug)
   if (!f) return {}
-  return { title: f.seoTitle, description: f.seoDescription, alternates: { canonical: `/features/${f.slug}` } }
+  return pageMetadata({ title: f.seoTitle, description: f.seoDescription, path: `/features/${f.slug}`, shareTitle: f.headline, shareDescription: f.lead })
 }
 
 const TONE_BG = { mint: 'from-mint', gold: 'from-gold/30', sky: 'from-sky', peach: 'from-peach', plain: 'from-sky' } as const

@@ -106,7 +106,7 @@ export const features: Feature[] = [
     art: 'map',
     tone: 'mint',
     seoTitle: 'Discover local favorites near you',
-    seoDescription: 'Browse local stores and their quests without an account. Sign in with a code sent to your email, add Bitwards to your home screen, and download or delete your data any time.',
+    seoDescription: 'Browse local stores and their quests without an account. Sign in with an email code, add Bitwards to your home screen, and download or delete your data any time.',
     headline: 'Discover local favorites.',
     lead: 'Browse local stores and their quests without an account. When you are ready, sign in with a code sent to your email.',
     points: [

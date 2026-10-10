@@ -4,13 +4,16 @@ import { CallToAction, FeatureCard, SceneBand } from '@/components/sections'
 import { Reveal } from '@/components/reveal'
 import { ButtonLink, ButtonRow } from '@/components/ui'
 import { features } from '@/lib/features'
+import { pageMetadata } from '@/lib/seo'
 import { appLinks } from '@/lib/site'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Loyalty program features for customers and local stores',
   description: 'See what Bitwards does: quests, Bits and vouchers, a code that changes every minute, hard limits for stores, insights, and a way to discover local favorites.',
-  alternates: { canonical: '/features' },
-}
+  path: '/features',
+  shareTitle: 'Challenges for customers. Control for stores.',
+  shareDescription: 'Quests, Bits and vouchers, a check-in code that changes every minute, and hard limits on cost. See what Bitwards does.',
+})
 
 export default function FeaturesPage() {
   return (

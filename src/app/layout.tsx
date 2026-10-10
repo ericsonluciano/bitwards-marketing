@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { SiteFooter, SiteHeader } from '@/components/site-chrome'
+import { HOME_DESCRIPTION, HOME_SHARE_DESCRIPTION, HOME_SHARE_TITLE, SHARE_IMAGE } from '@/lib/seo'
 import { SITE } from '@/lib/site'
 
 const inter = Inter({ variable: '--font-inter', subsets: ['latin'] })
@@ -9,9 +10,9 @@ const inter = Inter({ variable: '--font-inter', subsets: ['latin'] })
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: { default: 'Bitwards: a loyalty program of challenges for local stores', template: '%s · Bitwards' },
-  description: 'Bitwards is a loyalty program built on challenges. Customers discover local favorites and earn rewards. Stores bring customers back and grow their business.',
-  openGraph: { siteName: 'Bitwards', type: 'website', locale: 'en_PH', images: [{ url: '/og.jpg', width: 1200, height: 630, alt: 'A café interior in the Bitwards illustration style' }] },
-  twitter: { card: 'summary_large_image' },
+  description: HOME_DESCRIPTION,
+  openGraph: { type: 'website', siteName: 'Bitwards', locale: 'en_PH', title: HOME_SHARE_TITLE, description: HOME_SHARE_DESCRIPTION, images: [SHARE_IMAGE] },
+  twitter: { card: 'summary_large_image', title: HOME_SHARE_TITLE, description: HOME_SHARE_DESCRIPTION, images: [SHARE_IMAGE.url] },
 }
 
 export const viewport: Viewport = {

@@ -1,5 +1,15 @@
 # Changelog
 
+## Better share picture, titles and descriptions; café background back in the hero (2026-10-11)
+
+**Changed**
+- Share picture: `og.jpg` is now the Bitwards banner (logo, "Every visit brings you closer to something good.", bitwards.app, the customer and barista). It is 1200 x 630, so it fits WhatsApp, Messenger, X and search previews without cropping oddly.
+- Every page now sets its own search title and description and its own share title and description (shorter and friendlier for a shared link), plus the matching Twitter/X large-picture card, the page's own address (`og:url`) and the share picture size. They are built in one place (`src/lib/seo.ts`), so a new page cannot forget them. Pages that do not set their own (Terms, Privacy) use the home page defaults.
+- Home page search title: "Bitwards: a loyalty program of challenges for local stores". Search description: "Discover local favorites, complete challenges and earn rewards. Bitwards is a loyalty program that helps local stores bring customers back. Piloting in the Philippines."
+- Home hero: the café picture is back behind the illustration (renamed `hero-background.webp`, slightly softened so the illustration stands out). The illustration is laid over it so it does not fade with it.
+
+**Tests:** 73 end-to-end tests. A new test per page checks title and description length, share tags, the Twitter/X card, that the canonical and share address match, and that the share picture loads.
+
 ## New hero illustration, centred café owner (2026-10-11)
 
 **Changed**

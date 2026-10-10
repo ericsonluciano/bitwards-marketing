@@ -3,13 +3,16 @@ import Image from 'next/image'
 import { FaqSection, SceneBand } from '@/components/sections'
 import { ButtonLink, ButtonRow } from '@/components/ui'
 import { generalFaqs, customerFaqs, storeFaqs } from '@/lib/faqs'
+import { pageMetadata } from '@/lib/seo'
 import { appLinks } from '@/lib/site'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'FAQs: how Bitwards challenges and rewards work',
   description: 'Answers for customers and local stores: how challenges, Bits and vouchers work, what it costs, and how a business joins the Bitwards loyalty program.',
-  alternates: { canonical: '/faq' },
-}
+  path: '/faq',
+  shareTitle: 'Questions about challenges, Bits and joining',
+  shareDescription: 'Plain answers for customers and for local stores about challenges, Bits, vouchers, cost and how to join.',
+})
 
 export default function FaqPage() {
   return (

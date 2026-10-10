@@ -2,13 +2,14 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Art } from '@/components/art'
-import { BentoCell, ChallengeList, Facts, FaqSection, SceneBand, Steps } from '@/components/sections'
+import { BentoCell, ChallengeList, Facts, FaqSection, HeroIllustration, SceneBand, Steps } from '@/components/sections'
 import { Reveal } from '@/components/reveal'
 import { ButtonLink, ButtonRow } from '@/components/ui'
 import { generalFaqs } from '@/lib/faqs'
+import { HOME_DESCRIPTION, HOME_SHARE_DESCRIPTION, HOME_SHARE_TITLE, HOME_TITLE, pageMetadata } from '@/lib/seo'
 import { SITE, appLinks } from '@/lib/site'
 
-export const metadata: Metadata = { alternates: { canonical: '/' } }
+export const metadata: Metadata = pageMetadata({ absoluteTitle: HOME_TITLE, description: HOME_DESCRIPTION, path: '/', shareTitle: HOME_SHARE_TITLE, shareDescription: HOME_SHARE_DESCRIPTION })
 
 // Tells search engines who runs the site. Plain facts only; nothing here is shown on the page.
 const structuredData = {
@@ -30,9 +31,10 @@ export default function Home() {
         wide
         rise
         tall
-        bare
+        soft
         className="bg-gradient-to-b from-sky to-paper"
-        image={<Image src="/images/hero-customer.webp" alt="A smiling customer holding a phone, with a latte, a Bits coin, a gift and a stamp card floating around them" width={1400} height={933} preload sizes="(min-width: 768px) 52vw, 100vw" className="fade-bottom-soft h-full w-full object-contain object-bottom" />}
+        image={<Image src="/images/hero-background.webp" alt="" width={1600} height={900} sizes="(min-width: 768px) 52vw, 100vw" className="scene-img h-full w-full object-cover object-right opacity-70" />}
+        extra={<HeroIllustration src="/images/hero-customer.webp" alt="A smiling customer holding a phone, with a latte, a Bits coin, a gift and a stamp card floating around them" width={1400} height={933} />}
       >
         <h1 className="text-4xl font-extrabold leading-[1.08] tracking-tighter sm:text-5xl">Every visit brings you closer to <span className="text-reward-blue">something good.</span></h1>
         <p className="mt-5 max-w-xl text-lg text-muted">Discover local favorites. Complete challenges. Earn rewards.</p>

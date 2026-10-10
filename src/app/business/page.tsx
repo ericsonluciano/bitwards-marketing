@@ -3,13 +3,16 @@ import Image from 'next/image'
 import { CallToAction, Facts, FaqSection, SceneBand, Section, Steps } from '@/components/sections'
 import { ButtonLink, ButtonRow } from '@/components/ui'
 import { storeFaqs } from '@/lib/faqs'
+import { pageMetadata } from '@/lib/seo'
 import { appLinks } from '@/lib/site'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'A loyalty program to grow your business',
   description: 'Bring more reasons for customers to come back. Run challenges you can afford: set a reward and a hard limit, and let your team confirm at the counter.',
-  alternates: { canonical: '/business' },
-}
+  path: '/business',
+  shareTitle: 'Turn your customers into regulars',
+  shareDescription: 'Run a loyalty program built on challenges. Set the reward and a hard limit, and let your team confirm at the counter. Apply to join the pilot.',
+})
 
 export default function BusinessPage() {
   return (

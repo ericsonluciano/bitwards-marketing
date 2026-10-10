@@ -3,13 +3,16 @@ import Image from 'next/image'
 import { CallToAction, Facts, FaqSection, SceneBand, Section, Steps } from '@/components/sections'
 import { ButtonLink, ButtonRow } from '@/components/ui'
 import { customerFaqs } from '@/lib/faqs'
+import { pageMetadata } from '@/lib/seo'
 import { appLinks } from '@/lib/site'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'A loyalty program for customers: challenges and rewards',
-  description: 'Join challenges at local stores, show a code at the counter, earn Bits and claim real rewards. Free for customers, no password.',
-  alternates: { canonical: '/customers' },
-}
+  description: 'Join challenges at local stores, show a code at the counter, earn Bits and claim real rewards. Free for customers, no password to remember.',
+  path: '/customers',
+  shareTitle: 'Earn rewards for the places you already love',
+  shareDescription: 'Join challenges at local stores, show your code at the counter and earn Bits you can trade for real rewards. Free, with no password.',
+})
 
 export default function CustomersPage() {
   return (

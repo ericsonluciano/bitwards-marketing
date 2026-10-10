@@ -208,3 +208,29 @@ test('the home page leads with Explore Bitwards and uses US spelling', async ({ 
   expect(text).not.toMatch(/favourite|neighbourhood/i)
   expect(text).not.toMatch(/[—–]/)
 })
+
+// How each page looks in search results and when shared: a title and description of a sensible length, the same
+// address in canonical and og:url, a large share picture, and a Twitter/X large-image card.
+for (const route of ['/', '/customers', '/business', '/features', '/faq', ...features.map((f) => `/features/${f.slug}`)]) {
+  test(`search and share tags: ${route}`, async ({ page, request }) => {
+    await page.goto(route)
+    const title = await page.title()
+    expect(title.length).toBeLessThanOrEqual(70)
+    const meta = (selector: string) => page.locator(selector).first().getAttribute('content')
+    const description = (await meta('meta[name="description"]')) ?? ''
+    expect(description.length).toBeGreaterThanOrEqual(80)
+    expect(description.length).toBeLessThanOrEqual(165)
+    expect((await meta('meta[property="og:title"]'))?.length).toBeGreaterThan(8)
+    expect((await meta('meta[property="og:description"]'))?.length).toBeGreaterThan(40)
+    expect(await meta('meta[property="og:image"]')).toMatch(/\/og\.jpg$/)
+    expect(await meta('meta[property="og:image:width"]')).toBe('1200')
+    expect(await meta('meta[property="og:image:height"]')).toBe('630')
+    expect(await meta('meta[name="twitter:card"]')).toBe('summary_large_image')
+    expect(await meta('meta[name="twitter:image"]')).toMatch(/\/og\.jpg$/)
+    const canonical = await page.locator('link[rel="canonical"]').getAttribute('href')
+    expect(await meta('meta[property="og:url"]')).toBe(canonical)
+    const image = await request.get('/og.jpg')
+    expect(image.status()).toBe(200)
+    expect(image.headers()['content-type']).toContain('image/jpeg')
+  })
+}
