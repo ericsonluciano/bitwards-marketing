@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { Art } from '@/components/art'
 import { BentoCell, ChallengeList, Facts, FaqSection, FloatingBits, SceneBand, Steps } from '@/components/sections'
 import { Reveal } from '@/components/reveal'
-import { ButtonLink } from '@/components/ui'
+import { ButtonLink, ButtonRow } from '@/components/ui'
 import { generalFaqs } from '@/lib/faqs'
 import { SITE, appLinks } from '@/lib/site'
 
@@ -35,10 +35,10 @@ export default function Home() {
       >
         <h1 className="text-4xl font-extrabold leading-[1.08] tracking-tighter sm:text-5xl">Every visit brings you closer to <span className="text-reward-blue">something good.</span></h1>
         <p className="mt-5 max-w-xl text-lg text-muted">Discover local favorites. Complete challenges. Earn rewards.</p>
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <ButtonLink href={appLinks.customerExplore} variant="dark" className="sm:min-w-52">Explore Bitwards</ButtonLink>
+        <ButtonRow className="mt-8">
+          <ButtonLink href={appLinks.customerExplore} variant="dark" className="">Explore Bitwards</ButtonLink>
           <ButtonLink href={appLinks.customerStart} variant="secondary">Get Early Access</ButtonLink>
-        </div>
+        </ButtonRow>
       </SceneBand>
 
       {/* Customers: the picture in a frame, with the text panel overlapping it. */}
@@ -114,19 +114,17 @@ export default function Home() {
             ['gift', 'Set your own rewards', 'Choose a reward that fits your business and budget.'],
             ['insights', 'Learn from participation', 'Review challenge and redemption activity.'],
           ].map(([art, title, body], i) => (
-            <li key={title} data-rise style={{ '--d': `${i * 0.07}s` } as React.CSSProperties} className="flex items-start gap-3">
-              <Art name={art as 'trophy'} size={64} className="size-14 shrink-0" />
-              <div>
-                <h3 className="font-semibold">{title}</h3>
-                <p className="mt-0.5 text-sm text-muted">{body}</p>
-              </div>
+            <li key={title} data-rise style={{ '--d': `${i * 0.07}s` } as React.CSSProperties} className="flex flex-col items-start gap-2">
+              <Art name={art as 'trophy'} size={80} className="size-16" />
+              <h3 className="font-semibold">{title}</h3>
+              <p className="text-sm text-muted">{body}</p>
             </li>
           ))}
         </Reveal>
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+        <ButtonRow className="mt-8">
           <ButtonLink href={appLinks.businessApply} variant="dark">Apply to join the pilot</ButtonLink>
           <ButtonLink href="/business" variant="secondary">See how it works for stores</ButtonLink>
-        </div>
+        </ButtonRow>
         <p className="mt-4 max-w-xl text-sm text-muted">You choose the reward and set the rules. Rewards are funded by your store. Pilot pricing is being finalised.</p>
       </SceneBand>
 
@@ -165,10 +163,10 @@ export default function Home() {
         <div className="relative mx-auto -mt-4 flex w-full max-w-3xl flex-col items-center px-4 pb-20 text-center sm:px-6 md:-mt-6 md:pb-28">
           <h2 className="text-3xl font-bold tracking-tight sm:text-5xl sm:leading-[1.08]">Make supporting local businesses more rewarding.</h2>
           <p className="mt-4 max-w-xl text-lg text-muted">A more rewarding way to discover your favorite local spots is coming. Get early access and be among the first to try it.</p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <ButtonRow className="mt-8">
             <ButtonLink href={appLinks.customerStart} variant="dark">Get Early Access</ButtonLink>
             <ButtonLink href="/business" variant="secondary">I run a store</ButtonLink>
-          </div>
+          </ButtonRow>
         </div>
       </section>
     </main>

@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
-import { CallToAction, FeatureTile, FloatingBits } from '@/components/sections'
+import Image from 'next/image'
+import { CallToAction, FeatureCard, SceneBand } from '@/components/sections'
 import { Reveal } from '@/components/reveal'
-import { ButtonLink } from '@/components/ui'
+import { ButtonLink, ButtonRow } from '@/components/ui'
 import { features } from '@/lib/features'
 import { appLinks } from '@/lib/site'
 
@@ -11,30 +12,31 @@ export const metadata: Metadata = {
   alternates: { canonical: '/features' },
 }
 
-// Tile sizes on a 6-column grid: 4+2, then 2+2+2, then one wide tile. Six features, six tiles.
-const SPANS = ['md:col-span-4', 'md:col-span-2', 'md:col-span-2', 'md:col-span-2', 'md:col-span-2', 'md:col-span-6']
-
 export default function FeaturesPage() {
   return (
     <main>
-      <section className="relative overflow-hidden bg-gradient-to-b from-sky to-paper">
-        <div className="hero-rise mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 md:py-24">
-          <h1 className="max-w-4xl text-4xl font-extrabold leading-[1.08] tracking-tighter sm:text-5xl">Challenges for shoppers. <span className="text-reward-blue sm:block">Control for stores.</span></h1>
-          <p className="mt-5 max-w-xl text-lg text-muted">Everything a local loyalty program needs to run at a busy counter, and nothing it does not.</p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href={appLinks.customerExplore} variant="dark">Explore Bitwards</ButtonLink>
-            <ButtonLink href={appLinks.businessApply} variant="secondary">Apply to join the pilot</ButtonLink>
-          </div>
-        </div>
-        <FloatingBits />
-      </section>
+      <SceneBand
+        side="right"
+        mobile="after"
+        wide
+        rise
+        className="bg-gradient-to-b from-sky to-paper"
+        image={<Image src="/images/scan-at-counter.webp" alt="A shopper shows a Bitwards code on her phone while a café barista scans it" width={1500} height={1000} preload sizes="(min-width: 768px) 52vw, 100vw" className="scene-img h-full w-full object-cover object-[58%_50%]" />}
+      >
+        <h1 className="text-4xl font-extrabold leading-[1.08] tracking-tighter sm:text-5xl">Challenges for shoppers. <span className="text-reward-blue sm:block">Control for stores.</span></h1>
+        <p className="mt-5 max-w-xl text-lg text-muted">Everything a local loyalty program needs to run at a busy counter, and nothing it does not.</p>
+        <ButtonRow className="mt-8">
+          <ButtonLink href={appLinks.customerExplore} variant="dark">Explore Bitwards</ButtonLink>
+          <ButtonLink href={appLinks.businessApply} variant="secondary">Apply to join the pilot</ButtonLink>
+        </ButtonRow>
+      </SceneBand>
 
-      <section className="mx-auto w-full max-w-6xl px-4 pb-16 pt-4 sm:px-6 md:pb-28">
-        <Reveal as="ul" className="grid gap-4 md:grid-cols-6">
-          {features.map((f, i) => (
-            <FeatureTile key={f.slug} href={`/features/${f.slug}`} tone={f.tone} art={f.art} title={f.title} className={SPANS[i]}>
+      <section className="mx-auto w-full max-w-6xl px-4 pb-16 pt-6 sm:px-6 md:pb-28">
+        <Reveal as="ul" className="grid gap-5 md:grid-cols-2">
+          {features.map((f) => (
+            <FeatureCard key={f.slug} href={`/features/${f.slug}`} art={f.art} title={f.title}>
               {f.summary}
-            </FeatureTile>
+            </FeatureCard>
           ))}
         </Reveal>
       </section>

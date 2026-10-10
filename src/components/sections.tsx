@@ -1,8 +1,9 @@
-import { ArrowRight, Minus, Plus } from '@phosphor-icons/react/dist/ssr'
+import { ArrowUpRight, Minus, Plus } from '@phosphor-icons/react/dist/ssr'
 import Link from 'next/link'
 import type { ReactNode } from 'react'
 import { Art, type ArtName } from '@/components/art'
 import { Reveal } from '@/components/reveal'
+import { ButtonRow } from '@/components/ui'
 
 // Plain section for the inner pages: a heading, an optional line, then the content.
 export function Section({ id, title, intro, children, tone = 'plain' }: { id?: string; title: string; intro?: string; children: ReactNode; tone?: 'plain' | 'white' }) {
@@ -44,18 +45,16 @@ export function Steps({ items }: { items: { title: string; body: string }[] }) {
   )
 }
 
-// A set of short points as plain text with an illustration. No boxes: space does the grouping.
-export function Facts({ items, columns = 2, level = 3 }: { items: { title: string; body: string; art: ArtName }[]; columns?: 2 | 3; level?: 2 | 3 }) {
+// A set of short points in two columns. Each one stacks the same way: the picture, then the title, then the details.
+export function Facts({ items, level = 3 }: { items: { title: string; body: string; art: ArtName }[]; level?: 2 | 3 }) {
   const Heading = level === 2 ? 'h2' : 'h3'
   return (
-    <Reveal as="ul" className={`grid gap-x-10 gap-y-9 sm:grid-cols-2 ${columns === 3 ? 'lg:grid-cols-3' : ''}`}>
+    <Reveal as="ul" className="grid gap-x-10 gap-y-10 sm:grid-cols-2">
       {items.map((item, i) => (
-        <li key={item.title} data-rise style={{ '--d': `${i * 0.06}s` } as React.CSSProperties} className="flex items-start gap-4">
-          <Art name={item.art} size={72} className="size-[4.5rem] shrink-0" />
-          <div>
-            <Heading className="text-lg font-semibold">{item.title}</Heading>
-            <p className="mt-1 text-muted">{item.body}</p>
-          </div>
+        <li key={item.title} data-rise style={{ '--d': `${i * 0.06}s` } as React.CSSProperties} className="flex flex-col items-start gap-3">
+          <Art name={item.art} size={96} className="size-20" />
+          <Heading className="text-lg font-semibold">{item.title}</Heading>
+          <p className="max-w-sm text-muted">{item.body}</p>
         </li>
       ))}
     </Reveal>
@@ -100,7 +99,7 @@ export function CallToAction({ title, body, children }: { title: string; body: s
           <h2 className="max-w-xl text-3xl font-bold tracking-tight sm:text-4xl">{title}</h2>
           <p className="mt-3 max-w-xl text-lg text-muted">{body}</p>
         </div>
-        <div className="flex shrink-0 flex-col gap-3 sm:flex-row">{children}</div>
+        <ButtonRow className="shrink-0">{children}</ButtonRow>
       </div>
     </section>
   )
@@ -187,29 +186,35 @@ export function BentoCell({ tone = 'plain', art, title, href, children, classNam
       <div>
         <h3 className="text-xl font-semibold tracking-tight">{title}</h3>
         <p className="mt-1.5 max-w-sm text-muted">{children}</p>
-        {href ? <span className="mt-3 inline-flex items-center gap-1.5 font-semibold text-ink underline underline-offset-4">Learn more<ArrowRight size={18} aria-hidden /></span> : null}
       </div>
     </>
   )
-  const box = `group flex h-full flex-col justify-between gap-5 rounded-card p-6 sm:p-7 ${TONES[tone]}`
+  const box = `group relative flex h-full flex-col justify-between gap-5 rounded-card p-6 sm:p-7 ${TONES[tone]}`
   return (
     <li data-rise className={className}>
-      {href ? <Link href={href} className={`${box} transition-shadow hover:shadow-[0_24px_50px_-30px_rgba(23,42,58,0.5)]`}>{body}</Link> : <div className={box}>{body}</div>}
+      {href ? <Link href={href} className={`${box} transition-shadow hover:shadow-[0_24px_50px_-30px_rgba(23,42,58,0.5)]`}>{body}<CornerArrow /></Link> : <div className={box}>{body}</div>}
     </li>
   )
 }
 
-// A larger tile for the features index: text on the left, the picture on the right. The whole tile is the link.
-export function FeatureTile({ href, tone, art, title, children, className = '' }: { href: string; tone: Tone; art: ArtName; title: string; children: ReactNode; className?: string }) {
+// The small arrow in the corner of a clickable tile: it says "this opens something" without any extra words.
+function CornerArrow() {
   return (
-    <li data-rise className={className}>
-      <Link href={href} className={`group flex h-full flex-col justify-between gap-6 overflow-hidden rounded-card p-6 transition-shadow hover:shadow-[0_24px_50px_-30px_rgba(23,42,58,0.5)] sm:p-8 ${TONES[tone]}`}>
-        <Art name={art} size={280} className="size-44 self-end transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-105 motion-reduce:transform-none sm:size-56" />
-        <div>
-          <h2 className="text-2xl font-semibold tracking-tight">{title}</h2>
-          <p className="mt-2 max-w-md text-muted">{children}</p>
-          <span className="mt-4 inline-flex items-center gap-1.5 font-semibold text-ink underline underline-offset-4">Learn more<ArrowRight size={18} aria-hidden /></span>
-        </div>
+    <span aria-hidden="true" className="absolute right-5 top-5 flex size-9 items-center justify-center rounded-full bg-surface/80 text-ink transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transform-none">
+      <ArrowUpRight size={18} />
+    </span>
+  )
+}
+
+// A card for the features index. All cards are the same: white, the picture first, then the title, then the details.
+export function FeatureCard({ href, art, title, children }: { href: string; art: ArtName; title: string; children: ReactNode }) {
+  return (
+    <li data-rise>
+      <Link href={href} className="group relative flex h-full flex-col items-start gap-3 rounded-card border border-mist bg-surface p-7 transition-shadow hover:shadow-[0_24px_50px_-30px_rgba(23,42,58,0.5)] sm:p-8">
+        <Art name={art} size={128} className="size-24 transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-105 motion-reduce:transform-none" />
+        <h2 className="mt-1 text-2xl font-semibold tracking-tight">{title}</h2>
+        <p className="max-w-md text-muted">{children}</p>
+        <CornerArrow />
       </Link>
     </li>
   )

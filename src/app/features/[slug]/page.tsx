@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Art } from '@/components/art'
 import { CallToAction, Facts } from '@/components/sections'
-import { ButtonLink } from '@/components/ui'
+import { ButtonLink, ButtonRow } from '@/components/ui'
 import { featureBySlug, features } from '@/lib/features'
 import { appLinks } from '@/lib/site'
 
@@ -39,10 +39,10 @@ export default async function FeaturePage({ params }: PageProps<'/features/[slug
             <Link href="/features" className="inline-flex min-h-11 items-center gap-1.5 font-semibold text-reward-blue"><ArrowLeft size={18} aria-hidden />All features</Link>
             <h1 className="mt-3 text-4xl font-extrabold leading-[1.08] tracking-tighter sm:text-5xl">{feature.headline}</h1>
             <p className="mt-5 max-w-lg text-lg text-muted">{feature.lead}</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <ButtonRow className="mt-8">
               <ButtonLink href={appLinks.customerExplore} variant="dark">Explore Bitwards</ButtonLink>
               <ButtonLink href={appLinks.businessApply} variant="secondary">Apply to join the pilot</ButtonLink>
-            </div>
+            </ButtonRow>
           </div>
           <div className="md:col-span-6">
             <Art name={feature.art} size={640} priority className="drift mx-auto w-full max-w-md" />

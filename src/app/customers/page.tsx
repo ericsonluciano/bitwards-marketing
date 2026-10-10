@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { CallToAction, Facts, FaqSection, SceneBand, Section, Steps } from '@/components/sections'
-import { ButtonLink } from '@/components/ui'
+import { ButtonLink, ButtonRow } from '@/components/ui'
 import { shopperFaqs } from '@/lib/faqs'
 import { appLinks } from '@/lib/site'
 
@@ -24,10 +24,10 @@ export default function CustomersPage() {
       >
         <h1 className="text-4xl font-extrabold leading-[1.08] tracking-tighter sm:text-5xl">Earn rewards for visiting the places you already love.</h1>
         <p className="mt-5 max-w-xl text-lg text-muted">Quests are simple challenges set by local stores. Finish one, earn Bits, and trade them for a reward you actually want.</p>
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <ButtonLink href={appLinks.customerStart} variant="dark" className="sm:min-w-56">Get started, it&apos;s free</ButtonLink>
+        <ButtonRow className="mt-8">
+          <ButtonLink href={appLinks.customerStart} variant="dark" className="">Get started, it&apos;s free</ButtonLink>
           <ButtonLink href={appLinks.customerExplore} variant="secondary">Browse stores first</ButtonLink>
-        </div>
+        </ButtonRow>
       </SceneBand>
 
       <Section title="Step by step" tone="white">
@@ -57,7 +57,7 @@ export default function CustomersPage() {
       />
 
       <CallToAction title="Start your first quest" body="It takes about a minute to sign up.">
-        <ButtonLink href={appLinks.customerStart}>Open the app</ButtonLink>
+        <ButtonLink href={appLinks.customerStart} variant="dark">Open the app</ButtonLink>
       </CallToAction>
     </main>
   )

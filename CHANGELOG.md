@@ -1,5 +1,16 @@
 # Changelog
 
+## Photos on more pages, consistent cards and buttons, stacked points (2026-10-11)
+
+**Changed**
+- The small "Learn more" links on feature tiles are gone. The whole tile is still a link, with a small arrow in the corner.
+- Buttons: every button is now the same height, and buttons side by side are the same width (on phones they fill the width). The second button has a clearer outline. The two closing buttons that were teal are now navy like the rest.
+- Points sections ("Turn your customers into regulars.", "Honest by design", "Good to know", "You stay in control" and the feature pages) now stack the same way: picture, then title, then details, always in two columns.
+- Features page: the six features are equal white cards in two columns, each with the picture first, then the title, then the details, all aligned left.
+- New photos: the shopper showing a code to the barista on Features, the café from outside on FAQs, the owner waiting at the entrance on the business page, and a customer photographing her food beside "You stay in control" on the business page.
+
+**Tests:** 62 end-to-end tests (unchanged count).
+
 ## Smoother fade on "Turn your customers into regulars." (2026-10-11)
 
 **Fixed**
