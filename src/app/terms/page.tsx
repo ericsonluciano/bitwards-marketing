@@ -7,7 +7,7 @@ export default function Page() {
   return (
     <LegalPage title="Terms of use">
       <p>
-        These terms are an agreement between you and Bitwards, operated by [legal name of the business or owner], [address in the Philippines] (“we”). They cover the Bitwards customer app, the Bitwards business app and this website. By creating an account or using Bitwards you agree to them and to our Privacy Notice. If you do not agree, please do not use Bitwards.
+        These terms are an agreement between you and Bitwards, operated by Ericson Luciano, doing business as Bitwards, Navotas City, Metro Manila, Philippines (“we”). They cover the Bitwards customer app, the Bitwards business app and this website. By creating an account or using Bitwards you agree to them and to our Privacy Notice. If you do not agree, please do not use Bitwards.
       </p>
 
       <h2>1. Who can use Bitwards</h2>
@@ -53,7 +53,7 @@ export default function Page() {
       <p>We may update these terms. If a change matters, we will tell you in the app or by email before it applies. Using Bitwards after that means you accept the change. If Bitwards is sold, merged or moved to another company, these terms and your account may move with it, and we will tell you.</p>
 
       <h2>8. Law and contact</h2>
-      <p>These terms are governed by the laws of the Republic of the Philippines. We hope to settle any problem by talking first; if that fails, the proper courts of [city, Philippines] have jurisdiction. Contact: [support email address].</p>
+      <p>These terms are governed by the laws of the Republic of the Philippines. We hope to settle any problem by talking first; if that fails, the proper courts of [city, Philippines] have jurisdiction. Contact: hello@bitwards.app.</p>
     </LegalPage>
   )
 }

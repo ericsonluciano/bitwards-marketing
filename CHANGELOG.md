@@ -1,5 +1,13 @@
 # Changelog
 
+## Legal pages, pilot version 0.4 (2026-10-10)
+
+**Changed**
+- Filled in who is responsible: Bitwards is operated by Ericson Luciano (doing business as Bitwards), Navotas City, Metro Manila, Philippines. The Privacy Notice names the Data Protection Officer and gives hello@bitwards.app as the contact; the Terms give the same contact. The DPO phone line was removed rather than left as a placeholder.
+- Still in [square brackets]: retention period for support and billing records, the inactive-accounts rule, pilot fees, the liability limit and the court venue. These need a decision or a lawyer.
+
+**Breaking changes:** none.
+
 ## Legal pages, pilot version 0.3 (2026-10-10)
 
 **Changed**

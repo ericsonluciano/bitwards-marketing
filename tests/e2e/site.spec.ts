@@ -83,3 +83,12 @@ test('pages carry the basic browser protections', async ({ request }) => {
   expect(headers['referrer-policy']).toBe('strict-origin-when-cross-origin')
   expect(headers['permissions-policy']).toContain('camera=()')
 })
+
+test('legal pages name who is responsible and how to reach them', async ({ page }) => {
+  await page.goto('/privacy')
+  await expect(page.getByText('Data Protection Officer, Bitwards (Ericson Luciano)')).toBeVisible()
+  await expect(page.getByText('hello@bitwards.app').first()).toBeVisible()
+  await page.goto('/terms')
+  await expect(page.getByText(/operated by Ericson Luciano/)).toBeVisible()
+  await expect(page.getByText('Contact: hello@bitwards.app.')).toBeVisible()
+})

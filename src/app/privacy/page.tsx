@@ -7,18 +7,17 @@ export default function Page() {
   return (
     <LegalPage title="Privacy notice">
       <p>
-        This notice explains what personal information Bitwards collects, why, who sees it, how long we keep it, and the choices and rights you have. We follow the Philippine Data Privacy Act of 2012 (Republic Act No. 10173) and its rules. In this notice, “we” means Bitwards, operated by [legal name of the business or owner], [address in the Philippines].
+        This notice explains what personal information Bitwards collects, why, who sees it, how long we keep it, and the choices and rights you have. We follow the Philippine Data Privacy Act of 2012 (Republic Act No. 10173) and its rules. In this notice, “we” means Bitwards, operated by Ericson Luciano, doing business as Bitwards, Navotas City, Metro Manila, Philippines.
       </p>
 
       <h2>1. Who is responsible for your information</h2>
       <p>
-        Bitwards is the personal information controller. Our Data Protection Officer (the person responsible for privacy) is [name], and you can reach them at:
+        Bitwards is the personal information controller. Our Data Protection Officer (the person responsible for privacy) is Ericson Luciano, and you can reach them at:
       </p>
       <p>
-        [Data Protection Officer, business name]<br />
-        [postal address in the Philippines]<br />
-        [phone number]<br />
-        [privacy email address]
+        Data Protection Officer, Bitwards (Ericson Luciano)<br />
+        Navotas City, Metro Manila, Philippines<br />
+        hello@bitwards.app
       </p>
       <p>Please write there for any question, request or complaint about this notice.</p>
 
