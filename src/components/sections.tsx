@@ -124,3 +124,25 @@ export function SampleChallenges({ items }: { items: { title: string; body: stri
     </div>
   )
 }
+
+// A full-width band with a scene picture on one side that fades into the page background.
+// `image` is the <Image> to show; `side` is the side the picture sits on from md up. On phones the picture goes
+// below the text (`mobile="after"`) or above it (`mobile="before"`).
+export function SceneBand({ id, image, side, mobile = 'before', className = '', children }: { id?: string; image: ReactNode; side: 'left' | 'right'; mobile?: 'before' | 'after'; className?: string; children: ReactNode }) {
+  const picture = (
+    <div
+      className={`relative h-56 w-full overflow-hidden sm:h-72 md:absolute md:inset-y-0 md:h-auto md:w-[52%] ${side === 'left' ? 'md:left-0 fade-h-left' : 'md:right-0 fade-h-right'} ${mobile === 'before' ? 'fade-v-bottom' : 'fade-v-top'}`}
+    >
+      {image}
+    </div>
+  )
+  return (
+    <section id={id} className={`relative scroll-mt-4 overflow-hidden ${className}`}>
+      {mobile === 'before' ? picture : null}
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 md:py-24">
+        <div className={`md:w-[48%] ${side === 'left' ? 'md:ml-auto' : ''}`}>{children}</div>
+      </div>
+      {mobile === 'after' ? picture : null}
+    </section>
+  )
+}

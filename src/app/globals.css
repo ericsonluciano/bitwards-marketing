@@ -42,3 +42,12 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Full-width scene images that melt into the page. On phones the picture sits above/below the text and fades vertically;
+   from md up it fills one side of the band and fades toward the text. */
+.fade-v-bottom { mask-image: linear-gradient(to bottom, #000 55%, transparent); }
+.fade-v-top { mask-image: linear-gradient(to top, #000 55%, transparent); }
+@media (min-width: 768px) {
+  .fade-h-left { mask-image: linear-gradient(to right, #000 40%, transparent); }
+  .fade-h-right { mask-image: linear-gradient(to left, #000 40%, transparent); }
+}

@@ -24,7 +24,7 @@ export function SiteHeader() {
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-mist bg-white">
+    <footer className="bg-[#fbe6cf]">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-4 py-8 text-sm text-muted sm:px-6 md:flex-row md:items-center md:justify-between">
         <p>© Bitwards. Rewards are funded by the store that offers them. Currently piloting in the Philippines.</p>
         <nav aria-label="Footer" className="flex flex-wrap gap-x-4">
