@@ -1,5 +1,16 @@
 # Changelog
 
+## Legal pages, pilot version 0.2 (2026-10-10)
+
+**Changed**
+- Terms of Use and Privacy Notice rewritten in plain language with Philippine references (Data Privacy Act of 2012, National Privacy Commission, consumer rules, Philippine governing law). They list exactly what data the apps collect, who sees it (stores, our staff, named service providers and that data may be processed outside the Philippines), how long it is kept, and the user's rights. Terms cover customers and stores separately (Bits have no cash value, vouchers expire, staff-confirmed progress, store duties, fair use, 18+, ending an account).
+- Both pages show a version and date, and still say they are waiting for legal review. Items in [square brackets] are placeholders to fill in (legal name and address, privacy contact, retention period, liability limit, court venue, pilot fees).
+- See `bitwards-product-docs/09-legal-notes-philippines.md`.
+
+**Needs your action:** fill the placeholders and have a Philippine lawyer review before inviting real users.
+
+**Breaking changes:** none.
+
 ## Browser protections (2026-10-10)
 
 **Added**

@@ -1,19 +1,56 @@
 import type { Metadata } from 'next'
-import { Alert } from '@/components/ui'
+import { LegalPage } from '@/components/legal'
 
 export const metadata: Metadata = { title: 'Terms of use', alternates: { canonical: '/terms' } }
 
 export default function Page() {
   return (
-    <main className="mx-auto flex w-full max-w-3xl flex-col gap-4 px-4 py-10 sm:px-6">
-      <h1 className="text-3xl font-bold tracking-tight">Terms of use</h1>
-      <Alert tone="info">Draft. This text is a plain-language placeholder and is waiting for legal review before launch.</Alert>
-      <h2 className="mt-4 text-xl font-semibold">Shoppers</h2>
-      <p>Bitwards lets you complete quests at participating stores and earn Bits, which you can use for rewards at the store that issued them.</p>
-      <p>Bits have no cash value, can&apos;t be transferred, and belong to one store. Stores set their own quests and rewards. The rules shown when you join a quest are the rules that apply to you.</p>
-      <p>A store&apos;s staff confirm your visits and purchases. Mistakes can be reviewed by contacting us; we may correct them. We may suspend accounts or stores that misuse the service.</p>
-      <h2 className="mt-4 text-xl font-semibold">Businesses</h2>
-      <p>Stores are reviewed before they go live. You fund the rewards you offer and are responsible for honouring vouchers on the terms you publish. Pricing and billing terms for the pilot will be provided separately before any charge.</p>
-    </main>
+    <LegalPage title="Terms of use">
+      <p>
+        These terms are an agreement between you and Bitwards, operated by [legal name of the business or owner], [address in the Philippines] (“we”). They cover the Bitwards customer app, the Bitwards business app and this website. By creating an account or using Bitwards you agree to them and to our Privacy Notice. If you do not agree, please do not use Bitwards.
+      </p>
+
+      <h2>1. Who can use Bitwards</h2>
+      <p>You must be at least 18 and able to enter into an agreement. If you sign up for a business, you confirm that you are allowed to act for it. Give us true information and keep your sign-in secure. You are responsible for what happens under your account.</p>
+
+      <h2>2. What Bitwards is</h2>
+      <p>Bitwards is a platform that lets participating stores create quests (simple challenges) and rewards, and lets customers join quests, earn Bits and claim rewards. The stores, not Bitwards, sell the food, drinks and goods, offer the rewards, and are responsible for them. Bitwards is currently a pilot, so features may change, pause or end.</p>
+
+      <h2>3. For customers</h2>
+      <ul>
+        <li><strong>Bits</strong> are a reward points balance kept for each store. They have no cash value, cannot be sold, bought, transferred or exchanged for money, and can be used only at the store that issued them.</li>
+        <li><strong>Quests</strong> are set by the store. The rules shown when you join are the rules that apply to you, even if the store later changes the quest for other people. Quests have limits and can fill up, end or be paused.</li>
+        <li><strong>Progress counts only when store staff confirm it</strong> (for example a check-in or a qualifying purchase). Show your code at the counter. Codes change every minute and may be used once.</li>
+        <li><strong>Vouchers</strong> are issued when you claim a reward with your Bits. Each has an expiry date and the terms the store set. Expired vouchers are not refunded. Show the voucher code to the store to use it.</li>
+        <li><strong>Mistakes.</strong> If something went wrong, contact us. We may review it with the store and correct your balance. We do not have to reverse a claim that was made correctly.</li>
+        <li><strong>Fair use.</strong> Do not cheat, share or sell codes or accounts, use more than one account to collect rewards, pressure staff, or interfere with the service. We may remove Bits, cancel vouchers, or suspend an account for misuse after reviewing the facts.</li>
+      </ul>
+
+      <h2>4. For businesses</h2>
+      <ul>
+        <li><strong>Application.</strong> Stores are reviewed before they go live. We can decline, pause or suspend a store, with a reason, if it breaks these terms or the law, or if customers are put at risk.</li>
+        <li><strong>Your rewards.</strong> You decide and fund your rewards and quests. You must honour vouchers on the terms you published, within their expiry. Set limits you can afford. Bitwards helps you see the maximum cost but does not guarantee your results or profits.</li>
+        <li><strong>Your team.</strong> You are responsible for the people you invite, for confirming visits and purchases honestly, and for removing access when someone leaves.</li>
+        <li><strong>Laws.</strong> You are responsible for the permits, taxes and rules that apply to your business and promotions in the Philippines, including consumer protection and any approval needed for promotional offers, and for the accuracy of what you advertise.</li>
+        <li><strong>Pilot and fees.</strong> The pilot is offered on the terms we give you in writing [pilot period and fees to be confirmed]. Plans, prices and invoicing terms will be sent to you before any charge.</li>
+        <li><strong>Data.</strong> You may use customer information you can see only to run your own rewards at your store, and must follow the Data Privacy Act. Do not copy, sell or share it.</li>
+      </ul>
+
+      <h2>5. Our rights and responsibilities</h2>
+      <ul>
+        <li>We work to keep Bitwards available and accurate, but it needs an internet connection and may have interruptions. We may change or end features with reasonable notice where we can.</li>
+        <li>We are not responsible for what stores sell, for their rewards, or for disputes between a store and its customers, though we will try to help. Where the law allows, our responsibility to you is limited to direct losses and to the amount [limit to be confirmed by a lawyer]. Nothing here limits rights you have under Philippine consumer law that cannot be waived.</li>
+        <li>The Bitwards name, logo and software belong to us. You may use the service as intended, but not copy or reverse engineer it.</li>
+      </ul>
+
+      <h2>6. Ending your account</h2>
+      <p>You can delete your account in the app at any time (customers: Profile → Delete account). Stores can ask us to close their account. When an account ends, Bits and unused vouchers end with it. We may suspend or end accounts that break these terms.</p>
+
+      <h2>7. Changes</h2>
+      <p>We may update these terms. If a change matters, we will tell you in the app or by email before it applies. Using Bitwards after that means you accept the change.</p>
+
+      <h2>8. Law and contact</h2>
+      <p>These terms are governed by the laws of the Republic of the Philippines. We hope to settle any problem by talking first; if that fails, the proper courts of [city, Philippines] have jurisdiction. Contact: [support email address].</p>
+    </LegalPage>
   )
 }
