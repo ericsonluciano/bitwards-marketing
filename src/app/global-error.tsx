@@ -1,16 +1,16 @@
 'use client'
 
-import * as Sentry from '@sentry/nextjs'
 import { useEffect } from 'react'
 import './globals.css'
 import { Button } from '@/components/ui'
+import { reportError } from '@/lib/report-error'
 
 // Shown when something breaks so badly that the normal page layout cannot load.
 // It replaces the whole page, so it brings its own <html> and <body>.
 export default function GlobalError({ error, retry }: { error: Error & { digest?: string }; retry: () => void }) {
   useEffect(() => {
     // Does nothing unless error tracking is switched on (see docs/ENVIRONMENT.md).
-    Sentry.captureException(error)
+    reportError(error)
   }, [error])
 
   return (

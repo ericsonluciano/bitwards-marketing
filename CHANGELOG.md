@@ -1,5 +1,11 @@
 # Changelog
 
+## Error reporting loads later, so pages stay light (2026-10-10)
+
+**Changed**
+- The browser error-reporting code (Sentry) now loads a few seconds after the page is ready, when the browser is idle, instead of with the page. Errors that happen before it loads are held and sent once it is ready. Pages download about 76 KB less script (measured on the customer app: 288 KB back to 212 KB, the same as with reporting switched off). The same privacy filter applies: no emails, no query strings.
+- Server-side error reporting is unchanged.
+
 ## Legal pages, pilot version 0.10 (2026-10-10)
 
 **Changed**
