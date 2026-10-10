@@ -100,3 +100,25 @@ test('legal pages have no unfinished placeholders', async ({ page }) => {
     expect(text).not.toMatch(/\[[^\]]+\]/)
   }
 })
+
+test.describe('printed QR address (/join)', () => {
+  test('goes to the customer app, as a temporary redirect', async ({ request }) => {
+    const res = await request.get('/join', { maxRedirects: 0 })
+    expect(res.status()).toBe(307)
+    expect(res.headers().location).toBe('https://app.example.test/explore')
+  })
+
+  test('a store poster opens that store, and a bad id falls back to Explore', async ({ request }) => {
+    const id = '5a773085-a30c-473b-9794-8accc55d646b'
+    const store = await request.get(`/join/${id.toUpperCase()}`, { maxRedirects: 0 })
+    expect(store.status()).toBe(307)
+    expect(store.headers().location).toBe(`https://app.example.test/stores/${id}`)
+    const bad = await request.get('/join/not-a-store', { maxRedirects: 0 })
+    expect(bad.status()).toBe(307)
+    expect(bad.headers().location).toBe('https://app.example.test/explore')
+  })
+
+  test('is kept out of search results', async ({ request }) => {
+    expect(await (await request.get('/robots.txt')).text()).toContain('Disallow: /join')
+  })
+})

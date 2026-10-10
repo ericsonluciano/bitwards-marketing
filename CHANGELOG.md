@@ -1,5 +1,14 @@
 # Changelog
 
+## Printed QR address (2026-10-10)
+
+**Added**
+- `https://bitwards.app/join` redirects to the customer app's Explore page, and `https://bitwards.app/join/<store id>` redirects to that store's page. Both are temporary (307) redirects so a printed poster never needs reprinting if the app moves; a bad id falls back to Explore. The address is disallowed in `robots.txt`.
+- `docs/POSTERS.md`: how to make and test a printed QR code.
+- 3 more end-to-end tests (16 in total).
+
+**Breaking changes:** none.
+
 ## Legal pages, pilot version 0.6 (2026-10-10)
 
 **Changed**

@@ -5,7 +5,7 @@ The public Bitwards website: what Bitwards is, one page for shoppers, one for bu
 **Status:** Phase M1 built and tested locally (2026-10-10). Not deployed. The domain `bitwards.app` is registered but not connected yet (see `../bitwards-product-docs/07-domains-and-hosting.md`).
 
 ## Pages
-`/` home · `/customers` for shoppers · `/business` for stores · `/terms` and `/privacy` (**drafts**, waiting for legal review) · `sitemap.xml` · `robots.txt`.
+`/` home · `/customers` for shoppers · `/business` for stores · `/terms` and `/privacy` (pilot version, waiting for legal review) · `/join` and `/join/<store id>` (redirects for printed QR codes, see [docs/POSTERS.md](docs/POSTERS.md)) · `sitemap.xml` · `robots.txt`.
 
 ## Prerequisites, install, run, test
 Node 20.9 or newer. No Docker, no Supabase.
