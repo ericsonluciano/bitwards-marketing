@@ -134,7 +134,7 @@ export function SceneBand({ id, image, side, mobile = 'before', className = '', 
     <div
       className={`relative h-56 w-full overflow-hidden sm:h-72 md:absolute md:inset-y-0 md:h-auto md:w-[52%] ${side === 'left' ? `md:left-0 ${soft ? 'fade-soft-left' : 'fade-h-left'}` : 'md:right-0 fade-h-right'} ${mobile === 'before' ? 'fade-v-bottom' : 'fade-v-top'}`}
     >
-      {image}
+      {soft ? <div className="fade-v-both h-full w-full">{image}</div> : image}
     </div>
   )
   return (

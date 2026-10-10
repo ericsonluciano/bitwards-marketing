@@ -1,5 +1,10 @@
 # Changelog
 
+## Smoother fade on "Turn your customers into regulars." (2026-10-11)
+
+**Fixed**
+- The picture in that section showed a faint edge on its right side and a visible top and bottom line. The sideways fade is now an eased gradient that reaches fully clear at the edge, and the top and bottom fade is applied as its own layer so the two no longer interfere. Checked on desktop, phone and dark mode.
+
 ## Feature pages, illustrations as icons, softer business section, social footer (2026-10-11)
 
 **Added**
