@@ -17,15 +17,54 @@ test('home explains Bitwards and sends shoppers to the app @responsive', async (
   expect(overflow).toBeLessThanOrEqual(0)
 })
 
-test('the header sections and FAQ exist on the home page', async ({ page }) => {
+test('the header opens a page for each audience, and the home page still has its sections', async ({ page }) => {
   await page.goto('/')
   const nav = page.getByRole('navigation', { name: 'Main' })
-  for (const [name, id] of [['For Customers', 'customers'], ['For Businesses', 'businesses'], ['Features', 'features'], ['FAQs', 'faq']]) {
-    await expect(nav.getByRole('link', { name })).toHaveAttribute('href', `/#${id}`)
-    await expect(page.locator(`#${id}`)).toBeAttached()
+  for (const [name, path] of [['For Customers', '/customers'], ['For Businesses', '/business'], ['Features', '/features'], ['FAQs', '/faq']]) {
+    await expect(nav.getByRole('link', { name })).toHaveAttribute('href', path)
   }
+  for (const id of ['customers', 'businesses', 'features', 'how-it-works', 'faq']) await expect(page.locator(`#${id}`)).toBeAttached()
   await page.getByText('Does every store offer the same rewards?').click()
   await expect(page.getByText(/Rewards and challenge rules vary/)).toBeVisible()
+})
+
+test('the features and FAQ pages exist, have their own titles and are in the sitemap', async ({ page, request }) => {
+  await page.goto('/features')
+  await expect(page).toHaveTitle(/Loyalty program features/)
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Challenges for shoppers')
+  await expect(page.getByRole('main').getByRole('link', { name: 'Apply to join the pilot' }).first()).toHaveAttribute('href', `${BUSINESS}/sign-in`)
+  await page.goto('/faq')
+  await expect(page).toHaveTitle(/FAQs/)
+  await page.getByText('Do vouchers expire?').click()
+  await expect(page.getByText(/Expired vouchers are not refunded/)).toBeVisible()
+  const sitemap = await (await request.get('/sitemap.xml')).text()
+  for (const path of ['/features', '/faq']) expect(sitemap).toContain(`http://127.0.0.1:3400${path}`)
+})
+
+test('the theme button switches light and dark, and remembers the choice', async ({ page }) => {
+  await page.emulateMedia({ colorScheme: 'light' })
+  await page.goto('/')
+  const html = page.locator('html')
+  const toggle = page.getByRole('button', { name: 'Dark mode' })
+  await expect(toggle).toHaveAttribute('aria-pressed', 'false')
+  await toggle.click()
+  await expect(html).toHaveAttribute('data-theme', 'dark')
+  await expect(toggle).toHaveAttribute('aria-pressed', 'true')
+  const bg = () => page.evaluate(() => getComputedStyle(document.body).backgroundColor)
+  expect(await bg()).toBe('rgb(15, 26, 36)')
+  await page.reload()
+  await expect(html).toHaveAttribute('data-theme', 'dark')
+  await page.getByRole('button', { name: 'Dark mode' }).click()
+  await expect(html).toHaveAttribute('data-theme', 'light')
+  expect(await bg()).toBe('rgb(247, 248, 245)')
+})
+
+test('the footer has a copyright line and a clear pilot note', async ({ page }) => {
+  await page.goto('/')
+  const footer = page.getByRole('contentinfo')
+  await expect(footer.getByText(`© ${new Date().getFullYear()} Bitwards. All rights reserved.`)).toBeVisible()
+  await expect(footer.getByText(/piloting with local stores in the Philippines/)).toBeVisible()
+  await expect(footer.getByRole('link', { name: 'Features' })).toHaveAttribute('href', '/features')
 })
 
 test('the shopper page links to sign-up and browsing', async ({ page }) => {

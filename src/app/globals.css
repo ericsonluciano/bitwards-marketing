@@ -23,7 +23,8 @@
   --color-danger: var(--danger);
   --color-danger-soft: var(--danger-soft);
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --radius-card: 16px;
+  /* Shape rule: buttons are pills, cards and panels are 24px, inputs and icon tiles are 12px, chips are pills. */
+  --radius-card: 24px;
   --radius-control: 12px;
 }
 
@@ -46,9 +47,10 @@
   --danger-soft: #fdecea;
 }
 
-/* Dark mode follows the visitor's device setting. Same brand colours, darker surfaces. */
+/* Colour theme. Follows the visitor's device setting until they press the theme button, which sets data-theme on <html>
+   (saved in this browser only). An explicit choice always wins over the device setting. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --ink: #eef3f5;
     --paper: #0f1a24;
     --surface: #17242f;
@@ -64,6 +66,40 @@
     --danger: #ff8f84;
     --danger-soft: #3a1f1d;
   }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+    --ink: #eef3f5;
+    --paper: #0f1a24;
+    --surface: #17242f;
+    --sky: #12212d;
+    --peach: #1d1a17;
+    --mint: #17383a;
+    --muted: #a9bac3;
+    --mist: #2b3d49;
+    --reward-blue: #78b0ff;
+    --btn: #eef3f5;
+    --btn-hover: #ffffff;
+    --btn-fg: #172a3a;
+    --danger: #ff8f84;
+    --danger-soft: #3a1f1d;
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+    --ink: #172a3a;
+    --paper: #f7f8f5;
+    --surface: #ffffff;
+    --sky: #eaf5fa;
+    --peach: #fbe6cf;
+    --mint: #ddf7f1;
+    --muted: #566873;
+    --mist: #dce4e6;
+    --reward-blue: #1265d8;
+    --btn: #172a3a;
+    --btn-hover: #0f1d29;
+    --btn-fg: #ffffff;
+    --danger: #b42318;
+    --danger-soft: #fdecea;
 }
 
 body {
@@ -89,8 +125,20 @@ body {
 
 /* Illustrations have pale backgrounds; soften them a little on dark pages so they do not glare. */
 @media (prefers-color-scheme: dark) {
-  .scene-img { filter: brightness(0.82) saturate(0.95); }
+  :root:not([data-theme="light"]) .scene-img { filter: brightness(0.82) saturate(0.95); }
 }
+:root[data-theme="dark"] .scene-img { filter: brightness(0.82) saturate(0.95); }
+
+/* Theme button: show the sun in dark mode (to go light) and the moon in light mode (to go dark). */
+.theme-sun { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-sun { display: block; }
+  :root:not([data-theme="light"]) .theme-moon { display: none; }
+}
+:root[data-theme="dark"] .theme-sun { display: block; }
+:root[data-theme="dark"] .theme-moon { display: none; }
+:root[data-theme="light"] .theme-sun { display: none; }
+:root[data-theme="light"] .theme-moon { display: block; }
 
 /* Motion. It explains things (the hero arrives, steps are revealed in order, the path fills as you reach it) and moves
    only transform, never opacity, so text stays readable at every moment. Switched off for people who ask for less motion. */
@@ -98,7 +146,12 @@ body {
   from { transform: translateY(18px); }
   to { transform: translateY(0); }
 }
+@keyframes drift {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
 @media (prefers-reduced-motion: no-preference) {
+  .drift { animation: drift var(--drift, 6s) ease-in-out infinite; animation-delay: var(--drift-delay, 0s); }
   .hero-rise > * { animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
   .hero-rise > *:nth-child(2) { animation-delay: 0.08s; }
   .hero-rise > *:nth-child(3) { animation-delay: 0.16s; }

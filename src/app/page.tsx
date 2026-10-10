@@ -1,10 +1,11 @@
-import { Heart, Gift, Storefront, Target, Receipt, ShieldCheck, Coins, Lock } from '@phosphor-icons/react/dist/ssr'
+import { ChartLineUp, Coins, Gauge, Lock, Path, QrCode, Receipt, ShieldCheck } from '@phosphor-icons/react/dist/ssr'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { BenefitStrip, ChallengeList, Facts, FaqSection, SceneBand, Steps } from '@/components/sections'
+import { BentoCell, ChallengeList, Facts, FaqSection, FloatingBits, SceneBand, Steps } from '@/components/sections'
 import { Reveal } from '@/components/reveal'
 import { ButtonLink } from '@/components/ui'
+import { generalFaqs } from '@/lib/faqs'
 import { SITE, appLinks } from '@/lib/site'
 
 export const metadata: Metadata = { alternates: { canonical: '/' } }
@@ -30,29 +31,17 @@ export default function Home() {
         mobile="after"
         wide
         rise
+        extra={<FloatingBits />}
         className="bg-gradient-to-b from-sky to-paper"
         image={<Image src="/images/cafe-interior.webp" alt="" width={1600} height={900} preload sizes="(min-width: 768px) 52vw, 100vw" className="scene-img h-full w-full object-cover object-right" />}
       >
-        <h1 className="text-4xl font-extrabold leading-[1.08] tracking-tighter sm:text-5xl">Every visit brings you closer to something good.</h1>
+        <h1 className="text-4xl font-extrabold leading-[1.08] tracking-tighter sm:text-5xl">Every visit brings you closer to <span className="text-reward-blue">something good.</span></h1>
         <p className="mt-5 max-w-xl text-lg text-muted">Discover local favorites. Complete challenges. Earn rewards.</p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <ButtonLink href={appLinks.customerExplore} variant="dark" className="sm:min-w-52">Explore Bitwards</ButtonLink>
           <ButtonLink href={appLinks.customerStart} variant="secondary">Get Early Access</ButtonLink>
         </div>
       </SceneBand>
-
-      <section id="features" aria-label="Benefits" className="scroll-mt-20 border-y border-mist bg-surface">
-        <div className="mx-auto w-full max-w-6xl px-4 py-9 sm:px-6">
-          <BenefitStrip
-            items={[
-              { title: 'Earn Rewards', body: 'Complete challenges and unlock eligible perks.', icon: <Gift {...icon} />, tint: 'bg-cyan/25' },
-              { title: 'Discover Local', body: 'Find great cafés, restaurants, and stores near you.', icon: <Storefront {...icon} />, tint: 'bg-gold/40' },
-              { title: 'Fun Challenges', body: 'Turn everyday visits into meaningful rewards.', icon: <Target {...icon} />, tint: 'bg-mint' },
-              { title: 'Support Local', body: 'Make supporting local businesses more rewarding.', icon: <Heart {...icon} />, tint: 'bg-orange/25' },
-            ]}
-          />
-        </div>
-      </section>
 
       {/* Customers: the picture in a frame, with the text panel overlapping it. */}
       <section id="customers" className="mx-auto w-full max-w-7xl scroll-mt-20 px-4 py-16 sm:px-6 md:py-28">
@@ -93,6 +82,21 @@ export default function Home() {
             />
           </div>
         </div>
+      </section>
+
+      {/* Features: five tiles on a 6-column grid, each with its own tint. The full list is on /features. */}
+      <section id="features" className="mx-auto w-full max-w-6xl scroll-mt-20 px-4 py-16 sm:px-6 md:py-28">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <h2 className="max-w-xl text-3xl font-bold tracking-tight sm:text-4xl">A loyalty program that fits a busy counter.</h2>
+          <ButtonLink href="/features" variant="secondary">See all features</ButtonLink>
+        </div>
+        <Reveal as="ul" className="mt-10 grid gap-4 md:grid-cols-6">
+          <BentoCell tone="mint" icon={<Path size={26} weight="regular" aria-hidden />} title="Quests of any size" className="md:col-span-4">A repeat visit, something new to try, or a few steps in order. Each quest says exactly what to do and what you earn.</BentoCell>
+          <BentoCell tone="gold" icon={<QrCode size={26} weight="regular" aria-hidden />} title="A code that changes" className="md:col-span-2">Your code refreshes every minute, so a screenshot will not work.</BentoCell>
+          <BentoCell tone="sky" icon={<Coins size={26} weight="regular" aria-hidden />} title="Bits for a reward" className="md:col-span-2">Finish a quest, earn Bits, trade them at that store.</BentoCell>
+          <BentoCell tone="peach" icon={<Gauge size={26} weight="regular" aria-hidden />} title="Hard limits on cost" className="md:col-span-2">Every quest and reward has a cap, so stores never face an open-ended giveaway.</BentoCell>
+          <BentoCell tone="plain" icon={<ChartLineUp size={26} weight="regular" aria-hidden />} title="See what works" className="md:col-span-2">Check-ins, returning customers and completions at a glance.</BentoCell>
+        </Reveal>
       </section>
 
       {/* Businesses: the picture fills the band and a sheet of text sits on it. */}
@@ -147,14 +151,8 @@ export default function Home() {
       <FaqSection
         title="FAQs"
         note={SITE.contactEmail ? <>Still wondering? Write to <a className="font-semibold text-reward-blue underline" href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a>.</> : undefined}
-        items={[
-          { q: 'What is Bitwards?', a: 'Bitwards is a loyalty program built around challenges. Customers discover participating local businesses, complete challenges, and earn eligible rewards.' },
-          { q: 'How do I earn rewards?', a: 'Complete the actions described in an available challenge. Each challenge explains its requirements and its reward, and store staff confirm your visit.' },
-          { q: 'Does every store offer the same rewards?', a: 'No. Rewards and challenge rules vary by participating business, and Bits earned at a store are used at that store.' },
-          { q: 'How can my business join?', a: 'Apply to join the pilot. We review every application and will explain the plan options before anything is charged.' },
-          { q: 'What does it cost businesses?', a: 'We are running a pilot and finalising pricing. Rewards you offer are funded by your store.' },
-          { q: 'Where is Bitwards available?', a: 'We are piloting with local stores in the Philippines. We are not claiming availability elsewhere yet.' },
-        ]}
+        items={generalFaqs.slice(0, 4)}
+        more={{ href: '/faq', label: 'See all FAQs' }}
       />
 
       {/* Closing: a wide picture on top, a centered launch message under it. */}

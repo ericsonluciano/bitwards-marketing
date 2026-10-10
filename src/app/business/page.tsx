@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { ChartLineUp, Gauge, Handshake, Lock, LockKey, UsersThree } from '@phosphor-icons/react/dist/ssr'
 import { CallToAction, Facts, FaqSection, SceneBand, Section, Steps } from '@/components/sections'
 import { ButtonLink } from '@/components/ui'
+import { storeFaqs } from '@/lib/faqs'
 import { appLinks } from '@/lib/site'
 
 export const metadata: Metadata = {
@@ -56,13 +57,7 @@ export default function BusinessPage() {
 
       <FaqSection
         title="Questions"
-        items={[
-            { q: 'What does it cost?', a: 'We are running a pilot and finalising pricing. Apply and we will explain the plan options before anything is charged. Rewards you offer are funded by your store.' },
-            { q: 'Do I need special hardware?', a: 'No. Staff use a phone or tablet in the browser to scan customer codes. There is no POS integration yet.' },
-            { q: 'Can customers cheat?', a: 'Codes are single-use and expire in about a minute, and progress needs staff confirmation. Limits per day and per quest reduce abuse, and Bitwards reviews unusual patterns.' },
-            { q: 'Does it work offline?', a: 'Not yet. Scanning and redeeming need an internet connection, and a failed attempt records nothing.' },
-            { q: 'How many locations can I have?', a: 'One location per business for now. Multi-location support is planned.' },
-          ]}
+        items={storeFaqs}
       />
 
       <CallToAction title="Ready to bring customers back?" body="Tell us about your store. We review every application.">

@@ -1,5 +1,23 @@
 # Changelog
 
+## Separate pages, Features and FAQ pages, theme button, new footer (2026-10-11)
+
+**Added**
+- A **Features** page (`/features`) with a bento of shopper features and a store section, and a **FAQs** page (`/faq`) with answers grouped for everyone, shoppers and stores. Both are in the sitemap and have their own titles and descriptions.
+- A **dark mode button** in the header. It follows the device setting until pressed, then remembers the choice in that browser (no account, nothing sent anywhere). It is set before the page paints, so there is no flash.
+- A small features bento on the home page ("A loyalty program that fits a busy counter") that leads to `/features`.
+- Three floating reward symbols in the hero (decoration only, hidden on phones and for visitors who ask for less motion).
+
+**Changed**
+- The header labels now open pages instead of scrolling the home page: For Customers goes to `/customers`, For Businesses to `/business`, Features to `/features`, FAQs to `/faq`. The labels are the same, and the home page keeps its sections and their anchors.
+- The home page FAQ shows the first four questions with a link to all of them. The questions and answers now live in one file (`src/lib/faqs.ts`) so every page agrees.
+- Shape: buttons are pills, cards and panels are 24px, inputs and icon tiles stay 12px.
+- The hero headline highlights "something good." in the brand blue (same words).
+- Footer: brand line, three link columns (Bitwards, Legal, For stores), and a clearer closing line: copyright with the year, then a plain pilot note ("Rewards are funded by the store that offers them, and Bits have no cash value").
+- Removed the four-icon strip under the hero (replaced by the features bento).
+
+**Tests:** 42 end-to-end tests, including accessibility on every public page in both light and dark mode, the theme button, the new pages and the footer.
+
 ## Design refresh: layouts, dark mode, search wording (2026-10-11)
 
 **Changed**

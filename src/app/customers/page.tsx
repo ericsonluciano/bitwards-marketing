@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Eye, Lock, Money, WifiHigh } from '@phosphor-icons/react/dist/ssr'
 import { CallToAction, Facts, FaqSection, SceneBand, Section, Steps } from '@/components/sections'
 import { ButtonLink } from '@/components/ui'
+import { shopperFaqs } from '@/lib/faqs'
 import { appLinks } from '@/lib/site'
 
 export const metadata: Metadata = {
@@ -53,13 +54,7 @@ export default function CustomersPage() {
 
       <FaqSection
         title="Questions"
-        items={[
-            { q: 'Do I need to download anything?', a: 'No store visit needed to install. Open the app in your phone browser and, if you like, add it to your home screen.' },
-            { q: 'What do I need to sign up?', a: 'Just an email address. A mobile number is optional and is not used to sign in yet.' },
-            { q: 'What if I forget to show my code?', a: 'Progress is only counted when staff confirm your visit, so show your code at the counter. If something went wrong, contact support and we can review it.' },
-            { q: 'Do vouchers expire?', a: 'Yes. Each voucher shows its expiry date. Expired vouchers are not refunded, so use them in time.' },
-            { q: 'Can I delete my account?', a: 'Yes, in Profile. You can also download your data first.' },
-          ]}
+        items={shopperFaqs}
       />
 
       <CallToAction title="Start your first quest" body="It takes about a minute to sign up.">

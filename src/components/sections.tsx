@@ -1,4 +1,5 @@
-import { CheckCircle, Minus, Plus } from '@phosphor-icons/react/dist/ssr'
+import { CheckCircle, Coins, Gift, Heart, Minus, Plus } from '@phosphor-icons/react/dist/ssr'
+import Link from 'next/link'
 import type { ReactNode } from 'react'
 import { Reveal } from '@/components/reveal'
 
@@ -62,13 +63,14 @@ export function Facts({ items, columns = 2 }: { items: { title: string; body: st
 }
 
 // Questions and answers. Left: the heading. Right: the list, one native <details> per question (works without scripts, and with the keyboard).
-export function FaqSection({ id = 'faq', title, note, items }: { id?: string; title: string; note?: ReactNode; items: { q: string; a: string }[] }) {
+export function FaqSection({ id = 'faq', title, note, items, more }: { id?: string; title: string; note?: ReactNode; items: { q: string; a: string }[]; more?: { href: string; label: string } }) {
   return (
     <section id={id} className="scroll-mt-20 bg-gradient-to-b from-paper via-surface to-paper">
       <div className="mx-auto grid w-full max-w-6xl gap-8 px-4 py-14 sm:px-6 md:py-24 lg:grid-cols-12 lg:gap-14">
         <div className="lg:col-span-4">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{title}</h2>
           {note ? <p className="mt-3 text-muted">{note}</p> : null}
+          {more ? <Link href={more.href} className="mt-5 inline-flex min-h-11 items-center font-semibold text-reward-blue underline">{more.label}</Link> : null}
         </div>
         <div className="divide-y divide-mist lg:col-span-8">
           {items.map((item) => (
@@ -104,23 +106,6 @@ export function CallToAction({ title, body, children }: { title: string; body: s
   )
 }
 
-// Four short benefits as a quiet strip under the hero.
-export function BenefitStrip({ items }: { items: { title: string; body: string; icon: ReactNode; tint: string }[] }) {
-  return (
-    <Reveal as="ul" className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
-      {items.map((item, i) => (
-        <li key={item.title} data-rise style={{ '--d': `${i * 0.06}s` } as React.CSSProperties} className="flex items-start gap-3">
-          <span aria-hidden="true" className={`flex size-12 shrink-0 items-center justify-center rounded-control text-ink ${item.tint}`}>{item.icon}</span>
-          <div>
-            <p className="font-semibold">{item.title}</p>
-            <p className="mt-0.5 text-sm text-muted">{item.body}</p>
-          </div>
-        </li>
-      ))}
-    </Reveal>
-  )
-}
-
 // Example challenges, one panel with a row each. Not live offers; the caption says so.
 export function ChallengeList({ items }: { items: { title: string; body: string; bits: number }[] }) {
   return (
@@ -144,7 +129,7 @@ export function ChallengeList({ items }: { items: { title: string; body: string;
 // A full-width band with a scene picture on one side that fades into the page background.
 // `image` is the <Image> to show; `side` is the side the picture sits on from md up. On phones the picture goes
 // below the text (`mobile="after"`) or above it (`mobile="before"`). `wide` gives the text more room (used by the hero).
-export function SceneBand({ id, image, side, mobile = 'before', className = '', wide = false, rise = false, children }: { id?: string; image: ReactNode; side: 'left' | 'right'; mobile?: 'before' | 'after'; className?: string; wide?: boolean; rise?: boolean; children: ReactNode }) {
+export function SceneBand({ id, image, side, mobile = 'before', className = '', wide = false, rise = false, extra, children }: { id?: string; image: ReactNode; side: 'left' | 'right'; mobile?: 'before' | 'after'; className?: string; wide?: boolean; rise?: boolean; extra?: ReactNode; children: ReactNode }) {
   const picture = (
     <div
       className={`relative h-56 w-full overflow-hidden sm:h-72 md:absolute md:inset-y-0 md:h-auto md:w-[52%] ${side === 'left' ? 'md:left-0 fade-h-left' : 'md:right-0 fade-h-right'} ${mobile === 'before' ? 'fade-v-bottom' : 'fade-v-top'}`}
@@ -159,6 +144,47 @@ export function SceneBand({ id, image, side, mobile = 'before', className = '', 
         <div className={`${wide ? 'md:w-[58%]' : 'md:w-[48%]'} ${rise ? 'hero-rise' : ''} ${side === 'left' ? 'md:ml-auto' : ''}`}>{children}</div>
       </div>
       {mobile === 'after' ? picture : null}
+      {extra}
     </section>
+  )
+}
+
+// Three small reward symbols that float gently over a scene. Decoration only: hidden from screen readers and on phones.
+// The float is a slow up-and-down, switched off for visitors who ask for less motion.
+export function FloatingBits({ className = '' }: { className?: string }) {
+  const chip = 'drift absolute z-10 hidden items-center gap-2 rounded-full border border-mist bg-surface/95 px-4 py-2.5 font-bold shadow-[0_18px_36px_-18px_rgba(23,42,58,0.45)] md:flex'
+  return (
+    <div aria-hidden="true" className={className}>
+      <span className={`${chip} right-[10%] top-[16%]`} style={{ '--drift': '6s' } as React.CSSProperties}>
+        <span className="flex size-8 items-center justify-center rounded-full bg-gold text-navy"><Coins size={18} weight="fill" /></span>
+        +50 Bits
+      </span>
+      <span className={`${chip} bottom-[22%] right-[34%] !p-2.5`} style={{ '--drift': '7.5s', '--drift-delay': '-2s' } as React.CSSProperties}>
+        <span className="flex size-9 items-center justify-center rounded-full bg-mint text-ink"><Gift size={20} weight="regular" /></span>
+      </span>
+      <span className={`${chip} bottom-[34%] right-[4%] !p-2.5`} style={{ '--drift': '6.8s', '--drift-delay': '-4s' } as React.CSSProperties}>
+        <span className="flex size-9 items-center justify-center rounded-full bg-orange/25 text-ink"><Heart size={20} weight="fill" /></span>
+      </span>
+    </div>
+  )
+}
+
+// One tile of a bento grid. `tone` gives the tile its own background so the grid is not a row of identical boxes.
+const TONES = {
+  mint: 'bg-mint',
+  gold: 'bg-gradient-to-br from-gold/45 to-gold/15',
+  sky: 'bg-sky',
+  peach: 'bg-peach',
+  plain: 'border border-mist bg-surface',
+} as const
+export function BentoCell({ tone = 'plain', icon, title, children, className = '' }: { tone?: keyof typeof TONES; icon?: ReactNode; title: string; children: ReactNode; className?: string }) {
+  return (
+    <li data-rise className={`flex flex-col justify-between gap-6 rounded-card p-6 sm:p-7 ${TONES[tone]} ${className}`}>
+      {icon ? <span aria-hidden="true" className="flex size-12 items-center justify-center rounded-control bg-surface/80 text-ink">{icon}</span> : null}
+      <div>
+        <h3 className="text-xl font-semibold tracking-tight">{title}</h3>
+        <p className="mt-1.5 max-w-sm text-muted">{children}</p>
+      </div>
+    </li>
   )
 }

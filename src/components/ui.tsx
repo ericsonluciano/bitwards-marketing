@@ -3,7 +3,7 @@ import type { ComponentProps, ReactNode } from 'react'
 
 // Shared building blocks. Teal buttons use navy text: white on teal is too low-contrast.
 const base =
-  'inline-flex min-h-11 items-center justify-center gap-2 rounded-control px-5 text-base font-semibold transition-[colors,transform] duration-200 hover:-translate-y-px active:translate-y-px active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60 motion-reduce:transform-none'
+  'inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-5 text-base font-semibold transition-[colors,transform] duration-200 hover:-translate-y-px active:translate-y-px active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60 motion-reduce:transform-none'
 const variants = {
   primary: 'bg-teal text-navy hover:bg-[#2fc9b6]',
   secondary: 'border border-mist bg-surface text-ink hover:bg-mint',
