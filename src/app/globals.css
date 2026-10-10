@@ -1,32 +1,74 @@
 @import "tailwindcss";
 
-/* Bitwards brand tokens (from the Brand Style Guide v1.0). Change colours here, not in components. */
+/* Bitwards brand tokens (from the Brand Style Guide v1.0). Change colours here, not in components.
+   Values that must change in dark mode live as variables below; brand fills (navy, gold, teal, mint tints) stay fixed. */
 @theme inline {
   --color-navy: #172a3a;
+  --color-ink: var(--ink);
   --color-teal: #25b7a5;
-  --color-mint: #ddf7f1;
+  --color-mint: var(--mint);
   --color-cyan: #16c7e8;
-  --color-reward-blue: #1265d8;
+  --color-reward-blue: var(--reward-blue);
   --color-gold: #ffbf24;
   --color-orange: #ff8a16;
-  --color-paper: #f7f8f5;
-  /* Brand guide says #667783, which is 4.35:1 on Paper (below the 4.5:1 minimum for small text). Slightly darker here. */
-  --color-muted: #566873;
-  --color-mist: #dce4e6;
-  --color-danger: #b42318;
-  --color-danger-soft: #fdecea;
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-sky: var(--sky);
+  --color-peach: var(--peach);
+  --color-muted: var(--muted);
+  --color-mist: var(--mist);
+  --color-btn: var(--btn);
+  --color-btn-hover: var(--btn-hover);
+  --color-btn-fg: var(--btn-fg);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --radius-card: 16px;
   --radius-control: 12px;
 }
 
 :root {
-  color-scheme: light;
+  color-scheme: light dark;
+  --ink: #172a3a;
+  --paper: #f7f8f5;
+  --surface: #ffffff;
+  --sky: #eaf5fa;
+  --peach: #fbe6cf;
+  --mint: #ddf7f1;
+  /* Brand guide says #667783, which is 4.35:1 on Paper (below the 4.5:1 minimum for small text). Slightly darker here. */
+  --muted: #566873;
+  --mist: #dce4e6;
+  --reward-blue: #1265d8;
+  --btn: #172a3a;
+  --btn-hover: #0f1d29;
+  --btn-fg: #ffffff;
+  --danger: #b42318;
+  --danger-soft: #fdecea;
+}
+
+/* Dark mode follows the visitor's device setting. Same brand colours, darker surfaces. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #eef3f5;
+    --paper: #0f1a24;
+    --surface: #17242f;
+    --sky: #12212d;
+    --peach: #1d1a17;
+    --mint: #17383a;
+    --muted: #a9bac3;
+    --mist: #2b3d49;
+    --reward-blue: #78b0ff;
+    --btn: #eef3f5;
+    --btn-hover: #ffffff;
+    --btn-fg: #172a3a;
+    --danger: #ff8f84;
+    --danger-soft: #3a1f1d;
+  }
 }
 
 body {
   background: var(--color-paper);
-  color: var(--color-navy);
+  color: var(--color-ink);
   font-family: var(--font-sans);
 }
 
@@ -36,13 +78,6 @@ body {
   outline-offset: 2px;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
 /* Full-width scene images that melt into the page. On phones the picture sits above/below the text and fades vertically;
    from md up it fills one side of the band and fades toward the text. */
 .fade-v-bottom { mask-image: linear-gradient(to bottom, #000 55%, transparent); }
@@ -50,4 +85,29 @@ body {
 @media (min-width: 768px) {
   .fade-h-left { mask-image: linear-gradient(to right, #000 40%, transparent); }
   .fade-h-right { mask-image: linear-gradient(to left, #000 40%, transparent); }
+}
+
+/* Illustrations have pale backgrounds; soften them a little on dark pages so they do not glare. */
+@media (prefers-color-scheme: dark) {
+  .scene-img { filter: brightness(0.82) saturate(0.95); }
+}
+
+/* Motion. It explains things (the hero arrives, steps are revealed in order, the path fills as you reach it) and moves
+   only transform, never opacity, so text stays readable at every moment. Switched off for people who ask for less motion. */
+@keyframes rise {
+  from { transform: translateY(18px); }
+  to { transform: translateY(0); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-rise > * { animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+  .hero-rise > *:nth-child(2) { animation-delay: 0.08s; }
+  .hero-rise > *:nth-child(3) { animation-delay: 0.16s; }
+  [data-reveal] { transform: translateY(24px); transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); transition-delay: var(--reveal-delay, 0s); }
+  [data-reveal="in"] { transform: translateY(0); }
+  [data-rise] { transform: translateY(24px); transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); transition-delay: var(--d, 0s); }
+  [data-reveal="in"] [data-rise] { transform: translateY(0); }
+  [data-path-line] { transform: scaleX(0); transform-origin: left; transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s; }
+  [data-reveal="in"] [data-path-line] { transform: scaleX(1); }
+  [data-path-line-v] { transform: scaleY(0); transform-origin: top; transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s; }
+  [data-reveal="in"] [data-path-line-v] { transform: scaleY(1); }
 }

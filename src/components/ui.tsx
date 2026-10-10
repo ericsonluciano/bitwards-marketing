@@ -3,12 +3,12 @@ import type { ComponentProps, ReactNode } from 'react'
 
 // Shared building blocks. Teal buttons use navy text: white on teal is too low-contrast.
 const base =
-  'inline-flex min-h-11 items-center justify-center gap-2 rounded-control px-5 text-base font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-60'
+  'inline-flex min-h-11 items-center justify-center gap-2 rounded-control px-5 text-base font-semibold transition-[colors,transform] duration-200 hover:-translate-y-px active:translate-y-px active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60 motion-reduce:transform-none'
 const variants = {
-  primary: 'bg-teal text-navy hover:bg-[#1fa393]',
-  secondary: 'border border-mist bg-white text-navy hover:bg-mint',
-  dark: 'bg-navy text-white hover:bg-[#0f1d29]',
-  danger: 'border border-mist bg-white text-danger hover:bg-danger-soft',
+  primary: 'bg-teal text-navy hover:bg-[#2fc9b6]',
+  secondary: 'border border-mist bg-surface text-ink hover:bg-mint',
+  dark: 'bg-btn text-btn-fg hover:bg-btn-hover',
+  danger: 'border border-mist bg-surface text-danger hover:bg-danger-soft',
 } as const
 type Variant = keyof typeof variants
 
@@ -50,13 +50,13 @@ export function Field({
 }
 
 export const inputClass =
-  'min-h-11 w-full rounded-control border border-mist bg-white px-3.5 text-base text-navy placeholder:text-muted/70 read-only:bg-paper disabled:bg-paper'
+  'min-h-11 w-full rounded-control border border-mist bg-surface px-3.5 text-base text-ink placeholder:text-muted/70 read-only:bg-paper disabled:bg-paper'
 
 export function Alert({ tone = 'error', children }: { tone?: 'error' | 'success' | 'info'; children: ReactNode }) {
   const tones = {
     error: 'border-danger/30 bg-danger-soft text-danger',
-    success: 'border-teal/40 bg-mint text-navy',
-    info: 'border-mist bg-white text-navy',
+    success: 'border-teal/40 bg-mint text-ink',
+    info: 'border-mist bg-surface text-ink',
   }
   return (
     <div role={tone === 'error' ? 'alert' : 'status'} className={`rounded-control border px-4 py-3 text-sm font-medium ${tones[tone]}`}>
@@ -66,5 +66,5 @@ export function Alert({ tone = 'error', children }: { tone?: 'error' | 'success'
 }
 
 export function Card({ className = '', ...props }: ComponentProps<'div'>) {
-  return <div className={`rounded-card border border-mist bg-white p-5 sm:p-6 ${className}`} {...props} />
+  return <div className={`rounded-card border border-mist bg-surface p-5 sm:p-6 ${className}`} {...props} />
 }

@@ -67,7 +67,13 @@ test('search engines get a sitemap and robots file, and pages have their own tit
   const robots = await (await request.get('/robots.txt')).text()
   expect(robots).toContain('Sitemap: http://127.0.0.1:3400/sitemap.xml')
   await page.goto('/business')
-  await expect(page).toHaveTitle('For businesses · Bitwards')
+  await expect(page).toHaveTitle('A loyalty program to grow your business · Bitwards')
+  await page.goto('/')
+  await expect(page).toHaveTitle(/loyalty program/)
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'http://127.0.0.1:3400')
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /og\.jpg$/)
+  const ld = JSON.parse((await page.locator('script[type="application/ld+json"]').textContent()) ?? '{}')
+  expect(ld['@graph'].map((n: { '@type': string }) => n['@type'])).toEqual(['Organization', 'WebSite'])
 })
 
 test('unknown pages show a friendly message', async ({ page }) => {
@@ -128,4 +134,13 @@ test('the privacy notice lists error reporting and its provider', async ({ page 
   await expect(page.getByRole('heading', { name: '6. Error reports' })).toBeVisible()
   await expect(page.getByText(/Sentry/).first()).toBeVisible()
   await expect(page.getByText(/Sentry stores them in the European Union/)).toBeVisible()
+})
+
+test('the home page leads with Explore Bitwards and uses US spelling', async ({ page }) => {
+  await page.goto('/')
+  await expect(page.getByRole('main').getByRole('link', { name: 'Explore Bitwards' })).toHaveAttribute('href', `${APP}/explore`)
+  const text = await page.locator('main').innerText()
+  expect(text).toContain('Discover local favorites. Complete challenges. Earn rewards.')
+  expect(text).not.toMatch(/favourite|neighbourhood/i)
+  expect(text).not.toMatch(/[—–]/)
 })

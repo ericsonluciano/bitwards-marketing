@@ -1,5 +1,20 @@
 # Changelog
 
+## Design refresh: layouts, dark mode, search wording (2026-10-11)
+
+**Changed**
+- The home page no longer repeats one layout. It now has a hero with the café scene, a quiet benefits strip, a framed picture with an overlapping challenge panel for shoppers, a "how it works" path, a store section where the text sits on the picture, an "Honest by design" statement with four plain points, a two-column FAQ, and a closing banner. The shopper and business pages use the same building blocks.
+- Hero: the headline is unchanged. The line under it is now "Discover local favorites. Complete challenges. Earn rewards." The main button is "Explore Bitwards" (opens the app's Explore page without an account). "Get Early Access" stays as the sign-up button. The pilot tag, the "I run a store?" line and the floating example card are gone from the hero.
+- Spelling is US English ("favorites").
+- Dark mode now follows the device setting. Brand colors, the logo and the four pictures are the same; pictures are slightly softened in dark mode.
+- Icons come from Phosphor (`@phosphor-icons/react`), replacing four hand-drawn ones.
+- Small motion that explains the page: the hero arrives, steps and points slide in as they are reached, and the line between the steps fills in. Only position moves, never visibility, and it is off for visitors who ask for less motion.
+- Search wording: titles and descriptions now say "loyalty program" and "challenges" (home, shoppers, businesses). The home page has a canonical address, a share image (`og.jpg`) and basic Organization and WebSite data for search engines.
+
+**Not changed:** every address (`/`, `/customers`, `/business`, `/terms`, `/privacy`, `/join`), the header and footer labels, the section anchors, the logo, the legal text.
+
+**Tests:** accessibility checks now also run in dark mode (3 more tests), plus checks for the new search data and the home page copy (31 tests in total).
+
 ## Error reporting loads later, so pages stay light (2026-10-10)
 
 **Changed**

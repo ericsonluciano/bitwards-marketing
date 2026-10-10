@@ -7,8 +7,8 @@ const link = 'inline-flex min-h-11 items-center rounded-control px-3 text-sm fon
 
 export function SiteHeader() {
   return (
-    <header className="border-b border-mist bg-white">
-      <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-x-4 px-4 py-2 sm:px-6">
+    <header className="sticky top-0 z-40 border-b border-mist bg-surface/90 backdrop-blur supports-[not(backdrop-filter:blur(1px))]:bg-surface">
+      <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center md:flex-nowrap justify-between gap-x-4 px-4 py-2 sm:px-6">
         <LogoLink />
         <nav aria-label="Main" className="flex flex-wrap items-center gap-1">
           <Link href="/#customers" className={link}>For Customers</Link>
@@ -24,7 +24,7 @@ export function SiteHeader() {
 
 export function SiteFooter() {
   return (
-    <footer className="bg-[#fbe6cf]">
+    <footer className="bg-peach">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-4 py-8 text-sm text-muted sm:px-6 md:flex-row md:items-center md:justify-between">
         <p>© Bitwards. Rewards are funded by the store that offers them. Currently piloting in the Philippines.</p>
         <nav aria-label="Footer" className="flex flex-wrap gap-x-4">

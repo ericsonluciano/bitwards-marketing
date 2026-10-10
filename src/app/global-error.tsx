@@ -15,7 +15,7 @@ export default function GlobalError({ error, retry }: { error: Error & { digest?
 
   return (
     <html lang="en">
-      <body className="flex min-h-screen flex-col items-center justify-center bg-paper px-4 text-center text-navy">
+      <body className="flex min-h-[100dvh] flex-col items-center justify-center bg-paper px-4 text-center text-ink">
         <title>Something went wrong · Bitwards</title>
         <main className="flex max-w-md flex-col items-center gap-4">
           <h1 className="text-3xl font-bold tracking-tight">Something went wrong</h1>

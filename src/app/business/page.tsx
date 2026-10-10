@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { CallToAction, Faq, Facts, SceneBand, Section, Steps } from '@/components/sections'
+import { ChartLineUp, Gauge, Handshake, Lock, LockKey, UsersThree } from '@phosphor-icons/react/dist/ssr'
+import { CallToAction, Facts, FaqSection, SceneBand, Section, Steps } from '@/components/sections'
 import { ButtonLink } from '@/components/ui'
 import { appLinks } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'For businesses',
-  description: 'Bring customers back with quests you can afford. Create a challenge, set a reward and a hard limit, and let your team confirm at the counter.',
+  title: 'A loyalty program to grow your business',
+  description: 'Bring more reasons for customers to come back. Run challenges you can afford: set a reward and a hard limit, and let your team confirm at the counter.',
   alternates: { canonical: '/business' },
 }
 
@@ -16,12 +17,13 @@ export default function BusinessPage() {
       <SceneBand
         side="right"
         mobile="after"
-        className="bg-gradient-to-b from-[#fdf1e1] to-paper"
-        image={<Image src="/images/store-owner.webp" alt="Illustration of a café owner smiling at a tablet behind the counter" width={1100} height={733} preload sizes="(min-width: 768px) 52vw, 100vw" className="h-full w-full object-cover object-center" />}
+        wide
+        rise
+        className="bg-gradient-to-b from-peach to-paper"
+        image={<Image src="/images/store-owner.webp" alt="Illustration of a café owner smiling at a tablet behind the counter" width={1100} height={733} preload sizes="(min-width: 768px) 52vw, 100vw" className="scene-img h-full w-full object-cover object-center" />}
       >
-        <p className="mb-4 inline-block rounded-control bg-mint px-3 py-1 text-sm font-semibold">For cafés, restaurants and local shops</p>
-        <h1 className="text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl">Give customers a reason to come back.</h1>
-        <p className="mt-5 max-w-xl text-lg text-muted">Start with one simple quest, choose a reward your business can afford, and learn how customers respond.</p>
+        <h1 className="text-4xl font-extrabold leading-[1.08] tracking-tighter sm:text-5xl">Give customers a reason to come back.</h1>
+        <p className="mt-5 max-w-xl text-lg text-muted">Bring more reasons for customers to come back. Start with one simple challenge and a reward you can afford.</p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <ButtonLink href={appLinks.businessApply} variant="dark" className="sm:min-w-56">Apply to join the pilot</ButtonLink>
           <ButtonLink href="#how-it-works" variant="secondary">See how it works</ButtonLink>
@@ -40,29 +42,28 @@ export default function BusinessPage() {
       </Section>
 
       <Section title="You stay in control" intro="Bitwards is built so a busy counter can run it and an owner can trust it.">
-        <Facts
+        <Facts columns={3}
           items={[
-            { title: 'Hard limits on cost', body: 'Every quest has a completion cap and every reward has a stock limit, so there are no open-ended giveaways.' },
-            { title: 'Confirmed by your team', body: 'Progress counts only when your staff confirm it. Daily limits and an audit trail help catch mistakes and misuse.' },
-            { title: 'Clear roles', body: 'Owners, managers and staff each see only what they need. Counter staff can scan and redeem, nothing more.' },
-            { title: 'Fixed once published', body: 'Customers who join a quest keep the rules they joined under. To change a quest, copy it into a new one.' },
-            { title: 'See what works', body: 'An overview shows check-ins, returning customers, quest completions and Bits issued, so you can decide what to run next.' },
-            { title: 'Bitwards can step in', body: 'If something looks wrong, Bitwards can pause a quest or reward and help correct mistakes. Customers keep their Bits and vouchers.' },
+            { icon: <Gauge size={24} weight="regular" aria-hidden />, title: 'Hard limits on cost', body: 'Every quest has a completion cap and every reward has a stock limit, so there are no open-ended giveaways.' },
+            { icon: <Handshake size={24} weight="regular" aria-hidden />, title: 'Confirmed by your team', body: 'Progress counts only when your staff confirm it. Daily limits and an audit trail help catch mistakes and misuse.' },
+            { icon: <UsersThree size={24} weight="regular" aria-hidden />, title: 'Clear roles', body: 'Owners, managers and staff each see only what they need. Counter staff can scan and redeem, nothing more.' },
+            { icon: <LockKey size={24} weight="regular" aria-hidden />, title: 'Fixed once published', body: 'Customers who join a quest keep the rules they joined under. To change a quest, copy it into a new one.' },
+            { icon: <ChartLineUp size={24} weight="regular" aria-hidden />, title: 'See what works', body: 'An overview shows check-ins, returning customers, quest completions and Bits issued, so you can decide what to run next.' },
+            { icon: <Lock size={24} weight="regular" aria-hidden />, title: 'Bitwards can step in', body: 'If something looks wrong, Bitwards can pause a quest or reward and help correct mistakes. Customers keep their Bits and vouchers.' },
           ]}
         />
       </Section>
 
-      <Section title="Questions" tone="white">
-        <Faq
-          items={[
+      <FaqSection
+        title="Questions"
+        items={[
             { q: 'What does it cost?', a: 'We are running a pilot and finalising pricing. Apply and we will explain the plan options before anything is charged. Rewards you offer are funded by your store.' },
             { q: 'Do I need special hardware?', a: 'No. Staff use a phone or tablet in the browser to scan customer codes. There is no POS integration yet.' },
             { q: 'Can customers cheat?', a: 'Codes are single-use and expire in about a minute, and progress needs staff confirmation. Limits per day and per quest reduce abuse, and Bitwards reviews unusual patterns.' },
             { q: 'Does it work offline?', a: 'Not yet. Scanning and redeeming need an internet connection, and a failed attempt records nothing.' },
             { q: 'How many locations can I have?', a: 'One location per business for now. Multi-location support is planned.' },
           ]}
-        />
-      </Section>
+      />
 
       <CallToAction title="Ready to bring customers back?" body="Tell us about your store. We review every application.">
         <ButtonLink href={appLinks.businessApply}>Apply to join the pilot</ButtonLink>
