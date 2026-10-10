@@ -1,0 +1,62 @@
+import { expect, test } from '@playwright/test'
+
+const APP = 'https://app.example.test'
+const BUSINESS = 'https://business.example.test'
+
+test('home explains Bitwards and sends shoppers to the app @responsive', async ({ page }) => {
+  await page.goto('/')
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Play at your favourite local stores.')
+  await expect(page.getByRole('link', { name: /Get started/ })).toHaveAttribute('href', `${APP}/sign-in`)
+  await expect(page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Open the app' })).toHaveAttribute('href', `${APP}/sign-in`)
+  await expect(page.getByRole('link', { name: 'I run a store' }).first()).toHaveAttribute('href', '/business')
+  const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)
+  expect(overflow).toBeLessThanOrEqual(0)
+})
+
+test('the shopper page links to sign-up and browsing', async ({ page }) => {
+  await page.goto('/customers')
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Earn rewards')
+  await expect(page.getByRole('link', { name: /Get started/ })).toHaveAttribute('href', `${APP}/sign-in`)
+  await expect(page.getByRole('link', { name: 'Browse stores first' })).toHaveAttribute('href', `${APP}/explore`)
+  await page.getByText('Do vouchers expire?').click()
+  await expect(page.getByText(/Expired vouchers are not refunded/)).toBeVisible()
+})
+
+test('the business page sends stores to apply, and does not promise a price or an amount entry @responsive', async ({ page }) => {
+  await page.goto('/business')
+  await expect(page.getByRole('link', { name: 'Apply to join the pilot' }).first()).toHaveAttribute('href', `${BUSINESS}/sign-in`)
+  await expect(page.getByRole('contentinfo').getByRole('link', { name: 'Business sign in' })).toHaveAttribute('href', `${BUSINESS}/sign-in`)
+  const text = await page.locator('main').innerText()
+  expect(text).not.toMatch(/₱\s?\d/)
+  expect(text.toLowerCase()).not.toContain('free trial')
+  expect(text).not.toMatch(/enter the amount/i)
+  const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)
+  expect(overflow).toBeLessThanOrEqual(0)
+})
+
+test('legal pages are clearly marked as drafts', async ({ page }) => {
+  for (const path of ['/terms', '/privacy']) {
+    await page.goto(path)
+    await expect(page.getByText(/waiting for legal review/)).toBeVisible()
+  }
+})
+
+test('the footer shows the contact address when one is set', async ({ page }) => {
+  await page.goto('/')
+  await expect(page.getByRole('contentinfo').getByRole('link', { name: 'hello@example.test' })).toHaveAttribute('href', 'mailto:hello@example.test')
+})
+
+test('search engines get a sitemap and robots file, and pages have their own titles', async ({ page, request }) => {
+  const sitemap = await (await request.get('/sitemap.xml')).text()
+  for (const path of ['/customers', '/business', '/terms', '/privacy']) expect(sitemap).toContain(`http://127.0.0.1:3400${path}`)
+  const robots = await (await request.get('/robots.txt')).text()
+  expect(robots).toContain('Sitemap: http://127.0.0.1:3400/sitemap.xml')
+  await page.goto('/business')
+  await expect(page).toHaveTitle('For businesses · Bitwards')
+})
+
+test('unknown pages show a friendly message', async ({ page }) => {
+  const response = await page.goto('/nope')
+  expect(response?.status()).toBe(404)
+  await expect(page.getByRole('heading', { name: /couldn.t find that page/ })).toBeVisible()
+})

@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+/* Bitwards brand tokens (from the Brand Style Guide v1.0). Change colours here, not in components. */
+@theme inline {
+  --color-navy: #172a3a;
+  --color-teal: #25b7a5;
+  --color-mint: #ddf7f1;
+  --color-cyan: #16c7e8;
+  --color-reward-blue: #1265d8;
+  --color-gold: #ffbf24;
+  --color-orange: #ff8a16;
+  --color-paper: #f7f8f5;
+  /* Brand guide says #667783, which is 4.35:1 on Paper (below the 4.5:1 minimum for small text). Slightly darker here. */
+  --color-muted: #566873;
+  --color-mist: #dce4e6;
+  --color-danger: #b42318;
+  --color-danger-soft: #fdecea;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --radius-card: 16px;
+  --radius-control: 12px;
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-navy);
+  font-family: var(--font-sans);
+}
+
+/* Clear keyboard focus everywhere. */
+:focus-visible {
+  outline: 3px solid var(--color-reward-blue);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
