@@ -117,6 +117,7 @@ body {
 /* Full-width scene images that melt into the page. On phones the picture sits above/below the text and fades vertically;
    from md up it fills one side of the band and fades toward the text. */
 .fade-v-bottom { mask-image: linear-gradient(to bottom, #000 55%, transparent); }
+.fade-bottom-soft { mask-image: linear-gradient(to bottom, #000 76%, rgb(0 0 0 / 0.5) 90%, transparent); }
 .fade-v-both { mask-image: linear-gradient(to bottom, transparent, rgb(0 0 0 / 0.55) 8%, #000 24%, #000 76%, rgb(0 0 0 / 0.55) 92%, transparent); }
 .fade-v-top { mask-image: linear-gradient(to top, #000 55%, transparent); }
 @media (min-width: 768px) {
@@ -154,7 +155,12 @@ body {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
 }
+@keyframes pop {
+  from { transform: translateY(28px) scale(0.96); }
+  to { transform: translateY(0) scale(1); }
+}
 @media (prefers-reduced-motion: no-preference) {
+  .hero-pop { animation: pop 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
   .drift { animation: drift var(--drift, 6s) ease-in-out infinite; animation-delay: var(--drift-delay, 0s); }
   .hero-rise > * { animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
   .hero-rise > *:nth-child(2) { animation-delay: 0.08s; }

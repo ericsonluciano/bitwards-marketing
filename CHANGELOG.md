@@ -1,5 +1,13 @@
 # Changelog
 
+## New hero illustration, centred café owner (2026-10-11)
+
+**Changed**
+- Home hero: the picture is now the illustration of a customer holding a phone with a latte, a Bits coin, a gift, a stamp card, stars and hearts around them (see-through background, so it works in light and dark mode). It sits in a frame that clips what moves inside it: it slides up and settles when the page loads, then floats gently. Both are switched off for visitors who ask for less motion. The bottom fades into the page so the figure has no hard edge. The earlier café photo with floating phones and coins is gone from the hero.
+- "Turn your customers into regulars.": the café owner picture is now centred (it was pinned to the left edge).
+
+**Removed:** the unused old hero photo (`cafe-interior.webp`). The share image (`og.jpg`) is unchanged.
+
 ## Richer home hero, plain tiles, "Customers" instead of "Shoppers" (2026-10-11)
 
 **Changed**

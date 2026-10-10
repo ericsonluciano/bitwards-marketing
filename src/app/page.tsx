@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Art } from '@/components/art'
-import { BentoCell, ChallengeList, Facts, FaqSection, HeroArt, SceneBand, Steps } from '@/components/sections'
+import { BentoCell, ChallengeList, Facts, FaqSection, SceneBand, Steps } from '@/components/sections'
 import { Reveal } from '@/components/reveal'
 import { ButtonLink, ButtonRow } from '@/components/ui'
 import { generalFaqs } from '@/lib/faqs'
@@ -30,18 +30,16 @@ export default function Home() {
         wide
         rise
         tall
-        soft
-        extra={<HeroArt />}
+        bare
         className="bg-gradient-to-b from-sky to-paper"
-        image={<Image src="/images/cafe-interior.webp" alt="" width={1600} height={900} preload sizes="(min-width: 768px) 52vw, 100vw" className="scene-img h-full w-full object-cover object-right" />}
+        image={<Image src="/images/hero-customer.webp" alt="A smiling customer holding a phone, with a latte, a Bits coin, a gift and a stamp card floating around them" width={1400} height={933} preload sizes="(min-width: 768px) 52vw, 100vw" className="fade-bottom-soft h-full w-full object-contain object-bottom" />}
       >
         <h1 className="text-4xl font-extrabold leading-[1.08] tracking-tighter sm:text-5xl">Every visit brings you closer to <span className="text-reward-blue">something good.</span></h1>
         <p className="mt-5 max-w-xl text-lg text-muted">Discover local favorites. Complete challenges. Earn rewards.</p>
         <ButtonRow className="mt-8">
-          <ButtonLink href={appLinks.customerExplore} variant="dark" className="">Explore Bitwards</ButtonLink>
+          <ButtonLink href={appLinks.customerExplore} variant="dark">Explore Bitwards</ButtonLink>
           <ButtonLink href={appLinks.customerStart} variant="secondary">Get Early Access</ButtonLink>
         </ButtonRow>
-        <Art name="quests" size={420} priority className="mx-auto mt-8 h-auto w-72 md:hidden" />
       </SceneBand>
 
       {/* Customers: the picture in a frame, with the text panel overlapping it. */}
@@ -106,7 +104,7 @@ export default function Home() {
         side="left"
         soft
         className="bg-gradient-to-b from-paper via-peach to-paper"
-        image={<Image src="/images/store-owner.webp" alt="Illustration of a café owner smiling at a tablet behind the counter" width={1100} height={733} sizes="(min-width: 768px) 52vw, 100vw" className="scene-img h-full w-full object-cover object-left" />}
+        image={<Image src="/images/store-owner.webp" alt="Illustration of a café owner smiling at a tablet behind the counter" width={1100} height={733} sizes="(min-width: 768px) 52vw, 100vw" className="scene-img h-full w-full object-cover object-center" />}
       >
         <h2 className="text-3xl font-extrabold leading-[1.08] tracking-tighter sm:text-5xl">Turn your customers into <span className="text-reward-blue">regulars.</span></h2>
         <p className="mt-4 max-w-xl text-lg text-muted">Run a loyalty program built on customer challenges. Reward loyal customers and see what helps your business grow.</p>

@@ -128,8 +128,16 @@ export function ChallengeList({ items }: { items: { title: string; body: string;
 // A full-width band with a scene picture on one side that fades into the page background.
 // `image` is the <Image> to show; `side` is the side the picture sits on from md up. On phones the picture goes
 // below the text (`mobile="after"`) or above it (`mobile="before"`). `wide` gives the text more room (used by the hero).
-export function SceneBand({ id, image, side, mobile = 'before', className = '', wide = false, rise = false, soft = false, tall = false, extra, children }: { id?: string; image: ReactNode; side: 'left' | 'right'; mobile?: 'before' | 'after'; className?: string; wide?: boolean; rise?: boolean; soft?: boolean; tall?: boolean; extra?: ReactNode; children: ReactNode }) {
-  const picture = (
+export function SceneBand({ id, image, side, mobile = 'before', className = '', wide = false, rise = false, soft = false, bare = false, tall = false, extra, children }: { id?: string; image: ReactNode; side: 'left' | 'right'; mobile?: 'before' | 'after'; className?: string; wide?: boolean; rise?: boolean; soft?: boolean; bare?: boolean; tall?: boolean; extra?: ReactNode; children: ReactNode }) {
+  // `bare` is for an illustration with a see-through background: no fade, and the picture sits in a frame that clips (overflow hidden)
+  // while it arrives and floats gently inside it.
+  const picture = bare ? (
+    <div className={`relative h-72 w-full overflow-hidden sm:h-80 md:absolute md:inset-y-0 md:h-auto md:w-[52%] ${side === 'left' ? 'md:left-0' : 'md:right-0'}`}>
+      <div className="hero-pop h-full w-full px-4 pt-4 md:px-8 md:pt-8">
+        <div className="drift h-full w-full" style={{ '--drift': '8s' } as React.CSSProperties}>{image}</div>
+      </div>
+    </div>
+  ) : (
     <div
       className={`relative h-56 w-full overflow-hidden sm:h-72 md:absolute md:inset-y-0 md:h-auto md:w-[52%] ${side === 'left' ? `md:left-0 ${soft ? 'fade-soft-left' : 'fade-h-left'}` : `md:right-0 ${soft ? 'fade-soft-right' : 'fade-h-right'}`} ${mobile === 'before' ? 'fade-v-bottom' : 'fade-v-top'}`}
     >
@@ -183,14 +191,3 @@ export function FeatureCard({ art, title, children }: { art: ArtName; title: str
   )
 }
 
-// The hero picture detail: the quests phones in front of the café scene, with a coin stack and a coffee cup floating beside them.
-// Decoration only (hidden from screen readers); phones get the phones picture inside the text column instead.
-export function HeroArt() {
-  return (
-    <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 z-10 hidden w-[52%] md:block">
-      <Art name="quests" size={640} priority className="drift absolute bottom-10 right-[8%] h-auto w-[22rem] lg:w-[27rem]" />
-      <Art name="bits" size={240} className="drift absolute bottom-[6%] left-[8%] h-auto w-28 lg:w-36" />
-      <Art name="coffee" size={200} className="drift absolute right-[4%] top-[8%] h-auto w-20 lg:w-24" />
-    </div>
-  )
-}
