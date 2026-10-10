@@ -1,6 +1,6 @@
 # bitwards-marketing
 
-The public Bitwards website: what Bitwards is, one page for shoppers, one for businesses, and the Terms and Privacy pages. A small, fast, mostly static Next.js site with no backend and no accounts. Buttons send people to the customer app (`app.`) and the business app (`business.`).
+The public Bitwards website: what Bitwards is, one page for shoppers, one for businesses, and the Terms and Privacy pages. A small, fast, mostly static Next.js site with no backend and no accounts. Buttons send people to the customer app (`play.`) and the business app (`business.`).
 
 **Status:** Phase M1 built and tested locally (2026-10-10). Not deployed. The domain `bitwards.app` is registered but not connected yet (see `../bitwards-product-docs/07-domains-and-hosting.md`).
 

@@ -18,7 +18,7 @@ Also in this phase (other repos):
 The apps are private tools. A separate site can be written for visitors, indexed by search engines, and changed often without touching sign-in or points. One copy of the legal text avoids contradictions.
 
 ## Decisions
-- Domain plan: `bitwards.app` (example) for marketing, `app.` customer, `business.` store, admin stays local (D22).
+- Domain plan: `bitwards.app` for marketing, `play.` customer, `business.` store, admin stays local (D22).
 - No prices and no free-trial claim yet (D14 open). No analytics, no cookies, so no consent banner.
 
 ## Technical changes
