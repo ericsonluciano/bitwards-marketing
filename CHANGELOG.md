@@ -1,5 +1,13 @@
 # Changelog
 
+## Legal pages, pilot version 0.7 (2026-10-10)
+
+**Changed**
+- The Privacy Notice now covers error reporting: a new section "Error reports" explains that the apps may send short, filtered error reports to Sentry (what a report contains, that cookies, headers, form contents and anything that looks like an email address or key are removed, no screen recordings, kept only for the provider's short period, may be processed outside the Philippines). Sentry is added to the list of providers and to the technical-data wording. Later sections were renumbered.
+- This must be live before error tracking is switched on (set the Sentry variables in Vercel only after this version is deployed).
+
+**Breaking changes:** none.
+
 ## Accessibility audit fixes (2026-10-10)
 
 **Fixed**

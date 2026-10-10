@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import { Alert } from '@/components/ui'
 
 // Shared frame for the Terms and Privacy pages. Keep the version and date in step with any change to the text.
-export const LEGAL_VERSION = 'Pilot version 0.6'
+export const LEGAL_VERSION = 'Pilot version 0.7'
 export const LEGAL_DATE = '10 October 2026'
 
 export function LegalPage({ title, children }: { title: string; children: ReactNode }) {

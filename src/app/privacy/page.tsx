@@ -37,7 +37,7 @@ export default function Page() {
         <li>What your team does in the app: quests and rewards you create, check-ins and vouchers your staff confirm.</li>
         <li>Billing details we need to invoice you: plan, billing email, invoices and their payment status. We do not collect card numbers.</li>
       </ul>
-      <p><strong>Everyone:</strong> a record of important actions (for example sign-ins, changes by our staff, and support requests) for security and fairness, and the technical information our hosting providers log when you visit (such as IP address, device and browser type, and times).</p>
+      <p><strong>Everyone:</strong> a record of important actions (for example sign-ins, changes by our staff, and support requests) for security and fairness, short error reports when the app or this website breaks (see below), and the technical information our hosting providers log when you visit (such as IP address, device and browser type, and times).</p>
       <p>We do not knowingly collect sensitive personal information (such as health, government ID numbers, or financial account details). Please do not send us any.</p>
 
       <h2>3. Why we use it</h2>
@@ -55,7 +55,7 @@ export default function Page() {
       <ul>
         <li><strong>Stores you take part in</strong> see your name and your activity with that store only, not your activity at other stores. Once a store sees your information it is also responsible for how it uses it, and must follow the Data Privacy Act and our Terms, which allow it to use the information only to run its own rewards for you. Ask the store directly if you have a concern about what it does.</li>
         <li><strong>Bitwards staff</strong> with a need to see it (for support, safety and billing), under access controls and two-factor sign-in, with an audit trail.</li>
-        <li><strong>Service providers that process data for us:</strong> Supabase (database and sign-in, hosted in Singapore), Vercel (website hosting), Cloudflare (domain name service), Resend (sending sign-in and service emails) and Zoho (our support mailbox, which holds the messages you send us). They may handle data on servers outside the Philippines. We use them only to run Bitwards, and we choose providers that protect data with security measures and contracts.</li>
+        <li><strong>Service providers that process data for us:</strong> Supabase (database and sign-in, hosted in Singapore), Vercel (website hosting), Cloudflare (domain name service), Resend (sending sign-in and service emails), Zoho (our support mailbox, which holds the messages you send us) and Sentry (error reports, described below). They may handle data on servers outside the Philippines. We use them only to run Bitwards, and we choose providers that protect data with security measures and contracts.</li>
         <li><strong>Authorities</strong>, if the law or a valid order requires it.</li>
       </ul>
       <p>We do not sell your personal information and we do not show advertising. This website does not use advertising trackers. We use only the cookies that keep you signed in.</p>
@@ -65,20 +65,25 @@ export default function Page() {
         We run automated checks that flag unusual activity, for example a very large number of check-ins in a day, so that a person can look at it. A flag does not change your Bits or account on its own. A person reviews it, and nothing is closed or removed only because of an automated flag. We do not use your information to build marketing profiles or to make other automated decisions about you.
       </p>
 
-      <h2>6. How long we keep it</h2>
+      <h2>6. Error reports</h2>
+      <p>
+        When Bitwards or this website hits a technical problem, it may send a short error report to Sentry, a service that helps us find and fix faults. A report contains technical details: what went wrong, which page address it happened on (without anything after a question mark), your browser and device type, and the time. We set it up so that cookies, request headers, form contents, and anything that looks like an email address or access key are removed before a report is sent. We do not turn on screen recordings. Reports are used only to fix problems and are kept for the short period Sentry stores them. Sentry may process them on servers outside the Philippines.
+      </p>
+
+      <h2>7. How long we keep it</h2>
       <ul>
         <li>Your account details: until you delete your account or ask us to.</li>
         <li>When you delete your account, we remove your name, email, mobile number and sign-in. Records of Bits issued and vouchers are kept without your name or email so stores and sponsors can reconcile their books.</li>
         <li>Support requests and billing records: for as long as needed to resolve the matter and meet accounting and legal duties.</li>
-        <li>Technical logs: for the short periods our providers keep them.</li>
+        <li>Technical logs and error reports: for the short periods our providers keep them.</li>
       </ul>
 
-      <h2>7. How we protect it</h2>
+      <h2>8. How we protect it</h2>
       <p>
         Access is limited by role and enforced in the database. Connections are encrypted. Our staff accounts use two-factor sign-in. Customer codes expire in about a minute and can be used once. No system is perfectly secure, so if a breach puts your rights at risk we will tell you and the National Privacy Commission within the time the law requires.
       </p>
 
-      <h2>8. Your rights</h2>
+      <h2>9. Your rights</h2>
       <p>Under the Data Privacy Act you may:</p>
       <ul>
         <li>be informed about how your information is used, including whether it is used for automated decisions or profiling (this notice);</li>
@@ -92,10 +97,10 @@ export default function Page() {
       </ul>
       <p>We answer requests within a reasonable time. We may need to confirm it is really you, and may keep what the law requires us to keep.</p>
 
-      <h2>9. Young people</h2>
+      <h2>10. Young people</h2>
       <p>Bitwards is for people 18 and over. If you are younger, please ask a parent or guardian to use it for you or with you.</p>
 
-      <h2>10. Changes to this notice and to our business</h2>
+      <h2>11. Changes to this notice and to our business</h2>
       <p>If we change this notice in a way that matters, we will tell you in the app or by email before it applies and update the date above. If Bitwards is ever sold or merged, or its operation moves to another company, your information may move with the service, and we will tell you and the new owner must follow this notice or tell you first.</p>
     </LegalPage>
   )

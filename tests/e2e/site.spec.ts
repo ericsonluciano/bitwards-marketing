@@ -122,3 +122,9 @@ test.describe('printed QR address (/join)', () => {
     expect(await (await request.get('/robots.txt')).text()).toContain('Disallow: /join')
   })
 })
+
+test('the privacy notice lists error reporting and its provider', async ({ page }) => {
+  await page.goto('/privacy')
+  await expect(page.getByRole('heading', { name: '6. Error reports' })).toBeVisible()
+  await expect(page.getByText(/Sentry/).first()).toBeVisible()
+})
