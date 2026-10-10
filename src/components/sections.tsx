@@ -67,11 +67,11 @@ export function CallToAction({ title, body, children }: { title: string; body: s
 }
 
 // A small example of what a customer sees. Illustration only.
-export function QuestExample() {
+export function QuestExample({ compact = false }: { compact?: boolean }) {
   return (
-    <div className="mx-auto w-full max-w-sm" aria-label="Example of what a customer sees">
+    <div className={compact ? 'w-full' : 'mx-auto w-full max-w-sm'} aria-label="Example of what a customer sees">
       <div className="rounded-card border border-mist bg-white p-5 shadow-[0_12px_40px_-16px_rgba(23,42,58,0.25)]">
-        <p className="text-xs font-semibold uppercase tracking-wide text-muted">Example quest</p>
+        <p className="text-xs font-semibold uppercase tracking-wide text-muted">Example quest{compact ? ' (illustration only)' : ''}</p>
         <h3 className="mt-1 text-xl font-semibold">Coffee Lover</h3>
         <p className="mt-1 text-muted">Check in, buy 2 drinks, then come back on another day.</p>
         <div className="mt-5 flex gap-2" role="img" aria-label="Step 2 of 3 in progress">
@@ -85,7 +85,42 @@ export function QuestExample() {
           <span className="rounded-full bg-gold px-3 py-1 text-sm font-bold">60 Bits</span>
         </div>
       </div>
-      <p className="mt-3 text-center text-xs text-muted">Illustration only. Each store sets its own quests and rewards.</p>
+      {compact ? null : <p className="mt-3 text-center text-xs text-muted">Illustration only. Each store sets its own quests and rewards.</p>}
+    </div>
+  )
+}
+
+// Four short benefit items under the hero. `icon` is decorative.
+export function BenefitStrip({ items }: { items: { title: string; body: string; icon: ReactNode; tint: string }[] }) {
+  return (
+    <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {items.map((item) => (
+        <li key={item.title} className="flex items-start gap-3">
+          <span className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-control text-navy ${item.tint}`}>{item.icon}</span>
+          <div>
+            <h3 className="font-semibold">{item.title}</h3>
+            <p className="mt-0.5 text-sm text-muted">{item.body}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+// Example challenge cards. Not live offers; the caption says so.
+export function SampleChallenges({ items }: { items: { title: string; body: string; bits: number }[] }) {
+  return (
+    <div>
+      <ul className="grid gap-3 sm:grid-cols-3 md:grid-cols-1 lg:grid-cols-3">
+        {items.map((item) => (
+          <li key={item.title} className="rounded-card border border-mist bg-white p-4 shadow-[0_8px_24px_-16px_rgba(23,42,58,0.3)]">
+            <h3 className="font-semibold">{item.title}</h3>
+            <p className="mt-1 text-sm text-muted">{item.body}</p>
+            <p className="mt-3 inline-block rounded-full bg-gold px-2.5 py-0.5 text-xs font-bold">+{item.bits} Bits</p>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-3 text-xs text-muted">Sample challenges for illustration. Each store sets its own quests and rewards.</p>
     </div>
   )
 }

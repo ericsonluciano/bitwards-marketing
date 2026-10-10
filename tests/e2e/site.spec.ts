@@ -5,12 +5,27 @@ const BUSINESS = 'https://business.example.test'
 
 test('home explains Bitwards and sends shoppers to the app @responsive', async ({ page }) => {
   await page.goto('/')
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Play at your favourite local stores.')
-  await expect(page.getByRole('link', { name: /Get started/ })).toHaveAttribute('href', `${APP}/sign-in`)
-  await expect(page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Open the app' })).toHaveAttribute('href', `${APP}/sign-in`)
-  await expect(page.getByRole('link', { name: 'I run a store' }).first()).toHaveAttribute('href', '/business')
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Every visit brings you closer to something good.')
+  await expect(page.getByRole('link', { name: 'Get Early Access' }).first()).toHaveAttribute('href', `${APP}/sign-in`)
+  await expect(page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Get Early Access' })).toHaveAttribute('href', `${APP}/sign-in`)
+  await expect(page.getByRole('main').getByRole('link', { name: 'Apply to join the pilot' })).toHaveAttribute('href', `${BUSINESS}/sign-in`)
+  const home = await page.locator('main').innerText()
+  expect(home).not.toMatch(/₱\s?\d/)
+  expect(home.toLowerCase()).not.toContain('free trial')
+  expect(home).not.toMatch(/trusted by/i)
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)
   expect(overflow).toBeLessThanOrEqual(0)
+})
+
+test('the header sections and FAQ exist on the home page', async ({ page }) => {
+  await page.goto('/')
+  const nav = page.getByRole('navigation', { name: 'Main' })
+  for (const [name, id] of [['For Customers', 'customers'], ['For Businesses', 'businesses'], ['Features', 'features'], ['FAQs', 'faq']]) {
+    await expect(nav.getByRole('link', { name })).toHaveAttribute('href', `/#${id}`)
+    await expect(page.locator(`#${id}`)).toBeAttached()
+  }
+  await page.getByText('Does every store offer the same rewards?').click()
+  await expect(page.getByText(/Rewards and challenge rules vary/)).toBeVisible()
 })
 
 test('the shopper page links to sign-up and browsing', async ({ page }) => {
