@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { CallToAction, Facts, FaqSection, SceneBand, Section, Steps } from '@/components/sections'
 import { ButtonLink, ButtonRow } from '@/components/ui'
-import { shopperFaqs } from '@/lib/faqs'
+import { customerFaqs } from '@/lib/faqs'
 import { appLinks } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'A loyalty program for shoppers: challenges and rewards',
-  description: 'Join challenges at local stores, show a code at the counter, earn Bits and claim real rewards. Free for shoppers, no password.',
+  title: 'A loyalty program for customers: challenges and rewards',
+  description: 'Join challenges at local stores, show a code at the counter, earn Bits and claim real rewards. Free for customers, no password.',
   alternates: { canonical: '/customers' },
 }
 
@@ -20,7 +20,7 @@ export default function CustomersPage() {
         wide
         rise
         className="bg-gradient-to-b from-sky to-paper"
-        image={<Image src="/images/customer-cafe.webp" alt="Illustration of a smiling shopper outside a café, holding a takeaway drink" width={1000} height={1000} preload sizes="(min-width: 768px) 52vw, 100vw" className="scene-img h-full w-full object-cover object-[50%_30%]" />}
+        image={<Image src="/images/customer-cafe.webp" alt="Illustration of a smiling customer outside a café, holding a takeaway drink" width={1000} height={1000} preload sizes="(min-width: 768px) 52vw, 100vw" className="scene-img h-full w-full object-cover object-[50%_30%]" />}
       >
         <h1 className="text-4xl font-extrabold leading-[1.08] tracking-tighter sm:text-5xl">Earn rewards for visiting the places you already love.</h1>
         <p className="mt-5 max-w-xl text-lg text-muted">Quests are simple challenges set by local stores. Finish one, earn Bits, and trade them for a reward you actually want.</p>
@@ -43,7 +43,7 @@ export default function CustomersPage() {
       <Section title="Good to know">
         <Facts
           items={[
-            { art: 'gift', title: 'Free for shoppers', body: 'Bitwards does not charge customers. Stores pay for the tools and fund their own rewards.' },
+            { art: 'gift', title: 'Free for customers', body: 'Bitwards does not charge customers. Stores pay for the tools and fund their own rewards.' },
             { art: 'bits', title: 'Bits belong to one store', body: 'Bits earned at a store can be used at that store. They have no cash value and cannot be sent to anyone.' },
             { art: 'code', title: 'Your code changes every minute', body: 'A screenshot will not work, which keeps your account safe.' },
             { art: 'map', title: 'Needs a connection', body: 'The app works online only for now, so your Bits are always up to date.' },
@@ -53,7 +53,7 @@ export default function CustomersPage() {
 
       <FaqSection
         title="Questions"
-        items={shopperFaqs}
+        items={customerFaqs}
       />
 
       <CallToAction title="Start your first quest" body="It takes about a minute to sign up.">

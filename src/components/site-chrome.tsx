@@ -1,6 +1,7 @@
 import { EnvelopeSimple, FacebookLogo, InstagramLogo, TiktokLogo, XLogo } from '@phosphor-icons/react/dist/ssr'
 import Link from 'next/link'
 import { LogoLink } from '@/components/logo'
+import { features } from '@/lib/features'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { ButtonLink } from '@/components/ui'
 import { SITE, appLinks } from '@/lib/site'
@@ -61,7 +62,7 @@ export function SiteFooter() {
           <p className="mt-4 max-w-xs text-lg font-semibold leading-snug tracking-tight">Every visit brings you closer to something good.</p>
           <SocialLinks />
         </div>
-        <nav aria-label="Footer" className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:col-span-7">
+        <nav aria-label="Footer" className="grid grid-cols-2 gap-8 sm:grid-cols-4 md:col-span-7">
           <div>
             <p className={colHead}>Bitwards</p>
             <ul className="mt-2 flex flex-col">
@@ -69,6 +70,14 @@ export function SiteFooter() {
               <li><Link href="/business" className={colLink}>For Businesses</Link></li>
               <li><Link href="/features" className={colLink}>Features</Link></li>
               <li><Link href="/faq" className={colLink}>FAQs</Link></li>
+            </ul>
+          </div>
+          <div>
+            <p className={colHead}>Features</p>
+            <ul className="mt-2 flex flex-col">
+              {features.map((f) => (
+                <li key={f.slug}><Link href={`/features/${f.slug}`} className={colLink}>{f.title}</Link></li>
+              ))}
             </ul>
           </div>
           <div>

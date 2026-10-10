@@ -1,4 +1,4 @@
-import { ArrowUpRight, Minus, Plus } from '@phosphor-icons/react/dist/ssr'
+import { Minus, Plus } from '@phosphor-icons/react/dist/ssr'
 import Link from 'next/link'
 import type { ReactNode } from 'react'
 import { Art, type ArtName } from '@/components/art'
@@ -128,16 +128,16 @@ export function ChallengeList({ items }: { items: { title: string; body: string;
 // A full-width band with a scene picture on one side that fades into the page background.
 // `image` is the <Image> to show; `side` is the side the picture sits on from md up. On phones the picture goes
 // below the text (`mobile="after"`) or above it (`mobile="before"`). `wide` gives the text more room (used by the hero).
-export function SceneBand({ id, image, side, mobile = 'before', className = '', wide = false, rise = false, soft = false, extra, children }: { id?: string; image: ReactNode; side: 'left' | 'right'; mobile?: 'before' | 'after'; className?: string; wide?: boolean; rise?: boolean; soft?: boolean; extra?: ReactNode; children: ReactNode }) {
+export function SceneBand({ id, image, side, mobile = 'before', className = '', wide = false, rise = false, soft = false, tall = false, extra, children }: { id?: string; image: ReactNode; side: 'left' | 'right'; mobile?: 'before' | 'after'; className?: string; wide?: boolean; rise?: boolean; soft?: boolean; tall?: boolean; extra?: ReactNode; children: ReactNode }) {
   const picture = (
     <div
-      className={`relative h-56 w-full overflow-hidden sm:h-72 md:absolute md:inset-y-0 md:h-auto md:w-[52%] ${side === 'left' ? `md:left-0 ${soft ? 'fade-soft-left' : 'fade-h-left'}` : 'md:right-0 fade-h-right'} ${mobile === 'before' ? 'fade-v-bottom' : 'fade-v-top'}`}
+      className={`relative h-56 w-full overflow-hidden sm:h-72 md:absolute md:inset-y-0 md:h-auto md:w-[52%] ${side === 'left' ? `md:left-0 ${soft ? 'fade-soft-left' : 'fade-h-left'}` : `md:right-0 ${soft ? 'fade-soft-right' : 'fade-h-right'}`} ${mobile === 'before' ? 'fade-v-bottom' : 'fade-v-top'}`}
     >
       {soft ? <div className="fade-v-both h-full w-full">{image}</div> : image}
     </div>
   )
   return (
-    <section id={id} className={`relative scroll-mt-20 overflow-hidden ${className}`}>
+    <section id={id} className={`relative scroll-mt-20 overflow-hidden ${tall ? 'md:flex md:min-h-[35rem] md:items-center' : ''} ${className}`}>
       {mobile === 'before' ? picture : null}
       <div className="relative z-10 mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 md:py-24">
         <div className={`${wide ? 'md:w-[58%]' : 'md:w-[48%]'} ${rise ? 'hero-rise' : ''} ${side === 'left' ? 'md:ml-auto' : ''}`}>{children}</div>
@@ -148,28 +148,7 @@ export function SceneBand({ id, image, side, mobile = 'before', className = '', 
   )
 }
 
-// Three small reward pictures that float gently over a scene. Decoration only: hidden from screen readers and on phones.
-// The float is a slow up-and-down, switched off for visitors who ask for less motion.
-export function FloatingBits({ className = '' }: { className?: string }) {
-  const chip = 'drift absolute z-10 hidden items-center gap-2 rounded-full border border-mist bg-surface/95 shadow-[0_18px_36px_-18px_rgba(23,42,58,0.45)] md:flex'
-  return (
-    <div aria-hidden="true" className={className}>
-      <span className={`${chip} right-[10%] top-[14%] py-1.5 pl-2 pr-5 font-bold`} style={{ '--drift': '6s' } as React.CSSProperties}>
-        <Art name="bits" size={44} className="size-11" />
-        +50 Bits
-      </span>
-      <span className={`${chip} bottom-[20%] right-[34%] p-2`} style={{ '--drift': '7.5s', '--drift-delay': '-2s' } as React.CSSProperties}>
-        <Art name="gift" size={48} className="size-12" />
-      </span>
-      <span className={`${chip} bottom-[34%] right-[4%] p-2`} style={{ '--drift': '6.8s', '--drift-delay': '-4s' } as React.CSSProperties}>
-        <Art name="heart" size={48} className="size-12" />
-      </span>
-    </div>
-  )
-}
-
 // One tile of a bento grid. `tone` gives the tile its own background so the grid is not a row of identical boxes.
-// With `href` the whole tile is a link to a feature page.
 const TONES = {
   mint: 'bg-mint',
   gold: 'bg-gradient-to-br from-gold/45 to-gold/15',
@@ -179,43 +158,39 @@ const TONES = {
 } as const
 export type Tone = keyof typeof TONES
 
-export function BentoCell({ tone = 'plain', art, title, href, children, className = '' }: { tone?: Tone; art: ArtName; title: string; href?: string; children: ReactNode; className?: string }) {
-  const body = (
-    <>
-      <Art name={art} size={140} className="size-28 transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-105 motion-reduce:transform-none" />
-      <div>
-        <h3 className="text-xl font-semibold tracking-tight">{title}</h3>
-        <p className="mt-1.5 max-w-sm text-muted">{children}</p>
-      </div>
-    </>
-  )
-  const box = `group relative flex h-full flex-col justify-between gap-5 rounded-card p-6 sm:p-7 ${TONES[tone]}`
+export function BentoCell({ tone = 'plain', art, title, children, className = '' }: { tone?: Tone; art: ArtName; title: string; children: ReactNode; className?: string }) {
   return (
     <li data-rise className={className}>
-      {href ? <Link href={href} className={`${box} transition-shadow hover:shadow-[0_24px_50px_-30px_rgba(23,42,58,0.5)]`}>{body}<CornerArrow /></Link> : <div className={box}>{body}</div>}
+      <div className={`flex h-full flex-col justify-between gap-5 rounded-card p-6 sm:p-7 ${TONES[tone]}`}>
+        <Art name={art} size={140} className="size-28" />
+        <div>
+          <h3 className="text-xl font-semibold tracking-tight">{title}</h3>
+          <p className="mt-1.5 max-w-sm text-muted">{children}</p>
+        </div>
+      </div>
     </li>
-  )
-}
-
-// The small arrow in the corner of a clickable tile: it says "this opens something" without any extra words.
-function CornerArrow() {
-  return (
-    <span aria-hidden="true" className="absolute right-5 top-5 flex size-9 items-center justify-center rounded-full bg-surface/80 text-ink transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transform-none">
-      <ArrowUpRight size={18} />
-    </span>
   )
 }
 
 // A card for the features index. All cards are the same: white, the picture first, then the title, then the details.
-export function FeatureCard({ href, art, title, children }: { href: string; art: ArtName; title: string; children: ReactNode }) {
+export function FeatureCard({ art, title, children }: { art: ArtName; title: string; children: ReactNode }) {
   return (
-    <li data-rise>
-      <Link href={href} className="group relative flex h-full flex-col items-start gap-3 rounded-card border border-mist bg-surface p-7 transition-shadow hover:shadow-[0_24px_50px_-30px_rgba(23,42,58,0.5)] sm:p-8">
-        <Art name={art} size={128} className="size-24 transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-105 motion-reduce:transform-none" />
-        <h2 className="mt-1 text-2xl font-semibold tracking-tight">{title}</h2>
-        <p className="max-w-md text-muted">{children}</p>
-        <CornerArrow />
-      </Link>
+    <li data-rise className="flex flex-col items-start gap-3 rounded-card border border-mist bg-surface p-7 sm:p-8">
+      <Art name={art} size={128} className="size-24" />
+      <h2 className="mt-1 text-2xl font-semibold tracking-tight">{title}</h2>
+      <p className="max-w-md text-muted">{children}</p>
     </li>
+  )
+}
+
+// The hero picture detail: the quests phones in front of the café scene, with a coin stack and a coffee cup floating beside them.
+// Decoration only (hidden from screen readers); phones get the phones picture inside the text column instead.
+export function HeroArt() {
+  return (
+    <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 z-10 hidden w-[52%] md:block">
+      <Art name="quests" size={640} priority className="drift absolute bottom-10 right-[8%] h-auto w-[22rem] lg:w-[27rem]" />
+      <Art name="bits" size={240} className="drift absolute bottom-[6%] left-[8%] h-auto w-28 lg:w-36" />
+      <Art name="coffee" size={200} className="drift absolute right-[4%] top-[8%] h-auto w-20 lg:w-24" />
+    </div>
   )
 }

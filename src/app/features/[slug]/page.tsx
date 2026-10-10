@@ -70,7 +70,7 @@ export default async function FeaturePage({ params }: PageProps<'/features/[slug
         </Link>
       </nav>
 
-      <CallToAction title="Bring more reasons for customers to come back." body="Shoppers can start exploring today. Stores apply to join the pilot.">
+      <CallToAction title="Bring more reasons for customers to come back." body="Customers can start exploring today. Stores apply to join the pilot.">
         <ButtonLink href={appLinks.customerExplore} variant="dark">Explore Bitwards</ButtonLink>
         <ButtonLink href={appLinks.businessApply} variant="secondary">Apply to join the pilot</ButtonLink>
       </CallToAction>

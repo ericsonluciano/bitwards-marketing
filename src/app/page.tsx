@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Art } from '@/components/art'
-import { BentoCell, ChallengeList, Facts, FaqSection, FloatingBits, SceneBand, Steps } from '@/components/sections'
+import { BentoCell, ChallengeList, Facts, FaqSection, HeroArt, SceneBand, Steps } from '@/components/sections'
 import { Reveal } from '@/components/reveal'
 import { ButtonLink, ButtonRow } from '@/components/ui'
 import { generalFaqs } from '@/lib/faqs'
@@ -29,7 +29,9 @@ export default function Home() {
         mobile="after"
         wide
         rise
-        extra={<FloatingBits />}
+        tall
+        soft
+        extra={<HeroArt />}
         className="bg-gradient-to-b from-sky to-paper"
         image={<Image src="/images/cafe-interior.webp" alt="" width={1600} height={900} preload sizes="(min-width: 768px) 52vw, 100vw" className="scene-img h-full w-full object-cover object-right" />}
       >
@@ -39,13 +41,14 @@ export default function Home() {
           <ButtonLink href={appLinks.customerExplore} variant="dark" className="">Explore Bitwards</ButtonLink>
           <ButtonLink href={appLinks.customerStart} variant="secondary">Get Early Access</ButtonLink>
         </ButtonRow>
+        <Art name="quests" size={420} priority className="mx-auto mt-8 h-auto w-72 md:hidden" />
       </SceneBand>
 
       {/* Customers: the picture in a frame, with the text panel overlapping it. */}
       <section id="customers" className="mx-auto w-full max-w-7xl scroll-mt-20 px-4 py-16 sm:px-6 md:py-28">
         <div className="grid items-center gap-6 lg:grid-cols-12 lg:gap-0">
           <div className="relative overflow-hidden rounded-card lg:col-span-5">
-            <Image src="/images/customer-cafe.webp" alt="Illustration of a smiling shopper outside a café, holding a takeaway drink" width={1000} height={1000} sizes="(min-width: 1024px) 40vw, 100vw" className="scene-img aspect-[4/3] w-full object-cover object-[50%_30%] lg:aspect-square" />
+            <Image src="/images/customer-cafe.webp" alt="Illustration of a smiling customer outside a café, holding a takeaway drink" width={1000} height={1000} sizes="(min-width: 1024px) 40vw, 100vw" className="scene-img aspect-[4/3] w-full object-cover object-[50%_30%] lg:aspect-square" />
           </div>
           <Reveal className="relative z-10 rounded-card border border-mist bg-surface p-6 shadow-[0_28px_60px_-30px_rgba(23,42,58,0.4)] sm:p-9 lg:col-span-7 lg:-ml-16">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Explore. Play. Earn.</h2>
@@ -61,7 +64,7 @@ export default function Home() {
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-2">
               <ButtonLink href={appLinks.customerStart} variant="dark">Get Early Access</ButtonLink>
-              <Link href="/customers" className="inline-flex min-h-11 items-center px-3 font-semibold text-reward-blue underline">More for shoppers</Link>
+              <Link href="/customers" className="inline-flex min-h-11 items-center px-3 font-semibold text-reward-blue underline">More for customers</Link>
             </div>
           </Reveal>
         </div>
@@ -89,11 +92,11 @@ export default function Home() {
           <ButtonLink href="/features" variant="secondary">See all features</ButtonLink>
         </div>
         <Reveal as="ul" className="mt-10 grid gap-4 md:grid-cols-6">
-          <BentoCell tone="mint" art="quests" href="/features/quests" title="Quests of any size" className="md:col-span-4">A repeat visit, something new to try, or a few steps in order. Each quest says exactly what to do and what you earn.</BentoCell>
-          <BentoCell tone="gold" art="code" href="/features/scan-and-confirm" title="A code that changes" className="md:col-span-2">Your code refreshes every minute, so a screenshot will not work.</BentoCell>
-          <BentoCell tone="sky" art="bits" href="/features/rewards" title="Bits for a reward" className="md:col-span-2">Finish a quest, earn Bits, trade them at that store.</BentoCell>
-          <BentoCell tone="peach" art="limits" href="/features/limits" title="Hard limits on cost" className="md:col-span-2">Every quest and reward has a cap, so stores never face an open-ended giveaway.</BentoCell>
-          <BentoCell tone="plain" art="insights" href="/features/insights" title="See what works" className="md:col-span-2">Check-ins, returning customers and completions at a glance.</BentoCell>
+          <BentoCell tone="mint" art="quests" title="Quests of any size" className="md:col-span-4">A repeat visit, something new to try, or a few steps in order. Each quest says exactly what to do and what you earn.</BentoCell>
+          <BentoCell tone="gold" art="code" title="A code that changes" className="md:col-span-2">Your code refreshes every minute, so a screenshot will not work.</BentoCell>
+          <BentoCell tone="sky" art="bits" title="Bits for a reward" className="md:col-span-2">Finish a quest, earn Bits, trade them at that store.</BentoCell>
+          <BentoCell tone="peach" art="limits" title="Hard limits on cost" className="md:col-span-2">Every quest and reward has a cap, so stores never face an open-ended giveaway.</BentoCell>
+          <BentoCell tone="plain" art="insights" title="See what works" className="md:col-span-2">Check-ins, returning customers and completions at a glance.</BentoCell>
         </Reveal>
       </section>
 

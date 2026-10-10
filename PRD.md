@@ -4,18 +4,18 @@
 **Product source of truth:** [product docs](../bitwards-product-docs/README.md); domain plan in `07-domains-and-hosting.md`.
 
 ## 1. Purpose
-Explain Bitwards in plain words to two audiences and send each to the right app: shoppers to the customer app, businesses to the store application. It is the only part of Bitwards meant to be found by search engines.
+Explain Bitwards in plain words to two audiences and send each to the right app: customers to the customer app, businesses to the store application. It is the only part of Bitwards meant to be found by search engines.
 
 ## 2. Users
-Shoppers (curious, on a phone, often arriving from a store poster or a friend). Store owners and managers (cautious about cost and staff effort).
+Customers (curious, on a phone, often arriving from a store poster or a friend). Store owners and managers (cautious about cost and staff effort).
 
 ## 3. Goals
-- A shopper understands in one screen how to earn and use Bits, and signs up.
+- A customer understands in one screen how to earn and use Bits, and signs up.
 - A store owner understands the quest model, the cost limits, and applies to the pilot.
 - Claims are honest: nothing about prices, trials or results that are not decided or measured.
 
 ## 4. Scope (MVP)
-Home, For shoppers, For businesses, Terms, Privacy, sitemap, robots, 404. Shared header and footer, FAQ, illustration of a quest. No forms, no accounts, no analytics.
+Home, For customers, For businesses, Terms, Privacy, sitemap, robots, 404. Shared header and footer, FAQ, illustration of a quest. No forms, no accounts, no analytics.
 
 ## 5. Requirements
 - Fast and accessible: semantic headings, skip link, visible focus, 44px tap targets, contrast per the brand guide, works at 360px with no sideways scrolling.

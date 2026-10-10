@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { SITE, appLinks } from '@/lib/site'
 
 describe('product links', () => {
-  it('point shoppers and stores at their own apps', () => {
+  it('point customers and stores at their own apps', () => {
     expect(appLinks.customerStart).toMatch(/\/sign-in$/)
     expect(appLinks.customerExplore).toMatch(/\/explore$/)
     expect(appLinks.businessApply).toMatch(/\/sign-in$/)

@@ -2,12 +2,12 @@
 
 ## Phase overview
 - **Number and name:** Phase M1, marketing website
-- **Objective:** a separate public website that explains Bitwards and sends shoppers and stores to the right app.
+- **Objective:** a separate public website that explains Bitwards and sends customers and stores to the right app.
 - **Status:** Complete locally. Not deployed. The domain `bitwards.app` is registered but not connected yet.
 - **Completion date:** 2026-10-10
 
 ## What was built
-Home, For shoppers, For businesses (with FAQ), draft Terms and Privacy, sitemap, robots, a 404 page. Shared header and footer with a skip link. All app links come from environment values.
+Home, For customers, For businesses (with FAQ), draft Terms and Privacy, sitemap, robots, a 404 page. Shared header and footer with a skip link. All app links come from environment values.
 
 Also in this phase (other repos):
 - `bitwards-customer` and `bitwards-store`: when `NEXT_PUBLIC_MARKETING_URL` is set, their landing pages (and the customer app's Terms and Privacy pages) redirect to the marketing site. Unset, nothing changes. The business app now sends signed-in people at `/` to the Overview.

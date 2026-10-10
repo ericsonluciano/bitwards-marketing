@@ -5,7 +5,7 @@ src/
   app/
     layout.tsx           Page frame: skip link, header, footer, metadata
     page.tsx             Home
-    customers/page.tsx   For shoppers
+    customers/page.tsx   For customers
     business/page.tsx    For businesses
     terms/, privacy/     Draft legal pages
     sitemap.ts robots.ts not-found.tsx

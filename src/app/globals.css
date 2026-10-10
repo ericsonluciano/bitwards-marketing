@@ -123,6 +123,7 @@ body {
   .fade-h-left { mask-image: linear-gradient(to right, #000 40%, transparent); }
   .fade-h-right { mask-image: linear-gradient(to left, #000 40%, transparent); }
   /* Softer, eased fade toward the text (no visible band where the picture ends). The top and bottom fade is a separate layer, .fade-v-both. */
+  .fade-soft-right { mask-image: linear-gradient(to left, #000 22%, rgb(0 0 0 / 0.78) 42%, rgb(0 0 0 / 0.45) 62%, rgb(0 0 0 / 0.16) 82%, transparent 100%); }
   .fade-soft-left { mask-image: linear-gradient(to right, #000 22%, rgb(0 0 0 / 0.78) 42%, rgb(0 0 0 / 0.45) 62%, rgb(0 0 0 / 0.16) 82%, transparent 100%); }
 }
 

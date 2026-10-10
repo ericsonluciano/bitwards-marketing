@@ -4,7 +4,7 @@ import { features } from '../../src/lib/features'
 const APP = 'https://app.example.test'
 const BUSINESS = 'https://business.example.test'
 
-test('home explains Bitwards and sends shoppers to the app @responsive', async ({ page }) => {
+test('home explains Bitwards and sends customers to the app @responsive', async ({ page }) => {
   await page.goto('/')
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Every visit brings you closer to something good.')
   await expect(page.getByRole('link', { name: 'Get Early Access' }).first()).toHaveAttribute('href', `${APP}/sign-in`)
@@ -32,8 +32,11 @@ test('the header opens a page for each audience, and the home page still has its
 test('the features page leads to a page for each feature, and the FAQ page exists', async ({ page, request }) => {
   await page.goto('/features')
   await expect(page).toHaveTitle(/Loyalty program features/)
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('Challenges for shoppers')
-  for (const f of features) await expect(page.getByRole('main').getByRole('link', { name: new RegExp(f.title) }).first()).toHaveAttribute('href', `/features/${f.slug}`)
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Challenges for customers')
+  for (const f of features) await expect(page.getByRole('main').getByRole('heading', { name: f.title })).toBeVisible()
+  // The cards are plain (not links); every feature page is reached from the footer.
+  expect(await page.getByRole('main').getByRole('link', { name: /Learn more/ }).count()).toBe(0)
+  for (const f of features) await expect(page.getByRole('contentinfo').getByRole('link', { name: f.title })).toHaveAttribute('href', `/features/${f.slug}`)
   await page.goto('/faq')
   await expect(page).toHaveTitle(/FAQs/)
   await page.getByText('Do vouchers expire?').click()
@@ -89,7 +92,7 @@ test('the footer has a copyright line, social links that are set, and the email 
   expect(await footer.innerText()).not.toMatch(/piloting with local stores/)
 })
 
-test('the shopper page links to sign-up and browsing', async ({ page }) => {
+test('the customer page links to sign-up and browsing', async ({ page }) => {
   await page.goto('/customers')
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Earn rewards')
   await expect(page.getByRole('link', { name: /Get started/ })).toHaveAttribute('href', `${APP}/sign-in`)

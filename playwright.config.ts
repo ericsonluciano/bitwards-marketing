@@ -9,6 +9,9 @@ const ENV = [
   'NEXT_PUBLIC_CONTACT_EMAIL=hello@example.test',
   'NEXT_PUBLIC_FACEBOOK_URL=https://facebook.example.test/bitwards',
   'NEXT_PUBLIC_INSTAGRAM_URL=https://instagram.example.test/bitwards',
+  // Set to empty on purpose so a developer's own .env.local cannot change what the tests see.
+  'NEXT_PUBLIC_TIKTOK_URL=',
+  'NEXT_PUBLIC_X_URL=',
 ].join(' ')
 
 export default defineConfig({

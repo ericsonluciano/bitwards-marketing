@@ -1,5 +1,14 @@
 # Changelog
 
+## Richer home hero, plain tiles, "Customers" instead of "Shoppers" (2026-10-11)
+
+**Changed**
+- Home hero: the quests phones, a stack of Bits coins and a coffee cup now sit over the café picture (they float gently, and stay still for visitors who ask for less motion). On phones the phones picture sits under the buttons. The picture now fades softly into the page on all sides, so it has no hard edge.
+- The feature tiles (home and Features page) are plain cards again: no links, no arrows, no "Learn more". Every feature page is still reachable from a new **Features** column in the footer and from the previous/next links on each feature page.
+- "Shoppers" is now "Customers" everywhere on the public pages (headings, page titles, descriptions, FAQ groups, picture descriptions) and in the project docs. The Terms and Privacy pages were not changed.
+
+**Tests:** 62 end-to-end tests. The test environment now sets the social addresses it does not use to empty, so a developer's own `.env.local` cannot change test results. The Features test now checks that the cards are not links and that the footer lists every feature page.
+
 ## Photos on more pages, consistent cards and buttons, stacked points (2026-10-11)
 
 **Changed**

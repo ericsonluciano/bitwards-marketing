@@ -1,4 +1,4 @@
-// Questions and answers, kept in one place so the home page, the shopper and business pages and /faq always agree.
+// Questions and answers, kept in one place so the home page, the customer and business pages and /faq always agree.
 export type Qa = { q: string; a: string }
 
 export const generalFaqs: Qa[] = [
@@ -10,7 +10,7 @@ export const generalFaqs: Qa[] = [
   { q: 'Where is Bitwards available?', a: 'We are piloting with local stores in the Philippines. We are not claiming availability elsewhere yet.' },
 ]
 
-export const shopperFaqs: Qa[] = [
+export const customerFaqs: Qa[] = [
   { q: 'Do I need to download anything?', a: 'No store visit needed to install. Open the app in your phone browser and, if you like, add it to your home screen.' },
   { q: 'What do I need to sign up?', a: 'Just an email address. A mobile number is optional and is not used to sign in yet.' },
   { q: 'What if I forget to show my code?', a: 'Progress is only counted when staff confirm your visit, so show your code at the counter. If something went wrong, contact support and we can review it.' },
