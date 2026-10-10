@@ -1,5 +1,17 @@
 # Changelog
 
+## Accessibility audit fixes (2026-10-10)
+
+**Fixed**
+- Heading order: the "Coffee Lover" example quest card and the four benefit titles under the hero were headings (`h3`) that skipped the `h2` level, which screen reader users hear as a broken outline. They are now plain bold text with the same look. No visible change.
+- The page content area can now take focus, so after "Skip to content" the next Tab goes into the page and not back into the header.
+
+**Added**
+- An automated accessibility guard (axe) on all five public pages at laptop and phone width, plus keyboard checks (skip link, FAQ with Enter, focus outline). 12 more end-to-end tests (28 in total). New dev dependency `@axe-core/playwright`.
+- The audit with before and after scores is in `bitwards-product-docs/12-performance-accessibility-audit.md`.
+
+**Breaking changes:** none.
+
 ## Printed QR address (2026-10-10)
 
 **Added**

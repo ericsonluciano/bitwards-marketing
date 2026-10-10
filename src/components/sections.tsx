@@ -72,7 +72,7 @@ export function QuestExample({ compact = false }: { compact?: boolean }) {
     <div className={compact ? 'w-full' : 'mx-auto w-full max-w-sm'} aria-label="Example of what a customer sees">
       <div className="rounded-card border border-mist bg-white p-5 shadow-[0_12px_40px_-16px_rgba(23,42,58,0.25)]">
         <p className="text-xs font-semibold uppercase tracking-wide text-muted">Example quest{compact ? ' (illustration only)' : ''}</p>
-        <h3 className="mt-1 text-xl font-semibold">Coffee Lover</h3>
+        <p className="mt-1 text-xl font-semibold">Coffee Lover</p>
         <p className="mt-1 text-muted">Check in, buy 2 drinks, then come back on another day.</p>
         <div className="mt-5 flex gap-2" role="img" aria-label="Step 2 of 3 in progress">
           <span className="h-3 flex-1 rounded-full bg-teal" />
@@ -98,7 +98,7 @@ export function BenefitStrip({ items }: { items: { title: string; body: string; 
         <li key={item.title} className="flex items-start gap-3">
           <span className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-control text-navy ${item.tint}`}>{item.icon}</span>
           <div>
-            <h3 className="font-semibold">{item.title}</h3>
+            <p className="font-semibold">{item.title}</p>
             <p className="mt-0.5 text-sm text-muted">{item.body}</p>
           </div>
         </li>

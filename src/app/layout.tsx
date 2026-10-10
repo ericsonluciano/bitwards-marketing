@@ -21,7 +21,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
       <body className="min-h-full flex flex-col">
         <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:rounded-control focus:bg-white focus:px-4 focus:py-2">Skip to content</a>
         <SiteHeader />
-        <div id="main" className="flex-1">{children}</div>
+        <div id="main" tabIndex={-1} className="flex-1 outline-none">{children}</div>
         <SiteFooter />
       </body>
     </html>
