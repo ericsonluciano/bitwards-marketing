@@ -1,5 +1,12 @@
 # Changelog
 
+## Legal pages, pilot version 0.9 (2026-10-10)
+
+**Changed**
+- The Privacy Notice says Sentry stores error reports "on servers outside the Philippines" instead of naming the United States. The live apps send reports to an address ending `ingest.de.sentry.io`, which is Sentry's EU (Germany) region, not the US region, so the specific country is left out until the account's data region is confirmed. Name the country again once it is.
+
+**Breaking changes:** none.
+
 ## Legal pages, pilot version 0.8 (2026-10-10)
 
 **Changed**
