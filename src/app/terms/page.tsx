@@ -18,7 +18,8 @@ export default function Page() {
 
       <h2>3. For customers</h2>
       <ul>
-        <li><strong>Bits</strong> are a reward points balance kept for each store. They have no cash value, cannot be sold, bought, transferred or exchanged for money, and can be used only at the store that issued them.</li>
+        <li><strong>Bits</strong> are reward points that belong to your account. You earn them by finishing challenges at participating stores, and you can use them for any reward on Bitwards, from any store or from Bitwards itself. They have no cash value and cannot be sold, bought, transferred or exchanged for money. Bits end 2 years after the day you earned them, and the oldest Bits are used first. We may change how Bits work during the pilot, and we will tell you before a change that affects the Bits you hold.</li>
+        <li><strong>Giveaways from Bitwards</strong> are prizes that Bitwards offers for Bits. When you claim one, we contact you by email to arrange delivery or a meetup outside the app. We may ask for proof of who you are before we hand it over. If you do not reply within the time shown on your claim, the claim may end and the Bits are not refunded.</li>
         <li><strong>Challenges</strong> are set by the store. The rules shown when you join are the rules that apply to you, even if the store later changes the challenge for other people. Challenges have limits and can fill up, end or be paused.</li>
         <li><strong>Progress counts only when store staff confirm it</strong> (for example a check-in or a qualifying purchase). Show your code at the counter. Codes change every minute and may be used once.</li>
         <li><strong>Vouchers</strong> are issued when you claim a reward with your Bits. Each has an expiry date and the terms the store set. Expired vouchers are not refunded. Show the voucher code to the store to use it.</li>
@@ -31,6 +32,7 @@ export default function Page() {
       <h2>4. For businesses</h2>
       <ul>
         <li><strong>Application.</strong> Stores are reviewed before they go live. We can decline, pause or suspend a store, with a reason, if it breaks these terms or the law, or if customers are put at risk.</li>
+        <li><strong>Approval first.</strong> Every challenge and reward you create is reviewed by Bitwards before customers can see it, and again when you change a live reward. We may reject or ask you to change something, and we will tell you why.</li>
         <li><strong>Your rewards.</strong> You decide and fund your rewards and challenges. You must honour vouchers on the terms you published, within their expiry. Set limits you can afford. Bitwards helps you see the maximum cost but does not guarantee your results or profits.</li>
         <li><strong>Your team.</strong> You are responsible for the people you invite, for confirming visits and purchases honestly, and for removing access when someone leaves.</li>
         <li><strong>Laws.</strong> You are responsible for the permits, taxes and rules that apply to your business and promotions in the Philippines, including consumer protection and any approval needed for promotional offers, and for the accuracy of what you advertise.</li>

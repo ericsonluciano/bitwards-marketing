@@ -27,7 +27,7 @@ export default function Page() {
         <li>Your email address (to sign you in) and the name you give us.</li>
         <li>A mobile number, only if you choose to add one. We do not verify it or use it to sign in yet.</li>
         <li>Whether you agreed to the Terms and this notice, and when, and whether you want email updates.</li>
-        <li>What you do in the app: challenges you join and your progress, check-ins confirmed by a store, Bits you earn or spend, and vouchers you claim or use, with times and the store involved.</li>
+        <li>What you do in the app: challenges you join and your progress, check-ins confirmed by a store, Bits you earn, spend or lose when they end, and vouchers you claim or use, with times and the store involved.</li>
         <li>Short-lived codes the app creates so a store can confirm you. We keep only a scrambled (hashed) form of each code.</li>
       </ul>
       <p><strong>If you use Bitwards for a business:</strong></p>
@@ -54,6 +54,7 @@ export default function Page() {
       <h2>4. Who sees your information</h2>
       <ul>
         <li><strong>Stores you take part in</strong> see your name and your activity with that store only, not your activity at other stores. Once a store sees your information it is also responsible for how it uses it, and must follow the Data Privacy Act and our Terms, which allow it to use the information only to run its own rewards for you. Ask the store directly if you have a concern about what it does.</li>
+        <li><strong>If you claim a Bitwards giveaway,</strong> we use your email to contact you, and we may ask for your name, a delivery address or phone number and proof of who you are so we can hand it over. We share this only with a delivery partner when needed to deliver the item.</li>
         <li><strong>Bitwards staff</strong> with a need to see it (for support, safety and billing), under access controls and two-factor sign-in, with an audit trail.</li>
         <li><strong>Service providers that process data for us:</strong> Supabase (database and sign-in, hosted in Singapore), Vercel (website hosting), Cloudflare (domain name service), Resend (sending sign-in and service emails), Zoho (our support mailbox, which holds the messages you send us) and Sentry (error reports, described below). They may handle data on servers outside the Philippines. We use them only to run Bitwards, and we choose providers that protect data with security measures and contracts.</li>
         <li><strong>Authorities</strong>, if the law or a valid order requires it.</li>

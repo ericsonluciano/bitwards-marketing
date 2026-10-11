@@ -78,7 +78,7 @@ export default function Home() {
               items={[
                 { title: 'Join a challenge', body: 'Pick a challenge from a store you like. It tells you exactly what to do and what you earn.' },
                 { title: 'Visit and show your code', body: 'At the counter, show the code in the app. Store staff confirm your visit or purchase.' },
-                { title: 'Earn Bits, claim rewards', body: 'Finish the challenge to earn Bits. Trade them for a reward at that store. Harder challenges pay more.' },
+                { title: 'Earn Bits, claim rewards', body: 'Finish the challenge to earn Bits. Trade them for a reward at any store. Harder challenges pay more.' },
               ]}
             />
           </div>
@@ -94,7 +94,7 @@ export default function Home() {
         <Reveal as="ul" className="mt-10 grid gap-4 md:grid-cols-6">
           <BentoCell tone="mint" art="quests" title="Challenges of any size" className="md:col-span-4">A repeat visit, something new to try, or a few steps in order. Each challenge says exactly what to do and what you earn.</BentoCell>
           <BentoCell tone="gold" art="code" title="A code that changes" className="md:col-span-2">Your code refreshes every minute, so a screenshot will not work.</BentoCell>
-          <BentoCell tone="sky" art="bits" title="Bits for a reward" className="md:col-span-2">Finish a challenge, earn Bits, trade them at that store.</BentoCell>
+          <BentoCell tone="sky" art="bits" title="Bits for a reward" className="md:col-span-2">Finish a challenge, earn Bits, trade them at any store.</BentoCell>
           <BentoCell tone="peach" art="limits" title="Hard limits on cost" className="md:col-span-2">Every challenge and reward has a cap, so stores never face an open-ended giveaway.</BentoCell>
           <BentoCell tone="plain" art="insights" title="See what works" className="md:col-span-2">Check-ins, returning customers and completions at a glance.</BentoCell>
         </Reveal>

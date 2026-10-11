@@ -4,7 +4,8 @@ export type Qa = { q: string; a: string }
 export const generalFaqs: Qa[] = [
   { q: 'What is Bitwards?', a: 'Bitwards is a loyalty program built around challenges. Customers discover participating local businesses, complete challenges, and earn eligible rewards.' },
   { q: 'How do I earn rewards?', a: 'Complete the actions described in an available challenge. Each challenge explains its requirements and its reward, and store staff confirm your visit.' },
-  { q: 'Does every store offer the same rewards?', a: 'No. Rewards and challenge rules vary by participating business, and Bits earned at a store are used at that store.' },
+  { q: 'Does every store offer the same rewards?', a: 'No. Rewards and challenge rules vary by participating business. Bits are the same everywhere, so Bits you earn at one store can pay for a reward at another, or for a prize from Bitwards.' },
+  { q: 'Do Bits expire?', a: 'Yes. Bits end 2 years after the day you earned them, and the oldest Bits are used first. The app tells you when some are about to end.' },
   { q: 'How can my business join?', a: 'Apply to join the pilot. We review every application and will explain the plan options before anything is charged.' },
   { q: 'What does it cost businesses?', a: 'We are running a pilot and finalising pricing. Rewards you offer are funded by your store.' },
   { q: 'Where is Bitwards available?', a: 'We are piloting with local stores in the Philippines. We are not claiming availability elsewhere yet.' },
@@ -14,6 +15,7 @@ export const customerFaqs: Qa[] = [
   { q: 'Do I need to download anything?', a: 'No store visit needed to install. Open the app in your phone browser and, if you like, add it to your home screen.' },
   { q: 'What do I need to sign up?', a: 'Just an email address. A mobile number is optional and is not used to sign in yet.' },
   { q: 'What if I forget to show my code?', a: 'Progress is only counted when staff confirm your visit, so show your code at the counter. If something went wrong, contact support and we can review it.' },
+  { q: 'Who checks the challenges and rewards?', a: 'Bitwards reviews every challenge and reward before customers can see it.' },
   { q: 'Do vouchers expire?', a: 'Yes. Each voucher shows its expiry date. Expired vouchers are not refunded, so use them in time.' },
   { q: 'Can I delete my account?', a: 'Yes, in Profile. You can also download your data first.' },
 ]
