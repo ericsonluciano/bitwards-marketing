@@ -11,7 +11,7 @@ Home, For customers, For businesses (with FAQ), draft Terms and Privacy, sitemap
 
 Also in this phase (other repos):
 - `bitwards-customer` and `bitwards-store`: when `NEXT_PUBLIC_MARKETING_URL` is set, their landing pages (and the customer app's Terms and Privacy pages) redirect to the marketing site. Unset, nothing changes. The business app now sends signed-in people at `/` to the Overview.
-- The business app's old landing text still said staff "enter the amount"; corrected to the quest model.
+- The business app's old landing text still said staff "enter the amount"; corrected to the challenge model.
 - Product docs: `07-domains-and-hosting.md` and decision D22.
 
 ## Why it matters

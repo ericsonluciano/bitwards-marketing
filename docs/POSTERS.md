@@ -3,7 +3,7 @@
 Print this address, never the app's own address:
 
 - **General:** `https://bitwards.app/join` opens the customer app's Explore page.
-- **One store:** `https://bitwards.app/join/<store id>` opens that store's page (its quests and rewards). The store id is the long id in the store's address in the customer app (`…/stores/<store id>`).
+- **One store:** `https://bitwards.app/join/<store id>` opens that store's page (its challenges and rewards). The store id is the long id in the store's address in the customer app (`…/stores/<store id>`).
 
 Why: the printed address is a **temporary redirect** on the marketing site, so if the customer app ever moves (for example to a different address), only this site changes and no poster needs reprinting. Anything that is not a store id falls back to Explore, so a typo on a poster never shows an error page. The address is kept out of search results.
 

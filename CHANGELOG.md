@@ -1,5 +1,10 @@
 # Changelog
 
+## Documentation: challenge wording (2026-10-11)
+
+**Changed**
+- The documents now say "challenge" where they said "quest" (code names, file names, addresses and this changelog's history are unchanged).
+
 ## "Challenges" everywhere, and sign-up buttons open the new welcome screen (2026-10-11)
 
 **Changed**

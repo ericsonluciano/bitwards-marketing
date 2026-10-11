@@ -11,16 +11,16 @@ Customers (curious, on a phone, often arriving from a store poster or a friend).
 
 ## 3. Goals
 - A customer understands in one screen how to earn and use Bits, and signs up.
-- A store owner understands the quest model, the cost limits, and applies to the pilot.
+- A store owner understands the challenge model, the cost limits, and applies to the pilot.
 - Claims are honest: nothing about prices, trials or results that are not decided or measured.
 
 ## 4. Scope (MVP)
-Home, For customers, For businesses, Terms, Privacy, sitemap, robots, 404. Shared header and footer, FAQ, illustration of a quest. No forms, no accounts, no analytics.
+Home, For customers, For businesses, Terms, Privacy, sitemap, robots, 404. Shared header and footer, FAQ, illustration of a challenge. No forms, no accounts, no analytics.
 
 ## 5. Requirements
 - Fast and accessible: semantic headings, skip link, visible focus, 44px tap targets, contrast per the brand guide, works at 360px with no sideways scrolling.
 - Buttons use the configured app addresses so the same build works in every environment.
-- Content follows the product rules: Bits come from quests (D16); staff confirm; no amount entry; Bits have no cash value.
+- Content follows the product rules: Bits come from challenges (D16); staff confirm; no amount entry; Bits have no cash value.
 - Legal pages marked as drafts until reviewed.
 
 ## 6. Content rules
