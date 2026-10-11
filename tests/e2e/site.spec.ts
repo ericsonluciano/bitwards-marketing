@@ -7,8 +7,8 @@ const BUSINESS = 'https://business.example.test'
 test('home explains Bitwards and sends customers to the app @responsive', async ({ page }) => {
   await page.goto('/')
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Every visit brings you closer to something good.')
-  await expect(page.getByRole('link', { name: 'Get Early Access' }).first()).toHaveAttribute('href', `${APP}/sign-in`)
-  await expect(page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Get Early Access' })).toHaveAttribute('href', `${APP}/sign-in`)
+  await expect(page.getByRole('link', { name: 'Get Early Access' }).first()).toHaveAttribute('href', `${APP}/start`)
+  await expect(page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Get Early Access' })).toHaveAttribute('href', `${APP}/start`)
   await expect(page.getByRole('main').getByRole('link', { name: 'Apply to join the pilot' })).toHaveAttribute('href', `${BUSINESS}/sign-in`)
   const home = await page.locator('main').innerText()
   expect(home).not.toMatch(/₱\s?\d/)
@@ -33,7 +33,7 @@ test('the features page lists each feature as a plain card, and there are no sep
   await page.goto('/features')
   await expect(page).toHaveTitle(/Loyalty program features/)
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Challenges for customers')
-  for (const f of features) await expect(page.getByRole('main').getByRole('heading', { name: f.title })).toBeVisible()
+  for (const f of features) await expect(page.getByRole('main').getByRole('heading', { name: f.title, exact: true })).toBeVisible()
   // The cards are plain: nothing in them is a link, and no link anywhere points at a feature page.
   expect(await page.getByRole('main').getByRole('link', { name: /Learn more/ }).count()).toBe(0)
   expect(await page.locator('a[href^="/features/"]').count()).toBe(0)
@@ -80,7 +80,7 @@ test('the footer has a copyright line, social links that are set, and the email 
 test('the customer page links to sign-up and browsing', async ({ page }) => {
   await page.goto('/customers')
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Earn rewards')
-  await expect(page.getByRole('link', { name: /Get started/ })).toHaveAttribute('href', `${APP}/sign-in`)
+  await expect(page.getByRole('link', { name: /Get started/ })).toHaveAttribute('href', `${APP}/start`)
   await expect(page.getByRole('link', { name: 'Browse stores first' })).toHaveAttribute('href', `${APP}/explore`)
   await page.getByText('Do vouchers expire?').click()
   await expect(page.getByText(/Expired vouchers are not refunded/)).toBeVisible()

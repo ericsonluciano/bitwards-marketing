@@ -52,7 +52,7 @@ export default function Home() {
           </div>
           <Reveal className="relative z-10 rounded-card border border-mist bg-surface p-6 shadow-[0_28px_60px_-30px_rgba(23,42,58,0.4)] sm:p-9 lg:col-span-7 lg:-ml-16">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Explore. Play. Earn.</h2>
-            <p className="mt-3 max-w-xl text-lg text-muted">Discover new places, complete quests, and earn rewards from your favorite local stores and restaurants.</p>
+            <p className="mt-3 max-w-xl text-lg text-muted">Discover new places, complete challenges, and earn rewards from your favorite local stores and restaurants.</p>
             <div className="mt-6">
               <ChallengeList
                 items={[
@@ -76,9 +76,9 @@ export default function Home() {
           <div className="mt-12">
             <Steps
               items={[
-                { title: 'Join a quest', body: 'Pick a quest from a store you like. It tells you exactly what to do and what you earn.' },
+                { title: 'Join a challenge', body: 'Pick a challenge from a store you like. It tells you exactly what to do and what you earn.' },
                 { title: 'Visit and show your code', body: 'At the counter, show the code in the app. Store staff confirm your visit or purchase.' },
-                { title: 'Earn Bits, claim rewards', body: 'Finish the quest to earn Bits. Trade them for a reward at that store. Harder quests pay more.' },
+                { title: 'Earn Bits, claim rewards', body: 'Finish the challenge to earn Bits. Trade them for a reward at that store. Harder challenges pay more.' },
               ]}
             />
           </div>
@@ -92,10 +92,10 @@ export default function Home() {
           <ButtonLink href="/features" variant="secondary">See all features</ButtonLink>
         </div>
         <Reveal as="ul" className="mt-10 grid gap-4 md:grid-cols-6">
-          <BentoCell tone="mint" art="quests" title="Quests of any size" className="md:col-span-4">A repeat visit, something new to try, or a few steps in order. Each quest says exactly what to do and what you earn.</BentoCell>
+          <BentoCell tone="mint" art="quests" title="Challenges of any size" className="md:col-span-4">A repeat visit, something new to try, or a few steps in order. Each challenge says exactly what to do and what you earn.</BentoCell>
           <BentoCell tone="gold" art="code" title="A code that changes" className="md:col-span-2">Your code refreshes every minute, so a screenshot will not work.</BentoCell>
-          <BentoCell tone="sky" art="bits" title="Bits for a reward" className="md:col-span-2">Finish a quest, earn Bits, trade them at that store.</BentoCell>
-          <BentoCell tone="peach" art="limits" title="Hard limits on cost" className="md:col-span-2">Every quest and reward has a cap, so stores never face an open-ended giveaway.</BentoCell>
+          <BentoCell tone="sky" art="bits" title="Bits for a reward" className="md:col-span-2">Finish a challenge, earn Bits, trade them at that store.</BentoCell>
+          <BentoCell tone="peach" art="limits" title="Hard limits on cost" className="md:col-span-2">Every challenge and reward has a cap, so stores never face an open-ended giveaway.</BentoCell>
           <BentoCell tone="plain" art="insights" title="See what works" className="md:col-span-2">Check-ins, returning customers and completions at a glance.</BentoCell>
         </Reveal>
       </section>
@@ -142,7 +142,7 @@ export default function Home() {
             <Facts
               items={[
                 { title: 'Confirmed by real people', body: 'Progress counts when store staff confirm a visit or purchase. Self-reported activity is never treated as verified.', art: 'people' },
-                { title: 'Rewards with limits', body: 'Every quest and reward has a cap set by the store, so nothing is an open-ended giveaway.', art: 'limits' },
+                { title: 'Rewards with limits', body: 'Every challenge and reward has a cap set by the store, so nothing is an open-ended giveaway.', art: 'limits' },
                 { title: 'Bits are not money', body: 'Bits are store rewards. They have no cash value and cannot be transferred.', art: 'not-money' },
                 { title: 'Your data, your choice', body: 'Download your data or delete your account any time in the app.', art: 'privacy' },
               ]}

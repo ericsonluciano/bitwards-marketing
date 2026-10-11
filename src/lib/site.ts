@@ -20,7 +20,7 @@ export const SITE = {
 }
 
 export const appLinks = {
-  customerStart: `${SITE.appUrl}/sign-in`,
+  customerStart: `${SITE.appUrl}/start`,
   customerExplore: `${SITE.appUrl}/explore`,
   businessApply: `${SITE.businessUrl}/sign-in`,
 }

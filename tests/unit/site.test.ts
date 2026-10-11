@@ -3,7 +3,7 @@ import { SITE, appLinks } from '@/lib/site'
 
 describe('product links', () => {
   it('point customers and stores at their own apps', () => {
-    expect(appLinks.customerStart).toMatch(/\/sign-in$/)
+    expect(appLinks.customerStart).toMatch(/\/start$/)
     expect(appLinks.customerExplore).toMatch(/\/explore$/)
     expect(appLinks.businessApply).toMatch(/\/sign-in$/)
     expect(appLinks.customerStart).not.toBe(appLinks.businessApply)

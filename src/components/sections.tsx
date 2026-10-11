@@ -121,7 +121,7 @@ export function ChallengeList({ items }: { items: { title: string; body: string;
           </li>
         ))}
       </ul>
-      <p className="mt-3 text-xs text-muted">Sample challenges for illustration. Each store sets its own quests and rewards.</p>
+      <p className="mt-3 text-xs text-muted">Sample challenges for illustration. Each store sets its own challenges and rewards.</p>
     </div>
   )
 }

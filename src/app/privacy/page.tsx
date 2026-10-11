@@ -27,14 +27,14 @@ export default function Page() {
         <li>Your email address (to sign you in) and the name you give us.</li>
         <li>A mobile number, only if you choose to add one. We do not verify it or use it to sign in yet.</li>
         <li>Whether you agreed to the Terms and this notice, and when, and whether you want email updates.</li>
-        <li>What you do in the app: quests you join and your progress, check-ins confirmed by a store, Bits you earn or spend, and vouchers you claim or use, with times and the store involved.</li>
+        <li>What you do in the app: challenges you join and your progress, check-ins confirmed by a store, Bits you earn or spend, and vouchers you claim or use, with times and the store involved.</li>
         <li>Short-lived codes the app creates so a store can confirm you. We keep only a scrambled (hashed) form of each code.</li>
       </ul>
       <p><strong>If you use Bitwards for a business:</strong></p>
       <ul>
         <li>Your business name, type, contact email and phone, and store name and address.</li>
         <li>The email addresses and roles of your team members (owner, manager, staff).</li>
-        <li>What your team does in the app: quests and rewards you create, check-ins and vouchers your staff confirm.</li>
+        <li>What your team does in the app: challenges and rewards you create, check-ins and vouchers your staff confirm.</li>
         <li>Billing details we need to invoice you: plan, billing email, invoices and their payment status. We do not collect card numbers.</li>
       </ul>
       <p><strong>Everyone:</strong> a record of important actions (for example sign-ins, changes by our staff, and support requests) for security and fairness, short error reports when the app or this website breaks (see below), and the technical information our hosting providers log when you visit (such as IP address, device and browser type, and times).</p>
@@ -42,11 +42,11 @@ export default function Page() {
 
       <h2>3. Why we use it</h2>
       <ul>
-        <li>To create your account, sign you in, and run quests, Bits and vouchers.</li>
+        <li>To create your account, sign you in, and run challenges, Bits and vouchers.</li>
         <li>To let a store see who it is checking in, and the activity of its own customers, so it can run its rewards.</li>
         <li>To keep the service safe and fair: preventing misuse, reviewing unusual activity, and fixing mistakes you report.</li>
         <li>To invoice stores and keep the financial records the business needs.</li>
-        <li>To send you sign-in codes and important service messages. We send email updates about quests and rewards only if you opted in, and you can turn that off any time.</li>
+        <li>To send you sign-in codes and important service messages. We send email updates about challenges and rewards only if you opted in, and you can turn that off any time.</li>
         <li>To meet legal obligations and to understand how the service is used so we can improve it, using counts rather than your identity wherever we can.</li>
       </ul>
       <p>Our basis for most of this is your consent when you sign up, and what we need to provide the service you asked for.</p>

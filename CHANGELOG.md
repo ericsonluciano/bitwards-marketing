@@ -1,5 +1,12 @@
 # Changelog
 
+## "Challenges" everywhere, and sign-up buttons open the new welcome screen (2026-10-11)
+
+**Changed**
+- The word **quests** is now **challenges** on every page (home, customers, business, features, FAQs, and the Terms and Privacy pages), so the website matches the customer app and the business app. The legal pages are now **pilot version 0.11**, updated 11 October 2026. The wording change in the Terms: "create challenges (simple tasks) and rewards" (it used to say "quests (simple challenges)").
+- "Get Early Access" and "Get started" now open the customer app's new welcome screen (`/start`) instead of the sign-in form, so new visitors see the short tour before signing up. **Merge this only after the customer app's redesign is live**, otherwise the link would not exist yet.
+- Business buttons ("Apply to join the pilot", "Business sign in") are unchanged.
+
 ## Feature pages removed; header logo grows at the top (2026-10-11)
 
 **Removed**

@@ -14,15 +14,15 @@ export default function Page() {
       <p>You must be at least 18 and able to enter into an agreement. If you sign up for a business, you confirm that you are allowed to act for it. Give us true information and keep your sign-in secure. You are responsible for what happens under your account.</p>
 
       <h2>2. What Bitwards is</h2>
-      <p>Bitwards is a platform that lets participating stores create quests (simple challenges) and rewards, and lets customers join quests, earn Bits and claim rewards. The stores, not Bitwards, sell the food, drinks and goods, offer the rewards, and are responsible for them. Bitwards is currently a pilot, so features may change, pause or end.</p>
+      <p>Bitwards is a platform that lets participating stores create challenges (simple tasks) and rewards, and lets customers join challenges, earn Bits and claim rewards. The stores, not Bitwards, sell the food, drinks and goods, offer the rewards, and are responsible for them. Bitwards is currently a pilot, so features may change, pause or end.</p>
 
       <h2>3. For customers</h2>
       <ul>
         <li><strong>Bits</strong> are a reward points balance kept for each store. They have no cash value, cannot be sold, bought, transferred or exchanged for money, and can be used only at the store that issued them.</li>
-        <li><strong>Quests</strong> are set by the store. The rules shown when you join are the rules that apply to you, even if the store later changes the quest for other people. Quests have limits and can fill up, end or be paused.</li>
+        <li><strong>Challenges</strong> are set by the store. The rules shown when you join are the rules that apply to you, even if the store later changes the challenge for other people. Challenges have limits and can fill up, end or be paused.</li>
         <li><strong>Progress counts only when store staff confirm it</strong> (for example a check-in or a qualifying purchase). Show your code at the counter. Codes change every minute and may be used once.</li>
         <li><strong>Vouchers</strong> are issued when you claim a reward with your Bits. Each has an expiry date and the terms the store set. Expired vouchers are not refunded. Show the voucher code to the store to use it.</li>
-        <li><strong>Your activity is the record.</strong> What the app shows under your activity, quests and vouchers is the record of your Bits. Please check it. If something looks wrong, tell us within 30 days so we can still check it with the store.</li>
+        <li><strong>Your activity is the record.</strong> What the app shows under your activity, challenges and vouchers is the record of your Bits. Please check it. If something looks wrong, tell us within 30 days so we can still check it with the store.</li>
         <li><strong>Mistakes.</strong> If something went wrong, contact us. We may review it with the store and correct your balance. We do not have to reverse a claim that was made correctly, and we will not reverse a claim you made by mistake once the voucher is used.</li>
         <li><strong>Keep your sign-in safe.</strong> Do not share the emailed codes or your screen with the code showing. If you think someone else has your account, tell us straight away.</li>
         <li><strong>Fair use.</strong> Do not cheat, share or sell codes or accounts, use more than one account to collect rewards, pressure staff, or interfere with the service. We may remove Bits, cancel vouchers, or suspend an account for misuse after reviewing the facts.</li>
@@ -31,7 +31,7 @@ export default function Page() {
       <h2>4. For businesses</h2>
       <ul>
         <li><strong>Application.</strong> Stores are reviewed before they go live. We can decline, pause or suspend a store, with a reason, if it breaks these terms or the law, or if customers are put at risk.</li>
-        <li><strong>Your rewards.</strong> You decide and fund your rewards and quests. You must honour vouchers on the terms you published, within their expiry. Set limits you can afford. Bitwards helps you see the maximum cost but does not guarantee your results or profits.</li>
+        <li><strong>Your rewards.</strong> You decide and fund your rewards and challenges. You must honour vouchers on the terms you published, within their expiry. Set limits you can afford. Bitwards helps you see the maximum cost but does not guarantee your results or profits.</li>
         <li><strong>Your team.</strong> You are responsible for the people you invite, for confirming visits and purchases honestly, and for removing access when someone leaves.</li>
         <li><strong>Laws.</strong> You are responsible for the permits, taxes and rules that apply to your business and promotions in the Philippines, including consumer protection and any approval needed for promotional offers, and for the accuracy of what you advertise.</li>
         <li><strong>Pilot and fees.</strong> The pilot is offered on the terms we give you in writing (the pilot period, any fees and how invoices are paid). Plans, prices and invoicing terms will be sent to you before any charge.</li>

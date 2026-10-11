@@ -26,7 +26,7 @@ export default function CustomersPage() {
         image={<Image src="/images/customer-cafe.webp" alt="Illustration of a smiling customer outside a café, holding a takeaway drink" width={1000} height={1000} preload sizes="(min-width: 768px) 52vw, 100vw" className="scene-img h-full w-full object-cover object-[50%_30%]" />}
       >
         <h1 className="text-4xl font-extrabold leading-[1.08] tracking-tighter sm:text-5xl">Earn rewards for visiting the places you already love.</h1>
-        <p className="mt-5 max-w-xl text-lg text-muted">Quests are simple challenges set by local stores. Finish one, earn Bits, and trade them for a reward you actually want.</p>
+        <p className="mt-5 max-w-xl text-lg text-muted">Challenges are simple tasks set by local stores. Finish one, earn Bits, and trade them for a reward you actually want.</p>
         <ButtonRow className="mt-8">
           <ButtonLink href={appLinks.customerStart} variant="dark" className="">Get started, it&apos;s free</ButtonLink>
           <ButtonLink href={appLinks.customerExplore} variant="secondary">Browse stores first</ButtonLink>
@@ -37,8 +37,8 @@ export default function CustomersPage() {
         <Steps
           items={[
             { title: 'Sign up with your email', body: 'We email you a 6-digit code. No password to remember. Add your name and you are in.' },
-            { title: 'Join a quest and visit', body: 'Quests can be a repeat visit, trying something new, or a few steps in order. Show your code at the counter and staff confirm.' },
-            { title: 'Claim your reward', body: 'Finished quests pay Bits. Use Bits for a voucher, then show the voucher code at the store.' },
+            { title: 'Join a challenge and visit', body: 'Challenges can be a repeat visit, trying something new, or a few steps in order. Show your code at the counter and staff confirm.' },
+            { title: 'Claim your reward', body: 'Finished challenges pay Bits. Use Bits for a voucher, then show the voucher code at the store.' },
           ]}
         />
       </Section>
@@ -59,7 +59,7 @@ export default function CustomersPage() {
         items={customerFaqs}
       />
 
-      <CallToAction title="Start your first quest" body="It takes about a minute to sign up.">
+      <CallToAction title="Start your first challenge" body="It takes about a minute to sign up.">
         <ButtonLink href={appLinks.customerStart} variant="dark">Open the app</ButtonLink>
       </CallToAction>
     </main>

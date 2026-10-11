@@ -21,7 +21,7 @@ export const customerFaqs: Qa[] = [
 export const storeFaqs: Qa[] = [
   { q: 'What does it cost?', a: 'We are running a pilot and finalising pricing. Apply and we will explain the plan options before anything is charged. Rewards you offer are funded by your store.' },
   { q: 'Do I need special hardware?', a: 'No. Staff use a phone or tablet in the browser to scan customer codes. There is no POS integration yet.' },
-  { q: 'Can customers cheat?', a: 'Codes are single-use and expire in about a minute, and progress needs staff confirmation. Limits per day and per quest reduce abuse, and Bitwards reviews unusual patterns.' },
+  { q: 'Can customers cheat?', a: 'Codes are single-use and expire in about a minute, and progress needs staff confirmation. Limits per day and per challenge reduce abuse, and Bitwards reviews unusual patterns.' },
   { q: 'Does it work offline?', a: 'Not yet. Scanning and redeeming need an internet connection, and a failed attempt records nothing.' },
   { q: 'How many locations can I have?', a: 'One location per business for now. Multi-location support is planned.' },
 ]

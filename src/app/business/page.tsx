@@ -36,9 +36,9 @@ export default function BusinessPage() {
       <Section id="how-it-works" title="How it works" tone="white">
         <Steps
           items={[
-            { title: 'Create a quest', body: 'Choose a stamp, purchase or multi-step quest. Set the reward in Bits and a completion limit. Bitwards shows the most it could cost you before you publish.' },
+            { title: 'Create a challenge', body: 'Choose a stamp, purchase or multi-step challenge. Set the reward in Bits and a completion limit. Bitwards shows the most it could cost you before you publish.' },
             { title: 'Confirm at the counter', body: 'Customers show a short-lived code. Your staff scan it and confirm the visit or tick the purchases that qualify. No amounts to type.' },
-            { title: 'Customers earn and return', body: 'Finished quests pay Bits. Customers trade Bits for the rewards you set, and your staff mark the voucher as used.' },
+            { title: 'Customers earn and return', body: 'Finished challenges pay Bits. Customers trade Bits for the rewards you set, and your staff mark the voucher as used.' },
           ]}
         />
       </Section>
@@ -56,12 +56,12 @@ export default function BusinessPage() {
             <div className="mt-10">
               <Facts
                 items={[
-            { art: 'limits', title: 'Hard limits on cost', body: 'Every quest has a completion cap and every reward has a stock limit, so there are no open-ended giveaways.' },
+            { art: 'limits', title: 'Hard limits on cost', body: 'Every challenge has a completion cap and every reward has a stock limit, so there are no open-ended giveaways.' },
             { art: 'people', title: 'Confirmed by your team', body: 'Progress counts only when your staff confirm it. Daily limits and an audit trail help catch mistakes and misuse.' },
             { art: 'scan', title: 'Clear roles', body: 'Owners, managers and staff each see only what they need. Counter staff can scan and redeem, nothing more.' },
-            { art: 'quests', title: 'Fixed once published', body: 'Customers who join a quest keep the rules they joined under. To change a quest, copy it into a new one.' },
-            { art: 'insights', title: 'See what works', body: 'An overview shows check-ins, returning customers, quest completions and Bits issued, so you can decide what to run next.' },
-            { art: 'privacy', title: 'Bitwards can step in', body: 'If something looks wrong, Bitwards can pause a quest or reward and help correct mistakes. Customers keep their Bits and vouchers.' },
+            { art: 'quests', title: 'Fixed once published', body: 'Customers who join a challenge keep the rules they joined under. To change a challenge, copy it into a new one.' },
+            { art: 'insights', title: 'See what works', body: 'An overview shows check-ins, returning customers, challenge completions and Bits issued, so you can decide what to run next.' },
+            { art: 'privacy', title: 'Bitwards can step in', body: 'If something looks wrong, Bitwards can pause a challenge or reward and help correct mistakes. Customers keep their Bits and vouchers.' },
           ]}
               />
             </div>
