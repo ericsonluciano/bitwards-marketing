@@ -54,7 +54,6 @@ export default function Page() {
       <h2>4. Who sees your information</h2>
       <ul>
         <li><strong>Stores you take part in</strong> see your name and your activity with that store only, not your activity at other stores. Once a store sees your information it is also responsible for how it uses it, and must follow the Data Privacy Act and our Terms, which allow it to use the information only to run its own rewards for you. Ask the store directly if you have a concern about what it does.</li>
-        <li><strong>If you claim a reward from Bitwards,</strong> we use your email to contact you, and we may ask for your name, a delivery address or phone number and proof of who you are so we can hand it over. We share this only with a delivery partner when needed to deliver the item.</li>
         <li><strong>Bitwards staff</strong> with a need to see it (for support, safety and billing), under access controls and two-factor sign-in, with an audit trail.</li>
         <li><strong>Service providers that process data for us:</strong> Supabase (database and sign-in, hosted in Singapore), Vercel (website hosting), Cloudflare (domain name service), Resend (sending sign-in and service emails), Zoho (our support mailbox, which holds the messages you send us) and Sentry (error reports, described below). They may handle data on servers outside the Philippines. We use them only to run Bitwards, and we choose providers that protect data with security measures and contracts.</li>
         <li><strong>Authorities</strong>, if the law or a valid order requires it.</li>
@@ -74,7 +73,7 @@ export default function Page() {
       <h2>7. How long we keep it</h2>
       <ul>
         <li>Your account details: until you delete your account or ask us to.</li>
-        <li>When you delete your account, we remove your name, email, mobile number and sign-in. Records of Bits issued and vouchers are kept without your name or email so stores and sponsors can reconcile their books.</li>
+        <li>When you delete your account (14 days after you ask, unless you cancel), we remove your name, email, mobile number and sign-in. Records of Bits issued and vouchers are kept without your name or email so stores and sponsors can reconcile their books.</li>
         <li>Support requests and billing records: for as long as needed to resolve the matter and meet accounting and legal duties.</li>
         <li>Technical logs and error reports: for the short periods our providers keep them.</li>
       </ul>

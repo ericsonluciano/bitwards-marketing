@@ -18,8 +18,7 @@ export default function Page() {
 
       <h2>3. For customers</h2>
       <ul>
-        <li><strong>Bits</strong> are reward points that belong to your account. You earn them by finishing challenges at participating stores, and you can use them for any reward on Bitwards, from any store or from Bitwards itself. They have no cash value and cannot be sold, bought, transferred or exchanged for money. Bits end 2 years after the day you earned them, and the oldest Bits are used first. We may change how Bits work during the pilot, and we will tell you before a change that affects the Bits you hold.</li>
-        <li><strong>Rewards from Bitwards</strong> are rewards that Bitwards itself offers for Bits, in the same way a store offers its own. They are earned by collecting Bits, not by chance. When you claim one, we contact you by email to arrange delivery or a meetup outside the app. We may ask for proof of who you are before we hand it over. If you do not reply within the time shown on your claim, the claim may end and the Bits are not refunded.</li>
+        <li><strong>Bits</strong> are reward points that belong to your account. You earn them by finishing challenges at participating stores, and you can use them for a reward at any participating store. They have no cash value and cannot be sold, bought, transferred or exchanged for money. Bits end 12 months after the day you earned them, and the oldest Bits are used first. We may change how Bits work during the pilot, and we will tell you before a change that affects the Bits you hold.</li>
         <li><strong>Challenges</strong> are set by the store. The rules shown when you join are the rules that apply to you, even if the store later changes the challenge for other people. Challenges have limits and can fill up, end or be paused.</li>
         <li><strong>Progress counts only when store staff confirm it</strong> (for example a check-in or a qualifying purchase). Show your code at the counter. Codes change every minute and may be used once.</li>
         <li><strong>Vouchers</strong> are issued when you claim a reward with your Bits. Each has an expiry date and the terms the store set. Expired vouchers are not refunded. Show the voucher code to the store to use it.</li>
@@ -48,7 +47,7 @@ export default function Page() {
       </ul>
 
       <h2>6. Ending your account</h2>
-      <p>You can delete your account in the app at any time (customers: Profile → Delete account). Stores can ask us to close their account. When an account ends, Bits and unused vouchers end with it. We may suspend or end accounts that break these terms, and we will tell you why and give you a way to answer, except where we must act at once to protect people or comply with the law.</p>
+      <p>You can ask to delete your account in the app at any time (customers: Profile → Delete account). Your account is deleted 14 days after you ask, and you can cancel before then. Stores can ask us to close their account. When an account ends, Bits and unused vouchers end with it. We may suspend or end accounts that break these terms, and we will tell you why and give you a way to answer, except where we must act at once to protect people or comply with the law.</p>
       <p>If we end the whole service, we will tell you in advance where we can, and give stores time to honour vouchers already issued.</p>
 
       <h2>7. Changes, and a change of owner</h2>

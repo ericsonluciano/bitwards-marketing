@@ -47,7 +47,7 @@ export default function CustomersPage() {
         <Facts
           items={[
             { art: 'gift', title: 'Free for customers', body: 'Bitwards does not charge customers. Stores pay for the tools and fund their own rewards.' },
-            { art: 'bits', title: 'Bits work everywhere', body: 'Bits you earn at one store can be used for rewards at any store, or for prizes from Bitwards. They have no cash value, end 2 years after you earn them, and cannot be sent to anyone.' },
+            { art: 'bits', title: 'Bits work everywhere', body: 'Bits you earn at one store can be used for rewards at any store. They have no cash value, end 12 months after you earn them, and cannot be sent to anyone.' },
             { art: 'code', title: 'Your code changes every minute', body: 'A screenshot will not work, which keeps your account safe.' },
             { art: 'map', title: 'Needs a connection', body: 'The app works online only for now, so your Bits are always up to date.' },
           ]}
